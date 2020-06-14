@@ -41,7 +41,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/show", name="createUser")
+     * @Route("/api/show", name="createUser")
      */
     public function showUser(Request $request)
     {
