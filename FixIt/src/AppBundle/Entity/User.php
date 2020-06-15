@@ -33,6 +33,24 @@ class User extends BaseUser
      * @ORM\Column(name="sexe", type="string", length=255)
      */
     protected $sexe;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    protected $nom;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255)
+     */
+    protected $prenom;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tel", type="integer", length=255)
+     */
+    protected $tel;
 
     /**
      * @var string
@@ -64,6 +82,54 @@ class User extends BaseUser
         $this->datenaissance = $datenaissance;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param string $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * @param int $tel
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
     }
 
     /**

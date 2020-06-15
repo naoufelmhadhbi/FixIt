@@ -1,3 +1,28 @@
+porfolio:
+    resource: "@PortfolioBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+messagerie:
+    resource: "@MessagerieBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+evaluation:
+    resource: "@EvaluationBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+reclamation:
+    resource: "@ReclamationBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+publication:
+    resource: "@PublicationBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
