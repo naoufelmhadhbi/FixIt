@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/composer" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/monolog/monolog" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />
+</project>

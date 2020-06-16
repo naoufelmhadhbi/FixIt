@@ -41,10 +41,29 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/show", name="createUser")
+     * @Route("/api/show", name="createUser")
      */
     public function showUser(Request $request)
     {
+        $response = array('code'=>1,'message'=>'ok' , 'user1'=>md5('azerty'));
+        return new JsonResponse($response);
+    }
+    /**
+     * @Route("/list", name="createUserby")
+     */
+    public function showUserby(Request $request)
+    {
+        $userManager = $this->get('fos_user.user_manager');
+        $entityManager = $this->get('doctrine')->getManager();
+        $data = $request->request->all();
+        // Do a check for existing user with userManager->findByUsername
+        $user = $userManager->createUser();
+        $user->setUsername("user");
+        // ...
+        $user->setPlainPassword("azerty");
+        $user->setEmail("skander1673@gmail.com");
+        $user->setEnabled(true);
+        $userManager->updateUser($user);
         $response = array('code'=>1,'message'=>'ok' , 'user1'=>md5('azerty'));
         return new JsonResponse($response);
     }
