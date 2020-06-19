@@ -41,11 +41,13 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/api/show", name="createUser")
+     * @Route("/show", name="createUser")
      */
     public function showUser(Request $request)
-    {
-        $response = array('code'=>1,'message'=>'ok' , 'user1'=>md5('azerty'));
+    {   
+        $id = $request->query->get('id');
+        $n = $request->query->get('nom');
+        $response = array('code'=>1,'message'=>'ok' , 'user1'=>md5('azerty') , 'idFromParam'=> $id , 'nom'=> $n);
         return new JsonResponse($response);
     }
     /**
