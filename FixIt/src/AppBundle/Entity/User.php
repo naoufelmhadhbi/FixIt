@@ -23,39 +23,39 @@ class User extends BaseUser
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datenaissance", type="date")
+     * @ORM\Column(name="datenaissance", type="date" , nullable=true)
      */
     protected $datenaissance;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sexe", type="string", length=255)
+     * @ORM\Column(name="sexe", type="string", length=255 , nullable=true)
      */
     protected $sexe;
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255 , nullable=true)
      */
     protected $nom;
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="prenom", type="string", length=255 , nullable=true)
      */
     protected $prenom;
     /**
      * @var integer
      *
-     * @ORM\Column(name="tel", type="integer", length=255)
+     * @ORM\Column(name="tel", type="integer", length=255 , nullable=true)
      */
     protected $tel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255 , nullable=true)
      */
     protected $image;
 
