@@ -41,30 +41,36 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/api/show", name="createUser")
+     * @Route("/show", name="createUser")
      */
     public function showUser(Request $request)
-    {
-        $response = array('code'=>1,'message'=>'ok' , 'user1'=>md5('azerty'));
+    {   
+        $id = $request->query->get('id');
+        $n = $request->query->get('nom');
+        $response = array('code'=>1,'message'=>'ok' , 'user1'=>md5('azerty') , 'idFromParam'=> $id , 'nom'=> $n);
         return new JsonResponse($response);
     }
     /**
-     * @Route("/list", name="createUserby")
+     * @Route("/subscribe", name="createUserby")
      */
     public function showUserby(Request $request)
     {
+        $usermane = $request->query->get('username');
+        $password = $request->query->get('password');
+        $email = $request->query->get('email');
+
         $userManager = $this->get('fos_user.user_manager');
         $entityManager = $this->get('doctrine')->getManager();
         $data = $request->request->all();
         // Do a check for existing user with userManager->findByUsername
         $user = $userManager->createUser();
-        $user->setUsername("user");
+        $user->setUsername($usermane);
         // ...
-        $user->setPlainPassword("azerty");
-        $user->setEmail("skander1673@gmail.com");
-        $user->setEnabled(true);
+        $user->setPlainPassword($password);
+        $user->setEmail($email);
+        //$user->setEnabled(true);
         $userManager->updateUser($user);
-        $response = array('code'=>1,'message'=>'ok' , 'user1'=>md5('azerty'));
+        $response = array('code'=>1,'message'=>'user '.$usermane.' created');
         return new JsonResponse($response);
     }
 
