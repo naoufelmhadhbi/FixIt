@@ -8,6 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({"demandeur" = "Demandeur", "professionnel" = "Professionnel" , "user" = "User"})
  */
 class User extends BaseUser
 {
