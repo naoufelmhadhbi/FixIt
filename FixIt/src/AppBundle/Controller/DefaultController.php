@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Demandeur;
 use AppBundle\Entity\UserOld;
 use AppBundle\UserServices\UserService;
 use Services\ServiceManager;
@@ -72,6 +73,25 @@ class DefaultController extends Controller
         $userManager->updateUser($user);
         $response = array('code'=>1,'message'=>'user '.$usermane.' created');
         return new JsonResponse($response);
+    }
+
+    /**
+     * @Route("/createDemandeur", name="createDemandeur")
+     */
+    public function createUserDemandeur(Request $request)
+    {
+        $user = new Demandeur();
+        $user->setUsername("aze");
+        $user->setPassword("aqw");
+        $user->addRole("admin");
+        $user->setUsername('$usermane');
+        $user->setPlainPassword('12345678');
+        $user->setEmail('skande@ep.com');
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+        return new JsonResponse("ok");
+
     }
 
 
