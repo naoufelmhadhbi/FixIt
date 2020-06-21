@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Demandeurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Codepostal</th>
+                <th>Datenaissance</th>
+                <th>Sexe</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Tel</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demandeur in demandeurs %}
+            <tr>
+                <td><a href="{{ path('demandeur_show', { 'id': demandeur.id }) }}">{{ demandeur.id }}</a></td>
+                <td>{{ demandeur.adresse }}</td>
+                <td>{{ demandeur.ville }}</td>
+                <td>{{ demandeur.codePostal }}</td>
+                <td>{% if demandeur.datenaissance %}{{ demandeur.datenaissance|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ demandeur.sexe }}</td>
+                <td>{{ demandeur.nom }}</td>
+                <td>{{ demandeur.prenom }}</td>
+                <td>{{ demandeur.tel }}</td>
+                <td>{{ demandeur.image }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('demandeur_show', { 'id': demandeur.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

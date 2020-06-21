@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new EvaluationBundle\EvaluationBundle(),
             new MessagerieBundle\MessagerieBundle(),
             new PortfolioBundle\PortfolioBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

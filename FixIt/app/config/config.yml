@@ -90,7 +90,7 @@ imports:
 #    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
 #    firewall_name: main
 #    user_class: AppBundle\Entity\User
-#    service:
+#    Service:
 #      mailer: fos_user.mailer.twig_swift
 #    from_email:
 #        address: "%mailer_user%"
@@ -178,6 +178,8 @@ fos_user:
   db_driver: orm # other valid values are 'mongodb' and 'couchdb'
   firewall_name: main
   user_class: AppBundle\Entity\User
+  service:                               # this line
+    mailer: fos_user.mailer.twig_swift
   from_email:
     address: "%mailer_user%"
     sender_name: "%mailer_user%"

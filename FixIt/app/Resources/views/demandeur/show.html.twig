@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Demandeur</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ demandeur.id }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ demandeur.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ demandeur.ville }}</td>
+            </tr>
+            <tr>
+                <th>Codepostal</th>
+                <td>{{ demandeur.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{% if demandeur.datenaissance %}{{ demandeur.datenaissance|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ demandeur.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ demandeur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ demandeur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ demandeur.tel }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ demandeur.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('demandeur_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
