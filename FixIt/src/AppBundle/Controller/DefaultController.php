@@ -79,6 +79,7 @@ class DefaultController extends Controller
         $data = $request->getContent();
         //deserialize the data
         $user = $this->get('jms_serializer')->deserialize($data, 'AppBundle\Entity\User', 'json');
+        $user->setPassword(md5($user->getPassword()));
 
         /*  $user->setEnabled(false);*/
         $form = $formFactory->createForm();
