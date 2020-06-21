@@ -21,9 +21,7 @@ class Deplacement
      */
     private $id;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Professionnel", inversedBy="id_deplacement")
-     */
+
     private $idProf;
 
     /**

@@ -66,7 +66,7 @@ class DefaultController extends Controller
      * @Route("/add", name="add_user")
      * @Method("POST")
      */
-    public function addArticleAction(Request $request)
+    public function addUserAction(Request $request)
     {
 
         /** @var $formFactory FactoryInterface */
@@ -95,7 +95,7 @@ class DefaultController extends Controller
 
         $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
-        return new Response('product added successfully', 201);
+        return new Response('user added successfully', 201);
 
     }
 
@@ -121,13 +121,17 @@ class DefaultController extends Controller
         $body = $request->getContent();
 
         $data = $this->get('jms_serializer')->deserialize($body, 'AppBundle\Entity\User', 'json');
+        $parametersAsArray = [];
+        if ($content = $request->getContent()) {
+            $parametersAsArray = json_decode($content, true);
+        }
+        $type_user = $parametersAsArray['type'];
 
         $reponse = $validate->validateRequest($data);
         if (!empty($reponse)) {
             return new JsonResponse($reponse, Response::HTTP_BAD_REQUEST);
         }
-        if ($user->getType() == 'demandeur') {
-
+        if ($type_user == 'demandeur') {
         $user->setAdresse($data->getAdresse());
         $user->setCodePostal($data->getCodePostal());
         $user->setVille($data->getVille());
@@ -145,11 +149,67 @@ class DefaultController extends Controller
         $em->flush();
         $response=array(
             'code'=>0,
-            'message'=> $user->getType().' updated!',
+            'message'=> $user->getUsername().' updated!',
             'errors'=>null,
             'result'=>null
         );
         return new JsonResponse($response,200);
     }
+
+
+    /**
+     * @Route("/delete/{id}",name="delete_post")
+     * @Method({"DELETE"})
+     */
+    public function deletePost(Request $request,$id)
+    {
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($id);
+        if (empty($user)) {
+            $response=array(
+                'code'=>1,
+                'message'=>'user Not found !',
+                'errors'=>null,
+                'result'=>null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        $this->container->get('logger')->info(
+            sprintf("New user idddddddd: %s", $user->getId())
+        );
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($user);
+        $em->flush();
+        $response=array(
+            'code'=>0,
+            'message'=>'user deleted !'.$user,
+            'errors'=>null,
+            'result'=>null
+        );
+
+        return new JsonResponse($response,200);
+    }
+
+    /**
+     * @Route("/getAllUsr/{id}", name="listAllUSR")
+     */
+    public function getAllUserOrById($id){
+        $em = $this->getDoctrine()->getManager();
+        if($id == null)
+            $query = $em->createQuery('SELECT c FROM AppBundle:User c');
+        else
+            $query = $em->createQuery('SELECT c FROM AppBundle:User c where c.id = '.$id);
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
+    }
+
 
 }

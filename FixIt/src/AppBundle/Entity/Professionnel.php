@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\JoinTable;
 
 /**
  * Professionnel
@@ -28,17 +30,29 @@ class Professionnel extends User
      */
     protected $description;
     /**
-     * @ORM\ManyToMany(targetEntity="PublicationBundle\Entity\Publication", mappedBy="id_professionnel")
+     * @ORM\ManyToMany(targetEntity="PublicationBundle\Entity\Publication")
+     * @JoinTable(name="publication_professionnel",
+     *      joinColumns={@JoinColumn(name="professionnel_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="publication_id", referencedColumnName="id")}
+     *      )
      */
     protected $id_pub;
 // N'oubliez pas d'ajouter les champs ( recommandation,avis ) dans la table associative publication_professionnel
 
     /**
-     * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Metier", mappedBy="id_professionnel")
+     * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Metier")
+     * @JoinTable(name="metier_professionnel",
+     *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="metier_id", referencedColumnName="id")}
+     *      )
      */
     protected $id_metier;
     /**
-     * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Deplacement", mappedBy="id_professionnel")
+     * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Deplacement")
+     * @JoinTable(name="deplacement_professionnel",
+     *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="deplacement_id", referencedColumnName="id")}
+     *      )
      */
     protected $id_deplacement;
 
