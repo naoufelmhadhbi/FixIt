@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8d44ebe-7d32-41e9-8cbd-9729a74dbc66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,12 +121,14 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="c update" />
-      <command value="server:run" />
       <command value="c clear-cache" />
       <command value="c install" />
-      <command value="s server:run" />
       <command value="s doctrine:generate:entity" />
       <command value="s doctrine:schema:update --dump-sql" />
+      <command value="s doctrine:generate:crud" />
+      <command value="server:run" />
+      <command value="s server:run" />
+      <command value="s doctrine:database:create" />
       <command value="s doctrine:schema:update --force" />
     </option>
   </component>
@@ -154,7 +157,8 @@
       <workItem from="1592077556718" duration="5247000" />
       <workItem from="1592259556723" duration="5125000" />
       <workItem from="1592752935220" duration="11254000" />
-      <workItem from="1592773420855" duration="4658000" />
+      <workItem from="1592773420855" duration="4663000" />
+      <workItem from="1592940358096" duration="2313000" />
     </task>
     <servers />
   </component>
@@ -182,10 +186,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="523" y="19" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1592261206423" />
-    <state x="499" y="170" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592763057795">
+    <state x="499" y="170" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592942706591">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="170" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1592763057795" />
+    <state x="499" y="170" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1592942706591" />
     <state x="583" y="293" width="701" height="221" key="#com.jetbrains.php.framework.ui.FailedToParseDialog" timestamp="1592774092618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -202,22 +206,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="624" y="299" key="FrameworkEditDialogDimensionKey/0.0.1536.824@0.0.1536.824" timestamp="1592773924724" />
-    <state width="1493" height="142" key="GridCell.Tab.0.bottom" timestamp="1592776040407">
+    <state width="1493" height="142" key="GridCell.Tab.0.bottom" timestamp="1592942267900">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592776040407" />
-    <state width="1493" height="142" key="GridCell.Tab.0.center" timestamp="1592776040406">
+    <state width="1493" height="142" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592942267900" />
+    <state width="1493" height="142" key="GridCell.Tab.0.center" timestamp="1592942267900">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592776040406" />
-    <state width="1493" height="142" key="GridCell.Tab.0.left" timestamp="1592776040406">
+    <state width="1493" height="142" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592942267900" />
+    <state width="1493" height="142" key="GridCell.Tab.0.left" timestamp="1592942267899">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592776040406" />
-    <state width="1493" height="142" key="GridCell.Tab.0.right" timestamp="1592776040407">
+    <state width="1493" height="142" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592942267899" />
+    <state width="1493" height="142" key="GridCell.Tab.0.right" timestamp="1592942267900">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592776040407" />
+    <state width="1493" height="142" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592942267900" />
     <state x="489" y="246" key="NewPhpClassDialog" timestamp="1592759047564">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -230,9 +234,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="583" y="314" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1592774258972" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1592775905897">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1592942267726">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1592775905897" />
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1592942267726" />
   </component>
 </project>
