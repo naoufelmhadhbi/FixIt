@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8d44ebe-7d32-41e9-8cbd-9729a74dbc66" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/.idea/testjwt.iml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/testjwt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/testjwt.iml" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" beforeDir="false" afterPath="$PROJECT_DIR$/bin/symfony_requirements" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +111,27 @@
       </list>
     </option>
   </component>
+<<<<<<< Updated upstream
+=======
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
+>>>>>>> Stashed changes
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -120,12 +150,19 @@
       <workItem from="1592045147471" duration="1519000" />
       <workItem from="1592077556718" duration="5247000" />
       <workItem from="1592259556723" duration="5125000" />
+<<<<<<< Updated upstream
       <workItem from="1592325768998" duration="2769000" />
       <workItem from="1592331345096" duration="3789000" />
       <workItem from="1592426426604" duration="10528000" />
       <workItem from="1592588628858" duration="1606000" />
       <workItem from="1592745558963" duration="1220000" />
       <workItem from="1592752954032" duration="270000" />
+=======
+      <workItem from="1592752935220" duration="11254000" />
+      <workItem from="1592773420855" duration="4658000" />
+      <workItem from="1592860285221" duration="7056000" />
+      <workItem from="1592943596596" duration="5551000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
