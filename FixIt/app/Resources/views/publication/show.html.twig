@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Publication</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ publication.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ publication.titre }}</td>
+            </tr>
+            <tr>
+                <th>Detail</th>
+                <td>{{ publication.detail }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ publication.etat }}</td>
+            </tr>
+            <tr>
+                <th>Piecejointe</th>
+                <td>{{ publication.pieceJointe }}</td>
+            </tr>
+            <tr>
+                <th>Datepub</th>
+                <td>{% if publication.datePub %}{{ publication.datePub|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('publication_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

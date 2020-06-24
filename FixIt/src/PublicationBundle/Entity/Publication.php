@@ -20,10 +20,7 @@ class Publication
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Professionnel", inversedBy="id_publication")
-     *
-     */
+
     private $id_professionnel;
 // N'oubliez pas d'ajouter les champs ( recommandation,avis ) dans la table associative publication_professionnel
     /**

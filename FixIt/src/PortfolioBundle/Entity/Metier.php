@@ -27,9 +27,7 @@ class Metier
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Professionnel", inversedBy="id_metier")
-     */
+
     private $id_prof;
 
     /**

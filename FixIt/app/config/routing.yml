@@ -1,3 +1,11 @@
+publication_publication:
+    resource: "@PublicationBundle/Controller/PublicationController.php"
+    type:     annotation
+
+app_demandeur:
+    resource: "@AppBundle/Controller/DemandeurController.php"
+    type:     annotation
+
 porfolio:
     resource: "@PortfolioBundle/Controller/"
     type:     annotation

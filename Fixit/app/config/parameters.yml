@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: fixit
+    database_user: root
+    database_password: null
+    mailer_transport: gmail
+    mailer_host: 127.0.0.1
+    mailer_user: naoufel.noreplay@gmail.com
+    mailer_password: symfony34
+    secret: ThisTokenIsNotSoSecretChangeIt
