@@ -212,5 +212,17 @@ class DefaultController extends Controller
         return new JsonResponse($users);
     }
 
+    /**
+     * @Route("/getByUsername/{username}", name="createUser")
+     */
+    public function showByUsername(Request $request,$username)
+    {
+        $id = $request->query->get('id');
+        $n = $request->query->get('nom');
+        $response = array('code'=>1,'message'=>'ok' , 'user1'=>md5('azerty') , 'idFromParam'=> $id , 'nom'=> $n);
+        return new JsonResponse($response);
+    }
+
+
 
 }

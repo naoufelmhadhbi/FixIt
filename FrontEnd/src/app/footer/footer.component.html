@@ -41,6 +41,11 @@
                   <input type="password" name="password" ngModel placeholder="Password" required="">
                   <input type="submit" value="Login">
                 </form>
+                <br>
+                <div *ngIf="invalidCredential" class="alert alert-danger" role="alert">
+                  username ou mot de passe incorrect
+                </div>
+                <input id="btnSave" class="invisible" type="submit" value="yes" data-dismiss="modal">
                 <div class="cta">
                   <a href="#">Forgot password?</a>
                 </div>

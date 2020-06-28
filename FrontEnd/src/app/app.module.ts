@@ -8,6 +8,11 @@ import { SliderComponent } from './slider/slider.component';
 import { PublicationsComponent } from './publications/publications.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import {RoutingModule} from "./routing/routing.module";
+import {APP_BASE_HREF} from "@angular/common";
+import {RouterModule} from "@angular/router";
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +20,18 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     FooterComponent,
     SliderComponent,
-    PublicationsComponent
+    PublicationsComponent,
+    UserProfileComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RoutingModule,
+    RouterModule
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
