@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new MessagerieBundle\MessagerieBundle(),
             new PortfolioBundle\PortfolioBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

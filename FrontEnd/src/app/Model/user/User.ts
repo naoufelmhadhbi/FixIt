@@ -1,0 +1,21 @@
+import {HttpClient} from "@angular/common/http";
+
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  password: string;
+  dateNaissance: Date;
+  sexe: string;
+  nom: string;
+  prenom: string;
+  tel: number;
+  image: string;
+  type: string;
+  adresse: string;
+  ville: string;
+  code_postal: string;
+  description: string;
+
+
+}
