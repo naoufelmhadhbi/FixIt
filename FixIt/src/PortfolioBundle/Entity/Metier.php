@@ -2,6 +2,7 @@
 
 namespace PortfolioBundle\Entity;
 
+use AppBundle\Entity\Professionnel;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,7 +29,32 @@ class Metier
      */
     private $nom;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="id_metier", cascade={"persist", "remove"})
+     * @ORM\JoinTable(name="metier_professionnel")
+     */
     private $id_prof;
+
+
+    public function addProfessionnels(Professionnel $professionnel)
+    {
+        $professionnel->addMetiers($this);
+        $this->id_prof[] = $professionnel;
+    }
+
+    public function removeProfessionnel(Professionnel $professionnel)
+    {
+        if (!$this->id_prof->contains($professionnel)) {
+            return;
+        }
+        $this->id_prof->removeElement($professionnel);
+        $professionnel->removeMetier($this);
+    }
+
+    public function removeGenusScientist(Professionnel $professionnel)
+    {
+        $this->id_prof->removeElement($professionnel);
+    }
 
     /**
      * @return mixed

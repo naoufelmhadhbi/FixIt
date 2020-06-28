@@ -63,7 +63,7 @@ class DefaultController extends Controller
         return new JsonResponse($response);
     }
     /**
-     * @Route("/api/add", name="add_user")
+     * @Route("/add", name="add_user")
      * @Method("POST")
      */
     public function addUserAction(Request $request)
@@ -103,7 +103,7 @@ class DefaultController extends Controller
     /**
      * @param Request $request
      * @param $id
-     * @Route("/api/edit/{id}",name="update_user")
+     * @Route("/edit/{id}",name="update_user")
      * @Method({"PUT"})
      * @return JsonResponse
      */
@@ -159,7 +159,7 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/api/delete/{id}",name="delete_post")
+     * @Route("/delete/{id}",name="delete_post")
      * @Method({"DELETE"})
      */
     public function deletePost(Request $request,$id)
@@ -191,7 +191,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/api/getAllUsr/{id}", name="listAllUSR")
+     * @Route("/getAllUsr/{id}", name="listAllUSR")
      */
     public function getAllUserOrById($id){
         $em = $this->getDoctrine()->getManager();

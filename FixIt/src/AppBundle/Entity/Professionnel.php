@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
+use PortfolioBundle\Entity\Metier;
 
 /**
  * Professionnel
@@ -40,7 +41,7 @@ class Professionnel extends User
 // N'oubliez pas d'ajouter les champs ( recommandation,avis ) dans la table associative publication_professionnel
 
     /**
-     * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Metier")
+     * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Metier", inversedBy="id_prof", cascade={"persist", "remove"})
      * @JoinTable(name="metier_professionnel",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="metier_id", referencedColumnName="id")}
@@ -55,6 +56,25 @@ class Professionnel extends User
      *      )
      */
     protected $id_deplacement;
+
+
+    public function addMetiers(Metier $metier)
+    {
+        $this->id_metier[] = $metier;
+    }
+    public function removeMetier(Metier $metier)
+    {
+        if (!$this->id_metier->contains($metier)) {
+            return;
+        }
+        $this->id_metier->removeElement($metier);
+        $metier->removeProfessionnel($this);
+    }
+
+    public function removeScientistGenus(Metier $metier)
+    {
+        $this->id_metier->removeElement($metier);
+    }
 
     /**
      * @return mixed
@@ -151,7 +171,6 @@ class Professionnel extends User
 //        $this->answers->add($answer);
 //        $answer->setQuestion($this);
 //    }
-//
     public function __toString()
     {
         return(string)$this->getDescription(); //(string) pour caster

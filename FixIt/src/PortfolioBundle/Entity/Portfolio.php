@@ -94,5 +94,11 @@ class Portfolio
     {
         return $this->image;
     }
+
+    public function __toString()
+    {
+        return(string)$this->getImage(); //(string) pour caster
+
+    }
 }
 
