@@ -105,6 +105,14 @@ class Professionnel extends User
     }
 
     /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -136,6 +144,18 @@ class Professionnel extends User
     public function getDescription()
     {
         return $this->description;
+    }
+
+//    public function addAnswer(Answer $answer)
+//    {
+//        $this->answers->add($answer);
+//        $answer->setQuestion($this);
+//    }
+//
+    public function __toString()
+    {
+        return(string)$this->getDescription(); //(string) pour caster
+
     }
 }
 
