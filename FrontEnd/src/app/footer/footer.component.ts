@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthentificationServiceService} from "../../Services/AuthentificationService/authentification-service.service";
 import {Router} from "@angular/router";
-import {error} from "util";
+
 
 
 @Component({
@@ -54,6 +54,8 @@ export class FooterComponent implements OnInit {
   redirect() {
     this.router.navigate(['/userProfile']);
   }
+
+
 
 
 }

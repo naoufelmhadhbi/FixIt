@@ -217,10 +217,19 @@ class DefaultController extends Controller
      */
     public function showByUsername(Request $request,$username)
     {
-        $id = $request->query->get('id');
-        $n = $request->query->get('nom');
-        $response = array('code'=>1,'message'=>'ok' , 'user1'=>md5('azerty') , 'idFromParam'=> $id , 'nom'=> $n);
-        return new JsonResponse($response);
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT c FROM AppBundle:User c where c.username = '".$username."'");
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
     }
 
 
