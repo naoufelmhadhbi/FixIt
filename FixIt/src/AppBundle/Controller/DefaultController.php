@@ -63,7 +63,7 @@ class DefaultController extends Controller
         return new JsonResponse($response);
     }
     /**
-     * @Route("/add", name="add_user")
+     * @Route("/api/add", name="add_user")
      * @Method("POST")
      */
     public function addUserAction(Request $request)
@@ -103,7 +103,7 @@ class DefaultController extends Controller
     /**
      * @param Request $request
      * @param $id
-     * @Route("/edit/{id}",name="update_user")
+     * @Route("/api/edit/{id}",name="update_user")
      * @Method({"PUT"})
      * @return JsonResponse
      */
@@ -159,7 +159,7 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/delete/{id}",name="delete_post")
+     * @Route("/api/delete/{id}",name="delete_post")
      * @Method({"DELETE"})
      */
     public function deletePost(Request $request,$id)
@@ -191,7 +191,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/getAllUsr/{id}", name="listAllUSR")
+     * @Route("/api/getAllUsr/{id}", name="listAllUSR")
      */
     public function getAllUserOrById($id){
         $em = $this->getDoctrine()->getManager();
@@ -211,6 +211,27 @@ class DefaultController extends Controller
         }
         return new JsonResponse($users);
     }
+
+    /**
+     * @Route("/getByUsername/{username}", name="createUser")
+     */
+    public function showByUsername(Request $request,$username)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT c FROM AppBundle:User c where c.username = '".$username."'");
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
+    }
+
 
 
 }

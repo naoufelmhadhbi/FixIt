@@ -33,14 +33,14 @@ class Messagerie
     /**
      * @var string
      *
-     * @ORM\Column(name="id_demandeur", type="string", length=255)
+     * @ORM\Column(name="id_Demandeur", type="string", length=255)
      */
     private $idDemandeur;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="idProfessionnel", type="string", length=255)
+     * @ORM\Column(name="id_Professionnel", type="string", length=255)
      */
     private $idProfessionnel;
 

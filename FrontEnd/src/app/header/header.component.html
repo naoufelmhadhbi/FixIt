@@ -32,8 +32,11 @@
           <a class="nav-link " href="contact.html">Contact</a>
         </li>
 
-        <li class="w3">
-          <a href="#" class="nav-link" data-toggle="modal" data-target="#myModal">Login</a>
+        <li>
+          <a href="#" *ngIf="!isAuthenticated()" class="btn btn-success" data-toggle="modal" data-target="#myModal">Login</a>
+        </li>
+        <li>
+          <a href="#" *ngIf="isAuthenticated()" (click)="logout()" class="btn btn-danger">Logout</a>
         </li>
 
       </ul>

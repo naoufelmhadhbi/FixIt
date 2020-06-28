@@ -3,6 +3,8 @@
 namespace PortfolioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Portfolio
@@ -22,7 +24,7 @@ class Portfolio
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Professionnel")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(name="id_prof",referencedColumnName="id")
      */
     private $idProf;
