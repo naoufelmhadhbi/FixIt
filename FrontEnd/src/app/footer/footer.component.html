@@ -36,9 +36,9 @@
               </div>
               <div class="form">
                 <h3>Login to your account</h3>
-                <form action="#" method="post">
-                  <input type="text" name="Username" placeholder="Username" required="">
-                  <input type="password" name="Password" placeholder="Password" required="">
+                <form (ngSubmit)="onlogin(f.value)" #f="ngForm">
+                  <input type="text" name="username" ngModel placeholder="Username" required="">
+                  <input type="password" name="password" ngModel placeholder="Password" required="">
                   <input type="submit" value="Login">
                 </form>
                 <div class="cta">
