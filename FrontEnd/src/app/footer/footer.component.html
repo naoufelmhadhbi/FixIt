@@ -45,6 +45,10 @@
                 <div *ngIf="invalidCredential" class="alert alert-danger" role="alert">
                   username ou mot de passe incorrect
                 </div>
+                <br>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal" style="margin-left: 33%;">
+                  S'inscrire
+                </button>
                 <input id="btnSave" class="invisible" type="submit" value="yes" data-dismiss="modal">
                 <div class="cta">
                   <a href="#">Forgot password?</a>
@@ -69,3 +73,99 @@
   </div>
 </div>
 <!-- //bootstrap-pop-up for login and register-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 45%;">S'inscrire</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="registration(form.value)" #form="ngForm">
+        <mat-vertical-stepper linear>
+          <mat-step label="Données personnels">
+            <mat-form-field class="example-full-width">
+              <mat-label>Username</mat-label>
+              <input matInput ngModel name="username" placeholder="Username" required="">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Nom</mat-label>
+              <input matInput ngModel name="Nom" placeholder="Nom" required="">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Prenom</mat-label>
+              <input matInput ngModel name="Prenom" placeholder="Prenom" required="">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input matInput ngModel name="password" placeholder="Username" required="">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Date de naissance</mat-label>
+              <input matInput ngModel name="datenaissance" placeholder="Username" required="">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>N°Tel</mat-label>
+              <input matInput ngModel name="tel" placeholder="tel" required="">
+            </mat-form-field>
+          </mat-step>
+          <mat-step label="Type de compte">
+            <mat-form-field>
+              <mat-label>Type</mat-label>
+              <select matNativeControl ngModel (change)="changeType($event.target.value)" required name="type">
+                <option value="Professionnel">Professionnel</option>
+                <option value="Demandeur">Demandeur</option>
+              </select>
+            </mat-form-field>
+          </mat-step>
+          <mat-step *ngIf='!isProfessionnel' label="Adresse">
+            <mat-form-field class="example-full-width">
+              <mat-label>Adresse</mat-label>
+              <input matInput ngModel name="adresse" placeholder="adresse" required="">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Ville</mat-label>
+              <input matInput ngModel name="ville" placeholder="ville" required="">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>code postal</mat-label>
+              <input matInput ngModel name="code_postal" placeholder="code postal" required="">
+            </mat-form-field>
+          </mat-step>
+          <mat-step *ngIf='isProfessionnel' label="Description">
+            <mat-form-field class="example-full-width">
+              <mat-label>Description</mat-label>
+              <input matInput ngModel name="description" placeholder="description" required="">
+            </mat-form-field>
+          </mat-step>
+          <mat-step label="Confirmation" completed="false">
+            <input type="submit" value="Valider" class="btn btn-primary" style="margin-left: 38%;">
+          </mat-step>
+        </mat-vertical-stepper>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .modal-dialog-ins,
+  .modal-content-ins {
+    /* 80% of window height */
+    height: 70%;
+    width: 200%;
+}
+
+  .modal-body-ins {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(1000% - 1200px);
+}
+</style>

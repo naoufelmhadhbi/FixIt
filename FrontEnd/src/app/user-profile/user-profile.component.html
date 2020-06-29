@@ -1,5 +1,9 @@
 <p>
-  user-profile works! 
-  {{authService.username}}<br>
+  {{user ? user.username : undefined}} <br>
+  Welcome
+  {{user ? user.nom : undefined}} <br>
+  {{user ? user.prenom : undefined}} <br>
+  {{user ? user.email : undefined}} <br>
+  {{user ? user.type : undefined}}
 </p>
 

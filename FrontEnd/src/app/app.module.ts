@@ -6,13 +6,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
 import { PublicationsComponent } from './publications/publications.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, FormBuilder} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {RoutingModule} from "./routing/routing.module";
 import {APP_BASE_HREF} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import { AccueilComponent } from './accueil/accueil.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { AccueilComponent } from './accueil/accueil.component';
     FormsModule,
     HttpClientModule,
     RoutingModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]

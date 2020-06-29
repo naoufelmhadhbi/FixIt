@@ -16,9 +16,9 @@ export class UserProfileComponent implements OnInit {
   user: User;
 
   ngOnInit() {
-    console.log('usernnnnnnnn' + this.authService.username)
-    this.username = this.authService.username;
-    //this.user = this.authService.getUserByUsername();
+    this.authService.getByUsr().subscribe((data) => {
+      this.user = data[0];
+    })
   }
 
   test() {

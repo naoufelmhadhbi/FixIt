@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 
 
 
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -14,12 +15,14 @@ export class FooterComponent implements OnInit {
   constructor(private authService: AuthentificationServiceService, private router: Router) {
   }
 
-  invalidCredential: boolean;
+  invalidCredential: boolean ;
+  isProfessionnel: boolean ;
 
   ngOnInit() {
   }
 
   onlogin(data) {
+    debugger
     console.log('this data ' + data['username']);
     this.authService.login(data).subscribe(resp => {
       console.log('reps    ' + resp);
@@ -37,6 +40,22 @@ export class FooterComponent implements OnInit {
     }
   );
 
+  }
+
+  registration(data){
+    debugger
+    console.log('this data ' + data);
+    this.authService.register(data).subscribe(resp =>{
+      console.log('resp register is' + resp);
+    });
+  }
+
+  changeType(data){
+    if(data == 'Professionnel')
+      this.isProfessionnel = true ;
+    else
+      this.isProfessionnel = false ;
+    console.log('yes');
   }
 
   isAdmin() {
