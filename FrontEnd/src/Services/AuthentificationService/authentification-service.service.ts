@@ -14,6 +14,9 @@ export class AuthentificationServiceService {
   options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
+  optionsRegister = {
+    headers: new HttpHeaders().set('Content-Type', 'application/json')
+  };
   body = new URLSearchParams();
   jwt: string;
   username: string;
@@ -30,7 +33,12 @@ export class AuthentificationServiceService {
 
   register(data) {
     console.log('user IS ' + data['username'] + ' Pass IS ' + data['password']);
-    return this.http.post(this.host + '/add', 'username=' + data['username'] + '&password=' + data['password'] + '&type=' + data['type'] + '&email' + data['email'], this.options);
+    return this.http.post(this.host + '/add', {
+      "username" : "ikb",
+      "password" : "azerty" ,
+      "email" : "Ibenjawballah@spb.eu",
+      "type" : "demandeur"
+    }, this.optionsRegister);
   }
 
   saveToken(token: string) {
