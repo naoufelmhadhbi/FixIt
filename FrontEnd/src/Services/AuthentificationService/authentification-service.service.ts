@@ -33,12 +33,15 @@ export class AuthentificationServiceService {
 
   register(data) {
     console.log('user IS ' + data['username'] + ' Pass IS ' + data['password']);
-    return this.http.post(this.host + '/add', {
-      "username" : "ikb",
+    let jsn =  {
+      "username" : "sont",
       "password" : "azerty" ,
       "email" : "Ibenjawballah@spb.eu",
       "type" : "demandeur"
-    }, this.optionsRegister);
+    };
+    console.log("JSN "+jsn);
+    console.log('with JSN ' + JSON.stringify(data));
+    return this.http.post(this.host + '/add', data, this.optionsRegister);
   }
 
   saveToken(token: string) {
@@ -100,6 +103,10 @@ export class AuthentificationServiceService {
     if(this.username == undefined || this.username == null)
       this.username = this.getUsernameFromToken(localStorage.getItem('JwtToken'));
     return this.http.get<User>(this.host + '/getByUsername/' + this.username);
+  }
+
+  getAllUser(): Observable<User>{
+    return this.http.get<User>(this.host + '/getAllUsr');
   }
 
 }

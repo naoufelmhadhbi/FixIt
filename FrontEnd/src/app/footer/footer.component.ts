@@ -17,6 +17,8 @@ export class FooterComponent implements OnInit {
 
   invalidCredential: boolean ;
   isProfessionnel: boolean ;
+  usernameExist: boolean = false ;
+  emailExist: boolean ;
 
   ngOnInit() {
   }
@@ -35,7 +37,7 @@ export class FooterComponent implements OnInit {
         this.router.navigate(['/userProfile']);
     },
     error => {
-      console.log('erooor ' + error);
+      console.log('erreur ' + JSON.stringify(error));
       this.invalidCredential = true ;
     }
   );
@@ -44,18 +46,30 @@ export class FooterComponent implements OnInit {
 
   registration(data){
     debugger
-    console.log('this data ' + data);
+    console.log('this data email' + data['email']);
+    console.log('with json ' + JSON.stringify(data));
+    console.log('before   ' + this.emailExist);
+    this.usernameEmailExist(data['email'],data['username']);
+    console.log('after   ' + this.emailExist);
+    // if(this.usernameEmailExist(data['email'],data['username']) == 'email exist')
+    //     this.emailExist = true ;
+    // else if(this.usernameEmailExist(data['email'],data['username']) == 'username exist')
+    //     this.usernameExist = true ;
+    // else
+    if(!this.emailExist && this.emailExist != undefined){
     this.authService.register(data).subscribe(resp =>{
       console.log('resp register is' + resp);
-    });
+    },
+    error => {
+      console.log('erreur ' + JSON.stringify(error));
+    });}
   }
 
   changeType(data){
-    if(data == 'Professionnel')
+    if(data == 'professionnel')
       this.isProfessionnel = true ;
     else
       this.isProfessionnel = false ;
-    console.log('yes');
   }
 
   isAdmin() {
@@ -74,7 +88,22 @@ export class FooterComponent implements OnInit {
     this.router.navigate(['/userProfile']);
   }
 
-
+  usernameEmailExist(email,username){
+    console.log('username fromn ' + email)
+    this.authService.getAllUser().subscribe(resp => {
+      console.log('--------------'+resp[0]['email']) ;
+       for(var key in resp){
+         console.log(resp[key]['email']);
+         if(resp[key]['email'] == email){
+           this.emailExist = true ;
+           console.log('yyyyyyyyyyyyses')
+         }
+         else this.emailExist = false ;
+      //   if(resp[key]['username'] == username)
+      //     this.usernameExist = true ;
+       }
+    });
+  }
 
 
 }

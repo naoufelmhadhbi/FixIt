@@ -93,12 +93,17 @@
             <br>
             <mat-form-field class="example-full-width">
               <mat-label>Nom</mat-label>
-              <input matInput ngModel name="Nom" placeholder="Nom" required="">
+              <input matInput ngModel name="nom" placeholder="Nom" required="">
             </mat-form-field>
             <br>
             <mat-form-field class="example-full-width">
               <mat-label>Prenom</mat-label>
-              <input matInput ngModel name="Prenom" placeholder="Prenom" required="">
+              <input matInput ngModel name="prenom" placeholder="Prenom" required="">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>email</mat-label>
+              <input matInput ngModel name="email" placeholder="email" required="">
             </mat-form-field>
             <br>
             <mat-form-field class="example-full-width">
@@ -108,20 +113,20 @@
             <br>
             <mat-form-field class="example-full-width">
               <mat-label>Date de naissance</mat-label>
-              <input matInput ngModel name="datenaissance" placeholder="Username" required="">
+              <input matInput  placeholder="Username" required="">
             </mat-form-field>
             <br>
             <mat-form-field class="example-full-width">
               <mat-label>N°Tel</mat-label>
-              <input matInput ngModel name="tel" placeholder="tel" required="">
+              <input matInput  placeholder="tel" required="">
             </mat-form-field>
           </mat-step>
           <mat-step label="Type de compte">
             <mat-form-field>
               <mat-label>Type</mat-label>
               <select matNativeControl ngModel (change)="changeType($event.target.value)" required name="type">
-                <option value="Professionnel">Professionnel</option>
-                <option value="Demandeur">Demandeur</option>
+                <option value="professionnel">Professionnel</option>
+                <option value="demandeur">Demandeur</option>
               </select>
             </mat-form-field>
           </mat-step>
@@ -152,6 +157,11 @@
           </mat-step>
         </mat-vertical-stepper>
         </form>
+      </div>
+      <div class="modal-footer">
+        <div *ngIf="emailExist" class="alert alert-danger" role="alert">
+          email existe dèjà
+        </div>
       </div>
     </div>
   </div>

@@ -81,6 +81,16 @@ class DefaultController extends Controller
         $user = $this->get('jms_serializer')->deserialize($data, 'AppBundle\Entity\User', 'json');
         $user->setPassword(md5($user->getPassword()));
 
+        $parametersAsArray = [];
+        if ($content = $request->getContent()) {
+            $parametersAsArray = json_decode($content, true);
+        }
+        $email_user = $parametersAsArray['email'];
+        
+        if($this->checkIfExistEmailUsername($email_user) == false){
+            return new JsonResponse("false");
+        }
+
         /*  $user->setEnabled(false);*/
         $form = $formFactory->createForm();
         $form->setData($user);
@@ -98,6 +108,22 @@ class DefaultController extends Controller
 
         return new Response('user added successfully', 201);
 
+    }
+
+    public function checkIfExistEmailUsername($email){
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT c FROM AppBundle:User c where c.email = '.$email);
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return false ;
+        }
+        return true ;
     }
 
     /**
@@ -188,6 +214,25 @@ class DefaultController extends Controller
         );
 
         return new JsonResponse($response,200);
+    }
+
+    /**
+     * @Route("/getAllUsr", name="listAllUSER")
+     */
+    public function getAllUser(){
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT c FROM AppBundle:User c');
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
     }
 
     /**
