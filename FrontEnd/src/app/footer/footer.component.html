@@ -88,7 +88,7 @@
           <mat-step label="Données personnels">
             <mat-form-field class="example-full-width">
               <mat-label>Username</mat-label>
-              <input matInput ngModel name="username" placeholder="Username" required="">
+              <input matInput ngModel name="username" placeholder="Username" required="true">
             </mat-form-field>
             <br>
             <mat-form-field class="example-full-width">
@@ -111,9 +111,11 @@
               <input matInput ngModel name="password" placeholder="Username" required="">
             </mat-form-field>
             <br>
-            <mat-form-field class="example-full-width">
+            <mat-form-field appearance="fill" style="font-size: 12px;">
               <mat-label>Date de naissance</mat-label>
-              <input matInput  placeholder="Username" required="">
+              <input matInput ngModel name="date_naissance_user" [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
             <br>
             <mat-form-field class="example-full-width">
@@ -154,14 +156,38 @@
           </mat-step>
           <mat-step label="Confirmation" completed="false">
             <input type="submit" value="Valider" class="btn btn-primary" style="margin-left: 38%;">
+            <input type="reset"  class="invisible" id="reset">
+            <button type="button" id="registersucces" class="invisible" data-toggle="modal" data-target="#subscribeSuccessfully" data-dismiss="modal" style="margin-left: 33%;">
+            </button>
           </mat-step>
         </mat-vertical-stepper>
         </form>
       </div>
       <div class="modal-footer">
-        <div *ngIf="emailExist" class="alert alert-danger" role="alert">
-          email existe dèjà
+        <div *ngIf="emailExist" style="width: 100%" class="alert alert-danger" role="alert">
+          &nbsp;&nbsp;&nbsp; Email existe dèjà
+        </div><br>
+        <div *ngIf="usernameExist" style="width: 100%" class="alert alert-danger" role="alert">
+          &nbsp;&nbsp;&nbsp; Username existe dèjà
         </div>
+        <mat-spinner *ngIf="showSpinner" style="margin-right: 40%;"></mat-spinner>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="subscribeSuccessfully" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="material-icons">&#xE876;</i>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <h4>Félicitation !</h4>
+        <p>Votre compte à été crée avec succées</p>
+        <button class="btn btn-success" data-toggle="modal" data-target="#myModal" data-dismiss="modal"><span>S'authentifier</span> <i class="material-icons">&#xE5C8;</i></button>
       </div>
     </div>
   </div>
@@ -178,4 +204,98 @@
     /* 100% = dialog height, 120px = header + footer */
     max-height: calc(1000% - 1200px);
 }
+  .modal-confirm {
+    color: #434e65;
+    width: 525px;
+    margin: 30px auto;
+  }
+  .modal-confirm .modal-content {
+    padding: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+  }
+  .modal-confirm .modal-header {
+    background: #47c9a2;
+    border-bottom: none;
+    position: relative;
+    text-align: center;
+    margin: -20px -20px 0;
+    border-radius: 5px 5px 0 0;
+    padding: 35px;
+  }
+  .modal-confirm h4 {
+    text-align: center;
+    font-size: 36px;
+    margin: 10px 0;
+  }
+  .modal-confirm .form-control, .modal-confirm .btn {
+    min-height: 40px;
+    border-radius: 3px;
+  }
+  .modal-confirm .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    text-shadow: none;
+    opacity: 0.5;
+  }
+  .modal-confirm .close:hover {
+    opacity: 0.8;
+  }
+  .modal-confirm .icon-box {
+    color: #fff;
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    border-radius: 50%;
+    z-index: 9;
+    border: 5px solid #fff;
+    padding: 15px;
+    text-align: center;
+    margin-left: 40%;
+  }
+  .modal-confirm .icon-box i {
+    font-size: 64px;
+    margin: -4px 0 0 -4px;
+  }
+  .modal-confirm .btn {
+    color: #fff;
+    border-radius: 4px;
+    background: #eeb711;
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 6px 20px;
+    border: none;
+  }
+  .modal-confirm .btn:hover, .modal-confirm .btn:focus {
+    background: #eda645;
+    outline: none;
+  }
+  .modal-confirm .btn span {
+    margin: 1px 3px 0;
+    float: left;
+  }
+  .modal-confirm .btn i {
+    margin-left: 1px;
+    font-size: 20px;
+    float: right;
+  }
+  .trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
+  }
+  ::ng-deep .cdk-overlay-container {
+    z-index: 1200 !important;
+  }
+
+  mat-form-field{
+    margin-left: 40px ;
+    width: 300px;
+  }
+
 </style>

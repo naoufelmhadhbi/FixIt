@@ -142,6 +142,7 @@ class User extends BaseUser
      */
     public function getDatenaissance()
     {
+        //$this->datenaissance->setTimezone(new \DateTimeZone($this->timezone));
         return $this->datenaissance;
     }
 
