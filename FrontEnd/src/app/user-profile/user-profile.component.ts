@@ -25,9 +25,8 @@ export class UserProfileComponent implements OnInit {
     })
   }
 
-  test() {
-      alert('yes');
-      this.router.navigate(['/messagerie']);
+  isProfessionnel() {
+    return this.user.type == 'professionnel' ;
   }
 
 }
