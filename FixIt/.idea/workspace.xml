@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8d44ebe-7d32-41e9-8cbd-9729a74dbc66" name="Default Changelist" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/testjwt.iml" afterPath="$PROJECT_DIR$/.idea/testjwt.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/symfony_requirements" afterPath="$PROJECT_DIR$/bin/symfony_requirements" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EvaluationBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/EvaluationBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/parameters.yml" afterPath="$PROJECT_DIR$/app/config/parameters.yml" />
-    </list>
+    <list default="true" id="c8d44ebe-7d32-41e9-8cbd-9729a74dbc66" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/cache/" />
@@ -97,8 +88,8 @@
             <state relative-caret-position="466">
               <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
               <folding>
-                <marker date="1593465305286" expanded="true" signature="6677:6707" ph="SELECT c FRO... AppBundle" />
-                <marker date="1593465305286" expanded="true" signature="6763:6807" ph="SELECT c FRO... AppBundle" />
+                <marker date="1593466502254" expanded="true" signature="6677:6707" ph="SELECT c FRO... AppBundle" />
+                <marker date="1593466502254" expanded="true" signature="6763:6807" ph="SELECT c FRO... AppBundle" />
               </folding>
             </state>
           </provider>
@@ -141,7 +132,7 @@
               <caret line="21" column="54" lean-forward="false" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="54" />
               <folding>
                 <element signature="e#47#82#0#PHP" expanded="true" />
-                <marker date="1593465305301" expanded="true" signature="2819:2878" ph="SELECT c FRO... AppBundle" />
+                <marker date="1593466502273" expanded="true" signature="2819:2878" ph="SELECT c FRO... AppBundle" />
               </folding>
             </state>
           </provider>
@@ -486,12 +477,12 @@
       <workItem from="1592773420855" duration="2312000" />
       <workItem from="1592779990946" duration="705000" />
       <workItem from="1593037847864" duration="1504000" />
-      <workItem from="1593198031835" duration="13732000" />
+      <workItem from="1593198031835" duration="14325000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15236000" />
+    <option name="totallyTimeSpent" value="15829000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -503,8 +494,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18098818" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -622,8 +612,8 @@
         <state relative-caret-position="850">
           <caret line="51" column="0" lean-forward="false" selection-start-line="41" selection-start-column="3" selection-end-line="51" selection-end-column="0" />
           <folding>
-            <marker date="1593465305286" expanded="true" signature="6677:6707" ph="SELECT c FRO... AppBundle" />
-            <marker date="1593465305286" expanded="true" signature="6763:6807" ph="SELECT c FRO... AppBundle" />
+            <marker date="1593466502254" expanded="true" signature="6677:6707" ph="SELECT c FRO... AppBundle" />
+            <marker date="1593466502254" expanded="true" signature="6763:6807" ph="SELECT c FRO... AppBundle" />
           </folding>
         </state>
       </provider>
@@ -732,8 +722,8 @@
         <state relative-caret-position="466">
           <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
           <folding>
-            <marker date="1593465305286" expanded="true" signature="6677:6707" ph="SELECT c FRO... AppBundle" />
-            <marker date="1593465305286" expanded="true" signature="6763:6807" ph="SELECT c FRO... AppBundle" />
+            <marker date="1593466502254" expanded="true" signature="6677:6707" ph="SELECT c FRO... AppBundle" />
+            <marker date="1593466502254" expanded="true" signature="6763:6807" ph="SELECT c FRO... AppBundle" />
           </folding>
         </state>
       </provider>
@@ -752,7 +742,7 @@
           <caret line="21" column="54" lean-forward="false" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="54" />
           <folding>
             <element signature="e#47#82#0#PHP" expanded="true" />
-            <marker date="1593465305301" expanded="true" signature="2819:2878" ph="SELECT c FRO... AppBundle" />
+            <marker date="1593466502273" expanded="true" signature="2819:2878" ph="SELECT c FRO... AppBundle" />
           </folding>
         </state>
       </provider>
