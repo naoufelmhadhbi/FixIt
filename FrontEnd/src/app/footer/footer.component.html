@@ -167,6 +167,9 @@
         <div *ngIf="emailExist" style="width: 100%" class="alert alert-danger" role="alert">
           &nbsp;&nbsp;&nbsp; Email existe dèjà
         </div><br>
+        <div *ngIf="formRequiredError" style="width: 100%" class="alert alert-danger" role="alert">
+          &nbsp;&nbsp;&nbsp; Veuillez remplir les champs manquants *
+        </div><br>
         <div *ngIf="usernameExist" style="width: 100%" class="alert alert-danger" role="alert">
           &nbsp;&nbsp;&nbsp; Username existe dèjà
         </div>
@@ -186,7 +189,7 @@
       </div>
       <div class="modal-body text-center">
         <h4>Félicitation !</h4>
-        <p>Votre compte à été crée avec succées</p>
+        <p>Votre compte a été créé avec succès</p>
         <button class="btn btn-success" data-toggle="modal" data-target="#myModal" data-dismiss="modal"><span>S'authentifier</span> <i class="material-icons">&#xE5C8;</i></button>
       </div>
     </div>

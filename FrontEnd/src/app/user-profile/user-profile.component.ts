@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthentificationServiceService} from "../../Services/AuthentificationService/authentification-service.service";
 import {User} from "../Model/user/User";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-profile',
@@ -9,7 +10,10 @@ import {User} from "../Model/user/User";
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private authService: AuthentificationServiceService) {
+  constructor(private authService: AuthentificationServiceService , private router: Router) {
+    debugger
+    //if(localStorage.getItem('JwtToken') == null || localStorage.getItem('JwtToken') == undefined)
+    //this.router.navigate(['/acceuil']);
   }
 
   username: string;
@@ -22,7 +26,8 @@ export class UserProfileComponent implements OnInit {
   }
 
   test() {
-
+      alert('yes');
+      this.router.navigate(['/messagerie']);
   }
 
 }

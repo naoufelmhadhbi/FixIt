@@ -314,5 +314,37 @@ class DefaultController extends Controller
     }
 
 
+    /**
+    * @Route("/getAllUsrByDep/{id}", name="listUserDept")
+    */
+    public function getAllUserBydeplacemeny(Request $request,$id){
+        $em = $this->getDoctrine()->getManager();
+        $deplacementId = $id;
+        $this->container->get('logger')->info(
+        sprintf("le contenu de dep est: %s", $deplacementId)
+        );
+
+        $repository = $em->getRepository('AppBundle:Professionnel');
+        $tags = $repository->createQueryBuilder('t')
+            ->select('c.id as depId, t.id as profId')
+            ->innerJoin('t.id_deplacement', 'c')
+            ->where('c.id = :prof_id')
+            ->setParameter('prof_id', $deplacementId)
+            ->getQuery()
+            ->getResult();
+
+        if (empty($tags)) {
+            $response = array(
+            'code' => 1,
+            'message' => 'Deplacement Not found !',
+            'errors' => null,
+            'result' => null
+        );
+        return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+    }
+        return new JsonResponse($tags);
+}
+
+
 
 }

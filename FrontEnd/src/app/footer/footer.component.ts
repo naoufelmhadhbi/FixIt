@@ -20,6 +20,7 @@ export class FooterComponent implements OnInit {
   usernameExist: boolean = false ;
   emailExist: boolean = false ;
   showSpinner : boolean = false ;
+  formRequiredError : boolean = false ;
 
   ngOnInit() {
   }
@@ -50,6 +51,11 @@ export class FooterComponent implements OnInit {
     console.log('this data email' + data['email']);
     console.log('with json ' + JSON.stringify(data));
     console.log('before   ' + this.emailExist);
+    if(JSON.stringify(data).length < 194){
+      console.log('number '+JSON.stringify(data).length)
+      this.formRequiredError = true ;
+      return ;
+    }
     this.showSpinner = true ;
     this.authService.register(data).subscribe(resp =>{
       console.log('resp register is' + JSON.stringify(resp));
@@ -57,10 +63,12 @@ export class FooterComponent implements OnInit {
       if(resp['code'] == 401) {
         this.emailExist = true;
         this.showSpinner = false ;
+        return ;
       }
       if(resp['code'] == 402) {
         this.usernameExist = true;
         this.showSpinner = false ;
+        return ;
       }
       this.showSpinner = false ;
       document.getElementById('reset').click();

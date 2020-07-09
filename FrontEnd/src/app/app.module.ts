@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { MessagerieComponent } from './messagerie/messagerie.component';
 import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
 import { PublicationsComponent } from './publications/publications.component';
@@ -15,6 +16,7 @@ import {RouterModule} from "@angular/router";
 import { AccueilComponent } from './accueil/accueil.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { UserInterfaceComponent } from './user-interface/user-interface.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MaterialModule } from './material/material.module';
     SliderComponent,
     PublicationsComponent,
     UserProfileComponent,
-    AccueilComponent
+    AccueilComponent,
+    MessagerieComponent,
+    UserInterfaceComponent
   ],
   imports: [
     BrowserModule,

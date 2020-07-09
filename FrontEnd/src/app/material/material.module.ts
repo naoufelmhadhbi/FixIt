@@ -5,6 +5,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatDividerModule} from '@angular/material/divider';
 
 const MaterilaComponents = [
   MatButtonModule,
@@ -12,7 +13,8 @@ const MaterilaComponents = [
   MatInputModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDividerModule
 ];
 
 @NgModule({
