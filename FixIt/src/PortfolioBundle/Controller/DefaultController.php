@@ -144,6 +144,7 @@ class DefaultController extends Controller
         return new JsonResponse($images);
     }
 
+>>>>>>> Stashed changes
     /**
      * @Route("/getAlldeplacementByUser", name="createUserDepla")
      */
