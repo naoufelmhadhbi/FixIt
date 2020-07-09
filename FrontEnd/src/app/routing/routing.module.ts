@@ -5,13 +5,16 @@ import {UserInterfaceComponent} from "../user-interface/user-interface.component
 import {MessagerieComponent} from "../messagerie/messagerie.component";
 import {RouterModule, Routes} from "@angular/router";
 import {AccueilComponent} from "../accueil/accueil.component";
+import {PublicationsComponent} from '../publications/publications.component';
 
 const routes: Routes = [
   { path: '', component: UserInterfaceComponent ,
       children: [
         { path: 'messagerie', component: MessagerieComponent },
         { path: 'userProfile', component:  UserProfileComponent},
-  ]
+        { path: 'publications', component:  PublicationsComponent},
+
+      ]
   },
   { path: 'accueil', component: AccueilComponent }
 ];
