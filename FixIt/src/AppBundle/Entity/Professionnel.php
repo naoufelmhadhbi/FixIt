@@ -48,6 +48,7 @@ class Professionnel extends User
      *      )
      */
     protected $id_metier;
+    
     /**
      * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Deplacement")
      * @JoinTable(name="deplacement_professionnel",

@@ -7,6 +7,7 @@ use AppBundle\Entity\Professionnel;
 use AppBundle\Entity\UserOld;
 use AppBundle\Service\Validate;
 use AppBundle\UserServices\UserService;
+use DateInterval;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Form\Factory\FactoryInterface;
@@ -56,7 +57,7 @@ class DefaultController extends Controller
      * @Route("/show", name="createUser")
      */
     public function showUser(Request $request)
-    {   
+    {
         $id = $request->query->get('id');
         $n = $request->query->get('nom');
         $response = array('code'=>1,'message'=>'ok' , 'user1'=>md5('azerty') , 'idFromParam'=> $id , 'nom'=> $n);
@@ -81,6 +82,28 @@ class DefaultController extends Controller
         $user = $this->get('jms_serializer')->deserialize($data, 'AppBundle\Entity\User', 'json');
         $user->setPassword(md5($user->getPassword()));
 
+
+        $parametersAsArray = [];
+        if ($content = $request->getContent()) {
+            $parametersAsArray = json_decode($content, true);
+        }
+        $email_user = $parametersAsArray['email'];
+        $user_username = $parametersAsArray['username'];
+        $date_naissance_user = $parametersAsArray['date_naissance_user'];
+        $date = new \DateTime($date_naissance_user);
+        $interval = new DateInterval('P1D');
+        $user->setDatenaissance($date->add($interval));
+        //$this->checkIfExistEmailUsername($email_user);
+        if($this->checkIfExistEmailUsername($email_user) == false){
+            $response = array('code'=>401,'message'=>'email already exist');
+            return new JsonResponse($response);
+        }
+
+        if($this->checkIfExistUsername($user_username) == false){
+            $response = array('code'=>402,'message'=>'username already exist');
+            return new JsonResponse($response);
+        }
+
         /*  $user->setEnabled(false);*/
         $form = $formFactory->createForm();
         $form->setData($user);
@@ -96,8 +119,47 @@ class DefaultController extends Controller
 
         $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
-        return new Response('user added successfully', 201);
+        $response = array('code'=>201,'message'=>'user added successfully');
+        return new JsonResponse($response);
 
+    }
+
+    public function checkIfExistEmailUsername($email){
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT c FROM AppBundle:User c where c.email = '".$email."'");
+        $users = $query->getArrayResult();
+        if (!empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            $this->container->get('logger')->info(
+                sprintf("this is mail exiiiiiiiiiiiiist mail: %s", $email)
+            );
+            return false ;
+        }
+        return true ;
+    }
+
+    public function checkIfExistUsername($username){
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT c FROM AppBundle:User c where c.username = '".$username."'");
+        $users = $query->getArrayResult();
+        if (!empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            $this->container->get('logger')->info(
+                sprintf("this is mail exiiiiiiiiiiiiist username: %s", $username)
+            );
+            return false ;
+        }
+        return true ;
     }
 
     /**
@@ -191,6 +253,25 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/getAllUsr", name="listAllUSER")
+     */
+    public function getAllUser(){
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT c FROM AppBundle:User c');
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
+    }
+
+    /**
      * @Route("/getAllUsr/{id}", name="listAllUSR")
      */
     public function getAllUserOrById($id){
@@ -231,6 +312,38 @@ class DefaultController extends Controller
         }
         return new JsonResponse($users);
     }
+
+
+    /**
+    * @Route("/getAllUsrByDep/{id}", name="listUserDept")
+    */
+    public function getAllUserBydeplacemeny(Request $request,$id){
+        $em = $this->getDoctrine()->getManager();
+        $deplacementId = $id;
+        $this->container->get('logger')->info(
+        sprintf("le contenu de dep est: %s", $deplacementId)
+        );
+
+        $repository = $em->getRepository('AppBundle:Professionnel');
+        $tags = $repository->createQueryBuilder('t')
+            ->select('c.id as depId, t.id as profId')
+            ->innerJoin('t.id_deplacement', 'c')
+            ->where('c.id = :prof_id')
+            ->setParameter('prof_id', $deplacementId)
+            ->getQuery()
+            ->getResult();
+
+        if (empty($tags)) {
+            $response = array(
+            'code' => 1,
+            'message' => 'Deplacement Not found !',
+            'errors' => null,
+            'result' => null
+        );
+        return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+    }
+        return new JsonResponse($tags);
+}
 
 
 

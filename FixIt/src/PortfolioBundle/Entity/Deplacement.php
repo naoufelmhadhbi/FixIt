@@ -21,7 +21,9 @@ class Deplacement
      */
     private $id;
 
-
+    /** 
+    *  @ORM\ManyToMany(targetEntity="AppBundle\Entity\Professionnel", mappedBy="id_deplacement")     
+    */
     private $idProf;
 
     /**
