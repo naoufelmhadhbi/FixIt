@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="333f17bd-244c-4ea2-92e4-9cad6481e4e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/FixIt/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/FixIt/app/config/config.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/FixIt/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/composer" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/FixIt/vendor/monolog/monolog" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1ddvsRNmPJDVKim85DAECWupDpW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="333f17bd-244c-4ea2-92e4-9cad6481e4e7" name="Default Changelist" comment="" />
+      <created>1592767991026</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592767991026</updated>
+      <workItem from="1592767992944" duration="1895000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+</project>
