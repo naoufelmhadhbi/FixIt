@@ -2,6 +2,8 @@
 
 namespace PortfolioBundle\Entity;
 
+use AppBundle\Entity\Professionnel;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,10 +23,34 @@ class Deplacement
      */
     private $id;
 
+<<<<<<< Updated upstream
     /** 
     *  @ORM\ManyToMany(targetEntity="AppBundle\Entity\Professionnel", mappedBy="id_deplacement")     
     */
     private $idProf;
+=======
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="id_deplacement", cascade={"persist", "remove"})
+     * @ORM\JoinTable(name="metier_professionnel")
+     */
+    private $id_prof;
+
+    public function __construct()
+    {
+        $this->id_prof = new ArrayCollection();
+    }
+
+    public function addProfessionnels(Professionnel $professionnel)
+    {
+        $professionnel->addDeplacement($this);
+        $this->id_prof[] = $professionnel;
+    }
+
+    public function removeDepProf(Professionnel $professionnel)
+    {
+        $this->id_prof->removeElement($professionnel);
+    }
+>>>>>>> Stashed changes
 
     /**
      * @var string
@@ -46,13 +72,13 @@ class Deplacement
     /**
      * Set idProf
      *
-     * @param integer $idProf
+     * @param integer $id_prof
      *
      * @return Deplacement
      */
-    public function setIdProf($idProf)
+    public function setIdProf($id_prof)
     {
-        $this->idProf = $idProf;
+        $this->id_prof = $id_prof;
 
         return $this;
     }
@@ -60,11 +86,11 @@ class Deplacement
     /**
      * Get idProf
      *
-     * @return int
+     * @return ArrayCollection
      */
     public function getIdProf()
     {
-        return $this->idProf;
+        return $this->id_prof;
     }
 
     /**
@@ -89,6 +115,10 @@ class Deplacement
     public function getGouvernorat()
     {
         return $this->gouvernorat;
+    }
+    public function __toString()
+    {
+        return(string)$this->getGouvernorat();
     }
 }
 

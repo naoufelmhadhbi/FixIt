@@ -3,6 +3,7 @@
 namespace PortfolioBundle\Entity;
 
 use AppBundle\Entity\Professionnel;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +36,10 @@ class Metier
      */
     private $id_prof;
 
+    public function __construct()
+    {
+        $this->id_prof = new ArrayCollection();
+    }
 
     public function addProfessionnels(Professionnel $professionnel)
     {
@@ -51,7 +56,7 @@ class Metier
         $professionnel->removeMetier($this);
     }
 
-    public function removeGenusScientist(Professionnel $professionnel)
+    public function removeMetierProf(Professionnel $professionnel)
     {
         $this->id_prof->removeElement($professionnel);
     }
