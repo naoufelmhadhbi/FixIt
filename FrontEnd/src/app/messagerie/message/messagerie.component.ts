@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-messagerie',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messagerie.component.css']
 })
 export class MessagerieComponent implements OnInit {
-
+  @Input() filsProperty;
   constructor() { }
 
   ngOnInit() {
+    console.log("this is parent variable " + this.filsProperty);
   }
+  
 
 }
