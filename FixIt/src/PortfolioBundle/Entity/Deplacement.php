@@ -23,7 +23,6 @@ class Deplacement
      */
     private $id;
 
-
     /** 
     *  @ORM\ManyToMany(targetEntity="AppBundle\Entity\Professionnel", mappedBy="id_deplacement")     
     */
@@ -50,7 +49,6 @@ class Deplacement
     {
         $this->id_prof->removeElement($professionnel);
     }
-
 
     /**
      * @var string
