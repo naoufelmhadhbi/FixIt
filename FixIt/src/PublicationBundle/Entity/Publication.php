@@ -2,6 +2,7 @@
 
 namespace PublicationBundle\Entity;
 
+use AppBundle\Entity\Professionnel;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,8 +22,13 @@ class Publication
      */
     private $id;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Professionnel", mappedBy="id_professionnel", cascade={"persist", "remove"})
+     * @ORM\JoinTable(name="publication_professionnel")
+     */
     private $id_professionnel;
-// N'oubliez pas d'ajouter les champs ( recommandation,avis ) dans la table associative publication_professionnel
+
+
     /**
      * @return mixed
      */
@@ -38,12 +44,6 @@ class Publication
     {
         $this->id_professionnel = $id_professionnel;
     }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Demandeur")
-     * @ORM\JoinColumn(name="id_demandeur",referencedColumnName="id")
-     */
-    private $idDemandeur;
 
     /**
      * @var string
@@ -233,6 +233,11 @@ class Publication
     public function getDatePub()
     {
         return $this->datePub;
+    }
+    public function addProfessionnels(Professionnel $professionnel)
+    {
+        $professionnel->addPublication($this);
+        $this->id_professionnel[] = $professionnel;
     }
 }
 

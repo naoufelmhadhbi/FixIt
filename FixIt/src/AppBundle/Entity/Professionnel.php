@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
 use PortfolioBundle\Entity\Deplacement;
 use PortfolioBundle\Entity\Metier;
+use PublicationBundle\Entity\Publication;
 
 /**
  * Professionnel
@@ -34,7 +35,7 @@ class Professionnel extends User
      */
     protected $description;
     /**
-     * @ORM\ManyToMany(targetEntity="PublicationBundle\Entity\Publication")
+     * @ORM\ManyToMany(targetEntity="PublicationBundle\Entity\Publication", inversedBy="id_pub", cascade={"persist", "remove"})
      * @JoinTable(name="publication_professionnel",
      *      joinColumns={@JoinColumn(name="professionnel_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="publication_id", referencedColumnName="id")}
@@ -51,9 +52,7 @@ class Professionnel extends User
      *      )
      */
     protected $id_metier;
-<<<<<<< Updated upstream
-    
-=======
+
 
     public function __construct()
     {
@@ -62,7 +61,6 @@ class Professionnel extends User
         $this->id_deplacement = new ArrayCollection();
     }
 
->>>>>>> Stashed changes
     /**
      * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Deplacement", inversedBy="id_prof", cascade={"persist", "remove"})
      * @JoinTable(name="deplacement_professionnel",
@@ -237,6 +235,10 @@ class Professionnel extends User
         foreach($id_deplacement as $id => $deplacement) {
             $this->id_deplacement[$id] = $deplacement;
         }
+    }
+    public function addPublication(Publication $publication)
+    {
+        $this->id_pub[] = $publication;
     }
 
 }

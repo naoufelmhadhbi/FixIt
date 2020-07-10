@@ -1,16 +1,12 @@
 <?php
 
 namespace PortfolioBundle\Controller;
-
-<<<<<<< Updated upstream
-=======
 use AppBundle\Entity\Professionnel;
 use AppBundle\Entity\User;
 use AppBundle\Service\Validate;
 use PortfolioBundle\Entity\Deplacement;
 use PortfolioBundle\Entity\Metier;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
->>>>>>> Stashed changes
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -27,8 +23,6 @@ class DefaultController extends Controller
         return $this->render('PortfolioBundle:Default:index.html.twig');
     }
 
-<<<<<<< Updated upstream
-=======
 
     /**
      * @Route("/portfolio/addImage/{id}", name="add_image")
@@ -144,15 +138,13 @@ class DefaultController extends Controller
         return new JsonResponse($images);
     }
 
->>>>>>> Stashed changes
     /**
      * @Route("/getAlldeplacementByUser", name="createUserDepla")
      */
-<<<<<<< Updated upstream
     public function showByUsernameByDep(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $userId = 3 ;
+        $userId = 3;
         $repository = $em->getRepository('PortfolioBundle:Deplacement');
         $tags = $repository->createQueryBuilder('t')
             ->select('c.id as profId, t.id as depId')
@@ -162,8 +154,12 @@ class DefaultController extends Controller
             ->getQuery()
             ->getResult();
 
-        
-=======
+    }
+
+    /**
+     * @Route("/portfolio/addMetier/{id_prof}/{id_metier}", name="add_metier")
+     * @Method("POST")
+     */
     public function addMetierAction($id_prof, $id_metier)
     {
 
@@ -318,7 +314,7 @@ class DefaultController extends Controller
             ->where('c.id = :category_id')
             ->setParameter('category_id', 1)
             ->getQuery()->getResult()->getArrayResult();
-                $this->container->get('logger')->info(
+        $this->container->get('logger')->info(
             sprintf("le contenu de tags est: %s", $tags)
         );
 
@@ -342,8 +338,6 @@ class DefaultController extends Controller
 //        $data = $this->get('jms_serializer')->serialize($prof->getIdDeplacement(), 'json');
 //            $response = new Response($data);
 //            return $response;
-
->>>>>>> Stashed changes
         return new JsonResponse($tags);
     }
 }

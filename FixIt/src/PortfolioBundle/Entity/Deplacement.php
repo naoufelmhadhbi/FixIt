@@ -23,12 +23,11 @@ class Deplacement
      */
     private $id;
 
-<<<<<<< Updated upstream
     /** 
     *  @ORM\ManyToMany(targetEntity="AppBundle\Entity\Professionnel", mappedBy="id_deplacement")     
     */
     private $idProf;
-=======
+
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="id_deplacement", cascade={"persist", "remove"})
      * @ORM\JoinTable(name="metier_professionnel")
@@ -50,7 +49,6 @@ class Deplacement
     {
         $this->id_prof->removeElement($professionnel);
     }
->>>>>>> Stashed changes
 
     /**
      * @var string
