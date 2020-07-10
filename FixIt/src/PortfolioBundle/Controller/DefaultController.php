@@ -19,22 +19,21 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/getAlldeplacementByUser", name="createUserDepla")
+     * @Route("/getAlldeplacementByUser/{id}", name="createUserDepla")
      */
-    public function showByUsernameByDep(Request $request)
+    public function showByUsernameByDep(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();
-        $userId = 3 ;
+        $userId = $id ;
         $repository = $em->getRepository('PortfolioBundle:Deplacement');
         $tags = $repository->createQueryBuilder('t')
-            ->select('c.id as profId, t.id as depId')
+            ->select('c.id as profId, t.id as depId , t.gouvernorat as gouvernorat')
             ->innerJoin('t.idProf', 'c')
             ->where('c.id = :user_id')
             ->setParameter('user_id', $userId)
             ->getQuery()
             ->getResult();
 
-        
         return new JsonResponse($tags);
     }
 }
