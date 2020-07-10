@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <div class="card-header card-header-primary">
+          <div class="card-header card-header-info">
             <h4 class="card-title">Message</h4>
             <p class="card-category">Discussion</p>
           </div>
@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-      <app-messagerie></app-messagerie>
+      <app-messagerie [filsProperty]="color" *ngIf="showMessageList"></app-messagerie>
     </div>
     
   </div>
