@@ -2,20 +2,19 @@
 
 namespace PortfolioBundle\Controller;
 
-<<<<<<< Updated upstream
-=======
+
 use AppBundle\Entity\Professionnel;
 use AppBundle\Entity\User;
 use AppBundle\Service\Validate;
 use PortfolioBundle\Entity\Deplacement;
 use PortfolioBundle\Entity\Metier;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
->>>>>>> Stashed changes
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
 
 class DefaultController extends Controller
 {
@@ -27,8 +26,7 @@ class DefaultController extends Controller
         return $this->render('PortfolioBundle:Default:index.html.twig');
     }
 
-<<<<<<< Updated upstream
-=======
+
 
     /**
      * @Route("/portfolio/addImage/{id}", name="add_image")
@@ -144,26 +142,12 @@ class DefaultController extends Controller
         return new JsonResponse($images);
     }
 
->>>>>>> Stashed changes
-    /**
-     * @Route("/getAlldeplacementByUser", name="createUserDepla")
-     */
-<<<<<<< Updated upstream
-    public function showByUsernameByDep(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $userId = 3 ;
-        $repository = $em->getRepository('PortfolioBundle:Deplacement');
-        $tags = $repository->createQueryBuilder('t')
-            ->select('c.id as profId, t.id as depId')
-            ->innerJoin('t.idProf', 'c')
-            ->where('c.id = :user_id')
-            ->setParameter('user_id', $userId)
-            ->getQuery()
-            ->getResult();
 
-        
-=======
+    /**
+     * @Route("/portfolio/addMetier/{id_prof}/{id_dep}", name="add_metier")
+     * @Method("POST")
+     */
+
     public function addMetierAction($id_prof, $id_metier)
     {
 
@@ -222,27 +206,23 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/portfolio/getMetier/{id_prof}", name="listMetier")
+     * @Route("/portfolio/getAllMetierByUser/{id}", name="createUserMetla")
      */
-    public function getMetierPerProf($id_prof)
+    public function showByUsernameByMet(Request $request,$id)
     {
-
-
         $em = $this->getDoctrine()->getManager();
-
-//        $prof = $em->getRepository(User::class)->find($id_prof)->getMetier();
-        $prof = $em->getRepository(User::class)->find($id_prof);
-        foreach ($prof->getIdMetier() as $metier) {
-            echo $metier->getNom() . '<br>';
-        }
-
-//        $table = $images->getArrayResult();
-//        $data = $this->get('jms_serializer')->serialize($prof, 'json');
-//            $response = new Response($data);
-//            return $response;
-
-        return new JsonResponse($metier);
+        $userId = $id ;
+        $repository = $em->getRepository('PortfolioBundle:Metier');
+        $tags = $repository->createQueryBuilder('t')
+            ->select('c.id as profId, t.id as metId , t.nom as metier')
+            ->innerJoin('t.idProf', 'c')
+            ->where('c.id = :user_id')
+            ->setParameter('user_id', $userId)
+            ->getQuery()
+            ->getResult();
+        return new JsonResponse($tags);
     }
+
 
     /**
      * @Route("/portfolio/addDeplacement/{id_prof}/{id_dep}", name="add_deplacement")
@@ -306,44 +286,22 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/portfolio/getDeplacement/{id_prof}", name="listDeplacement")
+     * @Route("/portfolio/getAlldeplacementByUser/{id}", name="createUserDepla")
      */
-    public function getDeplamcementPerProf(Request $request,$id_prof)
+    public function showByUsernameByDep(Request $request,$id)
     {
-//        $categoryId = $request->request->get('cat_id');
-        $em = $this->getDoctrine()->getEntityManager();
-        $repository = $em->getRepository('AppBundle:Professionnel');
+        $em = $this->getDoctrine()->getManager();
+        $userId = $id ;
+        $repository = $em->getRepository('PortfolioBundle:Deplacement');
         $tags = $repository->createQueryBuilder('t')
-            ->innerJoin('t.id_deplacement', 'c')
-            ->where('c.id = :category_id')
-            ->setParameter('category_id', 1)
-            ->getQuery()->getResult()->getArrayResult();
-                $this->container->get('logger')->info(
-            sprintf("le contenu de tags est: %s", $tags)
-        );
-
-
-//        $em = $this->getDoctrine()->getManager();
-//
-////        $prof = $em->getRepository(User::class)->find($id_prof)->getMetier();
-//        $prof = $em->getRepository(User::class)->find($id_prof);
-//
-//        $dep = null;
-//
-//        foreach ($prof->getIdDeplacement() as $deplacement) {
-//            $dep = $deplacement;
-//
-//            echo $deplacement->getId() . '<br>';
-//        }
-//        $this->container->get('logger')->info(
-//            sprintf("le contenu de dep est: %s", $dep)
-//        );
-//        $table = $images->getArrayResult();
-//        $data = $this->get('jms_serializer')->serialize($prof->getIdDeplacement(), 'json');
-//            $response = new Response($data);
-//            return $response;
-
->>>>>>> Stashed changes
+            ->select('c.id as profId, t.id as depId , t.gouvernorat as gouvernorat')
+            ->innerJoin('t.idProf', 'c')
+            ->where('c.id = :user_id')
+            ->setParameter('user_id', $userId)
+            ->getQuery()
+            ->getResult();
         return new JsonResponse($tags);
     }
+
+
 }

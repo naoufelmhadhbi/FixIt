@@ -345,6 +345,35 @@ class DefaultController extends Controller
         return new JsonResponse($tags);
 }
 
+    /**
+     * @Route("/getAllUsrByMet/{id}", name="listUserMett")
+     */
+    public function getAllUserByMetier(Request $request,$id){
+        $em = $this->getDoctrine()->getManager();
+        $metierId = $id;
+        $this->container->get('logger')->info(
+            sprintf("le contenu de dep est: %s", $metierId)
+        );
 
+        $repository = $em->getRepository('AppBundle:Professionnel');
+        $tags = $repository->createQueryBuilder('t')
+            ->select('c.id as depId, t.id as profId, t.username as utilisateur')
+            ->innerJoin('t.id_deplacement', 'c')
+            ->where('c.id = :prof_id')
+            ->setParameter('prof_id', $metierId)
+            ->getQuery()
+            ->getResult();
+
+        if (empty($tags)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'metier Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($tags);
+    }
 
 }

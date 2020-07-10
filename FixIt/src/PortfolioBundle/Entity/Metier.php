@@ -31,6 +31,11 @@ class Metier
     private $nom;
 
     /**
+     *  @ORM\ManyToMany(targetEntity="AppBundle\Entity\Professionnel", mappedBy="id_metier")
+     */
+    private $idProf;
+
+    /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="id_metier", cascade={"persist", "remove"})
      * @ORM\JoinTable(name="metier_professionnel")
      */

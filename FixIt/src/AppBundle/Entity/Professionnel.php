@@ -51,9 +51,6 @@ class Professionnel extends User
      *      )
      */
     protected $id_metier;
-<<<<<<< Updated upstream
-    
-=======
 
     public function __construct()
     {
@@ -62,7 +59,6 @@ class Professionnel extends User
         $this->id_deplacement = new ArrayCollection();
     }
 
->>>>>>> Stashed changes
     /**
      * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Deplacement", inversedBy="id_prof", cascade={"persist", "remove"})
      * @JoinTable(name="deplacement_professionnel",
