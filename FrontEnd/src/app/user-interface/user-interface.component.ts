@@ -9,13 +9,16 @@ import {Router} from "@angular/router";
   styleUrls: ['./user-interface.component.css']
 })
 export class UserInterfaceComponent implements OnInit {
-
+  userConnected : User ;
   constructor(private authService: AuthentificationServiceService , private router: Router) {
     //if(localStorage.getItem('JwtToken') == null || localStorage.getItem('JwtToken') == undefined)
       //this.router.navigate(['/acceuil']);
    }
 
   ngOnInit() {
+    this.authService.getByUsr().subscribe((data) => {
+      this.userConnected = data[0];
+    });
   }
 
 }

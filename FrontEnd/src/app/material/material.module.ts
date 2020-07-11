@@ -8,6 +8,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 
 const MaterilaComponents = [
@@ -19,7 +21,8 @@ const MaterilaComponents = [
   MatProgressSpinnerModule,
   MatDividerModule,
   MatTableModule,
-  MatCardModule
+  MatCardModule,
+  MatChipsModule
 ];
 
 @NgModule({

@@ -345,6 +345,25 @@ class DefaultController extends Controller
         return new JsonResponse($tags);
 }
 
+    /**
+     * @Route("/getAllProfessionnel", name="listAllProf")
+     */
+    public function getAllProfessionnel(){
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT c FROM AppBundle:Professionnel c');
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
+    }
+
 
 
 }

@@ -1,19 +1,21 @@
-<div style="width: 1000px;">
+<div style="width: 750px;">
   <div class="card">
     <div class="card-header card-header-success">
-      <h4 class="card-title">Username</h4>
-      <p class="card-category">Discussion</p>
+      <h4 class="card-title">{{filsProperty.username}} </h4>
+      <p class="card-category">{{filsProperty.prenom}} {{filsProperty.nom}}</p>
     </div>
     <div class="card-body">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image">
-
-          </div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed {{filsProperty}}</mat-card-subtitle>
-        </mat-card-header>
-      </mat-card>
+      <div style="margin-left: 200px">
+      <mat-chip-list *ngFor="let p of messageUser; index as i">
+          <mat-chip color="primary" selected *ngIf="p.from == userConnected?.id" style="margin-left: 50%;">{{p.message}}</mat-chip>
+          <mat-chip color="accent" selected *ngIf="p.from != userConnected?.id" style="margin-right: 10%;">{{p.message}}</mat-chip>
+      </mat-chip-list>
+      </div>
+      <mat-form-field class="example-form-field" class="col-xl-10">
+        <mat-label>message input</mat-label>
+        <input matInput type="text" #value>
+      </mat-form-field>
+      <button mat-button color="primary" (click)="sendMessage(value)"><i class="material-icons">send</i></button>
     </div>
   </div>
 </div>
@@ -26,7 +28,7 @@
   <div *ngFor="let p of list; index as i">
     <input [(ngModel)]="p" type="text">
   </div>
-  
+
     <mat-form-field class="example-form-field">
       <mat-label>Clearable input</mat-label>
       <input matInput type="text" [(ngModel)]="value">

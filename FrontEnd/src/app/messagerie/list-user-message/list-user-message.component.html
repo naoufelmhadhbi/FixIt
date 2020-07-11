@@ -2,26 +2,29 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
-        <div class="card">
+        <div class="card" style="background-color: paleturquoise">
           <div class="card-header card-header-info">
             <h4 class="card-title">Message</h4>
-            <p class="card-category">Discussion</p>
+            <p class="card-category" *ngIf="isProfessionnel">list des professionnel</p>
+            <p class="card-category" *ngIf="!isProfessionnel">list des professionnel</p>
           </div>
           <div class="card-body">
-            <mat-card class="example-card" (click)="showMsgList()">
+            <div *ngFor="let user of listeUser">
+            <mat-card class="example-card" (click)="showMsgList(user)">
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image">
 
                 </div>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                <mat-card-title>{{user.username}}</mat-card-title>
+                <mat-card-subtitle>{{user.prenom}} {{user.nom}}</mat-card-subtitle>
               </mat-card-header>
-            </mat-card>
+            </mat-card><br>
+            </div>
           </div>
         </div>
       </div>
-      <app-messagerie [filsProperty]="color" *ngIf="showMessageList"></app-messagerie>
+      <app-messagerie [filsProperty]="userMessage" *ngIf="showMessageList"></app-messagerie>
     </div>
-    
+
   </div>
   </div>
