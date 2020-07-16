@@ -19,6 +19,10 @@ export class MessagerieService {
     return this.http.get<User[]>(this.host + '/getAllProfessionnel');
   }
 
+  getAllMessageFromDemandeur(): Observable<User[]>{
+    return this.http.get<User[]>(this.host + '/getAllDemandeur');
+  }
+
   getMessageUser(idDemandeur , idProf):Observable<Message[]>{
     console.log("idedemandd " + idDemandeur)
     return this.http.get<Message[]>(this.host + '/getMessagesByUser?id_demandeur='+idDemandeur+'&id_professionnel='+idProf);

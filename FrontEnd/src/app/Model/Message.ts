@@ -5,6 +5,6 @@ export interface Message {
   from : string ;
   vu : boolean ;
   message : string ;
-  dateEnvoi: Date;
+  dateEnvoi: string;
 
 }

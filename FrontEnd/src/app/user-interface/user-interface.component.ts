@@ -10,15 +10,21 @@ import {Router} from "@angular/router";
 })
 export class UserInterfaceComponent implements OnInit {
   userConnected : User ;
+  isProfessionnel : boolean ;
   constructor(private authService: AuthentificationServiceService , private router: Router) {
-    //if(localStorage.getItem('JwtToken') == null || localStorage.getItem('JwtToken') == undefined)
-      //this.router.navigate(['/acceuil']);
+    if(localStorage.getItem('JwtToken') == null || localStorage.getItem('JwtToken') == undefined)
+      this.router.navigate(['/accueil']);
    }
 
   ngOnInit() {
     this.authService.getByUsr().subscribe((data) => {
       this.userConnected = data[0];
+      this.isProfessionnel = this.userConnected.type == 'professionnel' ;
     });
+  }
+
+  logout(){
+    this.authService.logout();
   }
 
 }

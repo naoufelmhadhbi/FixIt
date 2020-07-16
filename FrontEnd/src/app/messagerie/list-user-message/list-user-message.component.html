@@ -5,8 +5,8 @@
         <div class="card" style="background-color: paleturquoise">
           <div class="card-header card-header-info">
             <h4 class="card-title">Message</h4>
-            <p class="card-category" *ngIf="isProfessionnel">list des professionnel</p>
-            <p class="card-category" *ngIf="!isProfessionnel">list des professionnel</p>
+            <p class="card-category" *ngIf="!isProfessionnel">list des professionnels</p>
+            <p class="card-category" *ngIf="isProfessionnel">list des demandeurs</p>
           </div>
           <div class="card-body">
             <div *ngFor="let user of listeUser">

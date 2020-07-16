@@ -21,16 +21,31 @@ export class ListUserMessageComponent implements OnInit {
     this.authService.getByUsr().subscribe((data) => {
       this.user = data[0];
       this.isProfessionnel = this.user.type == 'professionnel' ;
+      if(!this.isProfessionnel)
+        this.getListProfMessage();
+      else
+        this.getListDemandMessage();
     });
 
-    this.messageService.getAllMessage().subscribe((data) => {
-      this.listeUser = data;
-    });
   }
 
   showMsgList(user : User){
     this.showMessageList = true ;
     this.userMessage = user ;
+  }
+
+  getListProfMessage(){
+    console.log('this ius ' + this.user);
+    this.messageService.getAllMessage().subscribe((data) => {
+      this.listeUser = data;
+    });
+  }
+
+  getListDemandMessage(){
+    console.log('this ius ' + this.user);
+    this.messageService.getAllMessageFromDemandeur().subscribe((data) => {
+      this.listeUser = data;
+    });
   }
 
 
