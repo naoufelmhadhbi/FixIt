@@ -47,25 +47,25 @@ class Messagerie
     /**
      * @return string
      */
-    public function getFrom()
+    public function getMessagefrom()
     {
-        return $this->from;
+        return $this->messagefrom;
     }
 
     /**
      * @param string $from
      */
-    public function setFrom($from)
+    public function setMessagefrom($from)
     {
-        $this->from = $from;
+        $this->messagefrom = $from;
     }
 
     /**
      * @var string
      *
-     * @ORM\Column(name="from", type="string", length=255)
+     * @ORM\Column(name="messagefrom", type="string", length=255)
      */
-    private $from;
+    private $messagefrom;
 
     /**
      * @var bool

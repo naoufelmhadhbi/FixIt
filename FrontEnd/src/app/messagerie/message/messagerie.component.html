@@ -7,15 +7,15 @@
     <div class="card-body">
       <div style="margin-left: 200px">
       <mat-chip-list *ngFor="let p of messageUser; index as i">
-          <h6><label *ngIf="p.from != userConnected?.id" style="right: 30px;position: absolute;color: #fa4683;text-shadow: 2px 2px 4px #80b3b3;font-size: 10px;font-weight: bold">{{p.dateEnvoi}}</label></h6>
-          <mat-chip color="primary" selected *ngIf="p.from != userConnected?.id" style="margin-left: 50%;">{{p.message}}</mat-chip>
-          <mat-chip color="accent" selected *ngIf="p.from == userConnected?.id" style="margin-right: 10%;">{{p.message}}</mat-chip>
-          <h6><label *ngIf="p.from == userConnected?.id" style="left: 30px;position: absolute;color: #3f50b7;text-shadow: 2px 2px 4px #80b3b3;font-size: 10px;font-weight: bold">{{p.dateEnvoi}}</label></h6>
+          <h6><label *ngIf="p.messagefrom != userConnected?.id" style="right: 30px;position: absolute;color: #fa4683;text-shadow: 2px 2px 4px #80b3b3;font-size: 10px;font-weight: bold">{{p.dateEnvoi}}</label></h6>
+          <mat-chip color="primary" selected *ngIf="p.messagefrom != userConnected?.id" style="margin-left: 50%;">{{p.message}}</mat-chip>
+          <mat-chip color="accent" selected *ngIf="p.messagefrom == userConnected?.id" style="margin-right: 10%;">{{p.message}}</mat-chip>
+          <h6><label *ngIf="p.messagefrom == userConnected?.id" style="left: 30px;position: absolute;color: #3f50b7;text-shadow: 2px 2px 4px #80b3b3;font-size: 10px;font-weight: bold">{{p.dateEnvoi}}</label></h6>
       </mat-chip-list>
       </div>
       <mat-form-field class="example-form-field" class="col-xl-10">
         <mat-label>message input</mat-label>
-        <input matInput type="text" #value>
+        <input matInput type="text" #value id="messageInput">
       </mat-form-field>
       <button mat-button color="primary" (click)="sendMessage(value)"><i class="material-icons">send</i></button>
     </div>

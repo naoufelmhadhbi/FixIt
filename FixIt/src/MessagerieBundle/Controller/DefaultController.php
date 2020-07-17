@@ -34,12 +34,9 @@ class DefaultController extends Controller
     public function sendMessage(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        
-        $message = new Messagerie();
-        $message->setMessage($request->query->get('message'));
-        $message->setIdDemandeur($request->query->get('idDemandeur'));
-        $message->setIdProfessionnel($request->query->get('idProfessionnel'));
-        $message->setVu($request->query->get('vu'));
+        $data = $request->getContent();
+        $message = $this->get('jms_serializer')->deserialize($data, 'MessagerieBundle\Entity\Messagerie', 'json');
+        $message->setDateEnvoi(new \DateTime);
 
         $em->persist($message);
         $em->flush();

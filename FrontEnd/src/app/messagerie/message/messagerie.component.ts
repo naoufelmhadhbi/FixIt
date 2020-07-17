@@ -3,6 +3,7 @@ import {User} from "../../Model/user/User";
 import {Message} from "../../Model/Message";
 import {MessagerieService} from "../../../Services/MessagerieService/messagerie.service";
 import {AuthentificationServiceService} from "../../../Services/AuthentificationService/authentification-service.service";
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-messagerie',
@@ -40,6 +41,16 @@ export class MessagerieComponent implements OnInit , OnChanges{
 
   sendMessage(message){
       this.testmsg.push(message.value);
+      let messageTosend : Message = {idDemandeur : this.idDemandeur,message:message.value,idProfessionnel:this.idProfessionnel,dateEnvoi:new Date().toLocaleTimeString('it-IT').toString(),id:this.userConnected.id,messagefrom:this.userConnected.id.toString(),vu:true};
+      alert('eys ' + message.value);
+      this.messageService.sendMessage(message.value,this.idDemandeur,this.idProfessionnel,this.userConnected.id).subscribe((data)=>{
+        console.log('data insert ' + JSON.stringify(data));
+      });;
+      messageTosend.message = message.value ;
+      console.log('msg is ' + messageTosend.message) ;
+      this.messageUser.push(messageTosend);
+      document.getElementById('messageInput').value = "" ;
+      alert(new Date());
   }
 
   isProfessionnel(){
@@ -72,6 +83,7 @@ export class MessagerieComponent implements OnInit , OnChanges{
         i ++ ;
       });
     });
-  }}
+  }
+}
 
 }
