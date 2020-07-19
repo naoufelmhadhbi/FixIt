@@ -49,7 +49,7 @@ export class MessagerieComponent implements OnInit , OnChanges{
       messageTosend.message = message.value ;
       console.log('msg is ' + messageTosend.message) ;
       this.messageUser.push(messageTosend);
-      document.getElementById('messageInput').value = "" ;
+      //document.getElementById('messageInput').value = "" ;
       alert(new Date());
   }
 
