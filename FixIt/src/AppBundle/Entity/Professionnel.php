@@ -2,9 +2,11 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
+use PortfolioBundle\Entity\Deplacement;
 use PortfolioBundle\Entity\Metier;
 
 /**
@@ -15,6 +17,7 @@ use PortfolioBundle\Entity\Metier;
  */
 class Professionnel extends User
 {
+
     /**
      * @var int
      *
@@ -48,21 +51,35 @@ class Professionnel extends User
      *      )
      */
     protected $id_metier;
-    
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->id_metier = new ArrayCollection();
+        $this->id_deplacement = new ArrayCollection();
+    }
+
     /**
-     * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Deplacement")
+     * @ORM\ManyToMany(targetEntity="PortfolioBundle\Entity\Deplacement", inversedBy="id_prof", cascade={"persist", "remove"})
      * @JoinTable(name="deplacement_professionnel",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="deplacement_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@JoinColumn(name="id_deplacement", referencedColumnName="id")}
      *      )
      */
     protected $id_deplacement;
+
 
 
     public function addMetiers(Metier $metier)
     {
         $this->id_metier[] = $metier;
     }
+
+    public function addDeplacement(Deplacement $deplacement)
+    {
+        $this->id_deplacement[] = $deplacement;
+    }
+
     public function removeMetier(Metier $metier)
     {
         if (!$this->id_metier->contains($metier)) {
@@ -72,11 +89,15 @@ class Professionnel extends User
         $metier->removeProfessionnel($this);
     }
 
-    public function removeScientistGenus(Metier $metier)
+    public function removeProfMetier(Metier $metier)
     {
         $this->id_metier->removeElement($metier);
     }
 
+    public function removeProfDep(Deplacement $deplacement)
+    {
+        $this->id_deplacement->removeElement($deplacement);
+    }
     /**
      * @return mixed
      */
@@ -177,5 +198,42 @@ class Professionnel extends User
         return(string)$this->getDescription(); //(string) pour caster
 
     }
+
+    public function setMetier($id_metier) {
+        foreach($this->id_metier as $id => $metier) {
+            if(!isset($id_metier[$id])) {
+                //remove from old because it doesn't exist in new
+                $this->id_metier->remove($id);
+            }
+            else {
+                //the product already exists do not overwrite
+                unset($id_metier[$id]);
+            }
+        }
+
+        //add products that exist in new but not in old
+        foreach($id_metier as $id => $metier) {
+            $this->id_metier[$id] = $metier;
+        }
+    }
+
+    public function setDeplacement($id_deplacement) {
+        foreach($this->id_deplacement as $id => $deplacement) {
+            if(!isset($id_deplacement[$id])) {
+                //remove from old because it doesn't exist in new
+                $this->id_deplacement->remove($id);
+            }
+            else {
+                //the product already exists do not overwrite
+                unset($id_deplacement[$id]);
+            }
+        }
+
+        //add products that exist in new but not in old
+        foreach($id_deplacement as $id => $deplacement) {
+            $this->id_deplacement[$id] = $deplacement;
+        }
+    }
+
 }
 

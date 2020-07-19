@@ -37,3 +37,8 @@ services:
     AppBundle\UserServices\UserService:
         public: true
         arguments: [ '@doctrine.orm.entity_manager' ]
+
+
+    PortfolioBundle\Controller\DefaultController:
+        autowire: true
+        tags: ['controller.service_arguments']

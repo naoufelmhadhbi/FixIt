@@ -2,6 +2,7 @@
 
 namespace PublicationBundle\Controller;
 
+use AppBundle\Entity\User;
 use PublicationBundle\Entity\Publication;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -12,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Publication controller.
  *
- * @Route("publication")
+ * @Route("/publication")
  */
 class PublicationController extends Controller
 {
@@ -133,4 +134,26 @@ class PublicationController extends Controller
             ->setMethod('DELETE')
             ->getForm();
     }
+
+    /**
+     * @Route("/addPublication/{id_prof}/{id_publication}", name="add_publication")
+     * @Method("POST")
+     */
+    public function postulerAction($id_prof, $id_publication)
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $prof = $em->getRepository(User::class)->find($id_prof);
+        $pub = $em->getRepository(Publication::class)->find($id_publication);
+
+        $prof->addPublication($pub);
+
+        $em->flush();
+
+
+        return new Response('Publication added successfully', 201);
+    }
+
+
 }
