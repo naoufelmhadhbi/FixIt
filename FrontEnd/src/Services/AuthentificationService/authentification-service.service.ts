@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
 })
 export class AuthentificationServiceService {
 
-  host: string = 'http://localhost:8000';
+  host = 'http://localhost:8000';
   options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
@@ -19,6 +19,7 @@ export class AuthentificationServiceService {
   };
   body = new URLSearchParams();
   jwt: string;
+  id: string;
   username: string;
   roles: Array<string>;
   private user: User;
@@ -49,13 +50,20 @@ export class AuthentificationServiceService {
     this.jwt = token;
     this.decodeJwt(token);
   }
+  saveIdUser(username: string) {
+    this.user.id = this.getUserByUsername(username).id;
+    localStorage.setItem('UserId', String(this.getUserByUsername(username).id));
+   // localStorage.setItem('UserId', "aaaaaaaaaaaaa");
+
+  }
+
 
   decodeJwt(token) {
     var decoded = jwt_decode(token);
     console.log(decoded);
     this.username = decoded['username'];
     this.roles = decoded['roles'];
-    console.log('uuuuuuuser' + this.username + this.roles)
+    console.log('uuuuuuuser' + this.username + this.roles);
   }
 
   getUsernameFromToken(token){
@@ -81,13 +89,14 @@ export class AuthentificationServiceService {
 
   logout() {
     localStorage.removeItem('JwtToken');
+    localStorage.removeItem('UserId');
     this.username = undefined;
     this.jwt = undefined;
     this.roles = undefined;
   }
 
-  getUserByUsername() {
-    this.http.get(this.host + '/getByUsername/' + this.username).subscribe((data : User) => {
+  getUserByUsername(username) {
+    this.http.get(this.host + '/getByUsername/' + username).subscribe((data: User) => {
       console.log(data);
       console.log(data[0]['username']);
       //this.user.username = data[0]['username'] ;
@@ -100,8 +109,9 @@ export class AuthentificationServiceService {
   }
 
   getByUsr(): Observable<User>{
-    if(this.username == undefined || this.username == null)
+    if (this.username === undefined || this.username === null) {
       this.username = this.getUsernameFromToken(localStorage.getItem('JwtToken'));
+    }
     return this.http.get<User>(this.host + '/getByUsername/' + this.username);
   }
 

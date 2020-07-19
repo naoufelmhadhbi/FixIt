@@ -124,5 +124,6 @@ class Demandeur extends User
     {
         return $this->codePostal;
     }
+
 }
 

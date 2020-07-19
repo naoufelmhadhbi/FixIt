@@ -26,7 +26,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   isProfessionnel() {
-    return this.user.type == 'professionnel' ;
+    return this.user.type === 'professionnel' ;
   }
 
 }

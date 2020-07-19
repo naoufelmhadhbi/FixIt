@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
 use PortfolioBundle\Entity\Deplacement;
 use PortfolioBundle\Entity\Metier;
+use PublicationBundle\Entity\Publication;
 
 /**
  * Professionnel
@@ -78,6 +79,10 @@ class Professionnel extends User
     public function addDeplacement(Deplacement $deplacement)
     {
         $this->id_deplacement[] = $deplacement;
+    }
+    public function addPublication(Publication $deplacement)
+    {
+        $this->id_pub[] = $deplacement;
     }
 
     public function removeMetier(Metier $metier)

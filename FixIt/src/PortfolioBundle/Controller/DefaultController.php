@@ -228,16 +228,20 @@ class DefaultController extends Controller
 
 //        $prof = $em->getRepository(User::class)->find($id_prof)->getMetier();
         $prof = $em->getRepository(User::class)->find($id_prof);
+        $i = 1;
         foreach ($prof->getIdMetier() as $metier) {
-            echo $metier->getNom() . '<br>';
+               $tab[] =  $metier->getNom() ;
+                // $array[$metier] = $metier->getNom() [$i++];
+
         }
 
 //        $table = $images->getArrayResult();
-//        $data = $this->get('jms_serializer')->serialize($prof, 'json');
-//            $response = new Response($data);
-//            return $response;
+        $data = $this->get('jms_serializer')->serialize($tab, 'json');
+            $response = new Response($data);
+            return $response;
 
-        return new JsonResponse($metier);
+
+//        return new JsonResponse($prof->getIdMetier());
     }
 
     /**
