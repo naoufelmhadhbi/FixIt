@@ -3,7 +3,7 @@ import {User} from "../../Model/user/User";
 import {Message} from "../../Model/Message";
 import {MessagerieService} from "../../../Services/MessagerieService/messagerie.service";
 import {AuthentificationServiceService} from "../../../Services/AuthentificationService/authentification-service.service";
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+
 
 @Component({
   selector: 'app-messagerie',
