@@ -1,42 +1,37 @@
-publication_publication:
+publication:
     resource: "@PublicationBundle/Controller/PublicationController.php"
     type:     annotation
 
 app_demandeur:
-    resource: "@AppBundle/Controller/DemandeurController.php"
-    type:     annotation
+  resource: "@AppBundle/Controller/DemandeurController.php"
+  type:     annotation
 
 porfolio:
-    resource: "@PortfolioBundle/Controller/"
-    type:     annotation
-    prefix:   /
+  resource: "@PortfolioBundle/Controller/"
+  type:     annotation
+  prefix:   /
 
 messagerie:
-    resource: "@MessagerieBundle/Controller/"
-    type:     annotation
-    prefix:   /
+  resource: "@MessagerieBundle/Controller/"
+  type:     annotation
+  prefix:   /
 
 evaluation:
-    resource: "@EvaluationBundle/Controller/"
-    type:     annotation
-    prefix:   /
+  resource: "@EvaluationBundle/Controller/"
+  type:     annotation
+  prefix:   /
 
 reclamation:
-    resource: "@ReclamationBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-publication:
-    resource: "@PublicationBundle/Controller/"
-    type:     annotation
-    prefix:   /
+  resource: "@ReclamationBundle/Controller/"
+  type:     annotation
+  prefix:   /
 
 app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+  resource: '@AppBundle/Controller/'
+  type: annotation
 
 api_login_check:
-    path: /api/login_check
+  path: /api/login_check
 
 fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+  resource: "@FOSUserBundle/Resources/config/routing/all.xml"
