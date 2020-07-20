@@ -346,34 +346,67 @@ class DefaultController extends Controller
 }
 
     /**
-     * @Route("/getAllUsrByMet/{id}", name="listUserMett")
+     * @Route("/getAllProfessionnel", name="listAllProf")
      */
-    public function getAllUserByMetier(Request $request,$id){
+    public function getAllProfessionnel(){
         $em = $this->getDoctrine()->getManager();
-        $metierId = $id;
-        $this->container->get('logger')->info(
-            sprintf("le contenu de dep est: %s", $metierId)
-        );
-
-        $repository = $em->getRepository('AppBundle:Professionnel');
-        $tags = $repository->createQueryBuilder('t')
-            ->select('c.id as depId, t.id as profId, t.username as utilisateur')
-            ->innerJoin('t.id_deplacement', 'c')
-            ->where('c.id = :prof_id')
-            ->setParameter('prof_id', $metierId)
-            ->getQuery()
-            ->getResult();
-
-        if (empty($tags)) {
+        $query = $em->createQuery('SELECT c FROM AppBundle:Professionnel c');
+        $users = $query->getArrayResult();
+        if (empty($users)) {
             $response = array(
                 'code' => 1,
-                'message' => 'metier Not found !',
+                'message' => 'User Not found !',
                 'errors' => null,
                 'result' => null
             );
             return new JsonResponse($response, Response::HTTP_NOT_FOUND);
         }
-        return new JsonResponse($tags);
+        return new JsonResponse($users);
     }
+
+    /**
+     * @Route("/getAllDemandeur", name="listAllDemand")
+     */
+    public function getAllDemandeur(){
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT c FROM AppBundle:Demandeur c');
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
+    }
+
+    /**
+     * @Route("/getUserById/{idprof}", name="userbyId")
+     */
+    public function  getUserById($idprof){
+
+        $em = $this->getDoctrine()->getManager();
+        $prof = $em->getRepository(Professionnel::class)->find($idprof);
+
+        if (empty($prof)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $this->get('jms_serializer')->serialize($prof, 'json');
+        $response = new Response($data);
+        return $response;
+       // return  new JsonResponse(json_encode( (array)$prof ));
+    }
+
+
 
 }

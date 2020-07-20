@@ -40,4 +40,22 @@
     </div>
   </div>
 </div>
+<br>
+
+<div class="row" style="padding-right: 10%">
+<div *ngFor="let feed of feedBackList">
+<div class="card border-primary m-4" style="width: 22rem;margin: 20%;padding: 10%">
+  <div class="card-body">
+    <h5 class="card-title">{{feed.nom}} {{feed.prenom}}</h5>
+    <div class="row" style="margin: 0;position: absolute;top: 20%;left: 50%;margin-right: -50%;transform: translate(-50%, -50%)">
+    <h6 class="card-subtitle mb-2 text-muted" *ngFor="let s of getarray(feed.recommandation)">
+      <i class="material-icons" style="color: orange">star</i>
+    </h6>
+    </div>
+    <p class="card-text" style="font-family: 'Times New Roman', Times, serif;font-size: 24px;color:red">{{feed.description}}</p>
+  </div>
+</div>
+</div>
+</div>
+<br>
 <!-- //banner-slider -->

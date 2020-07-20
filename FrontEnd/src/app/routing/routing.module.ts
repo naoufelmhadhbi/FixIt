@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {UserProfileComponent} from "../user-profile/user-profile.component";
 import {UserInterfaceComponent} from "../user-interface/user-interface.component";
-import {MessagerieComponent} from "../messagerie/messagerie.component";
+import {MessagerieComponent} from "../messagerie/message/messagerie.component";
+import {ListUserMessageComponent} from "../messagerie/list-user-message/list-user-message.component";
 import {RouterModule, Routes} from "@angular/router";
 import {AccueilComponent} from "../accueil/accueil.component";
 import {PublicationsComponent} from '../publications/publications.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
       children: [
         { path: 'messagerie', component: MessagerieComponent },
         { path: 'userProfile', component:  UserProfileComponent},
-        { path: 'publications', component:  PublicationsComponent},
+        { path: 'publications', component:  PublicationsComponent },
+        { path: 'messagerieUser', component:   ListUserMessageComponent},
 
       ]
   },

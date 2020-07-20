@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MessagerieComponent } from './messagerie/messagerie.component';
+import { MessagerieComponent } from './messagerie/message/messagerie.component';
 import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
 import { PublicationsComponent } from './publications/publications.component';
@@ -17,6 +17,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { UserInterfaceComponent } from './user-interface/user-interface.component';
+import { ListUserMessageComponent } from './messagerie/list-user-message/list-user-message.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UserInterfaceComponent } from './user-interface/user-interface.componen
     UserProfileComponent,
     AccueilComponent,
     MessagerieComponent,
-    UserInterfaceComponent
+    UserInterfaceComponent,
+    ListUserMessageComponent
   ],
   imports: [
     BrowserModule,

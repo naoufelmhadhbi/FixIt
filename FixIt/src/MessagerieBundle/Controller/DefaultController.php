@@ -34,12 +34,9 @@ class DefaultController extends Controller
     public function sendMessage(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        
-        $message = new Messagerie();
-        $message->setMessage($request->query->get('message'));
-        $message->setIdDemandeur($request->query->get('idDemandeur'));
-        $message->setIdProfessionnel($request->query->get('idProfessionnel'));
-        $message->setVu($request->query->get('vu'));
+        $data = $request->getContent();
+        $message = $this->get('jms_serializer')->deserialize($data, 'MessagerieBundle\Entity\Messagerie', 'json');
+        $message->setDateEnvoi(new \DateTime);
 
         $em->persist($message);
         $em->flush();
@@ -56,13 +53,13 @@ class DefaultController extends Controller
         $idProfessionnel = $request->query->get('id_professionnel') ;
         $em = $this->getDoctrine()->getManager();
 
-        $query = $em->createQuery('SELECT c FROM MessagerieBundle:Messagerie c');
-        if($idDemandeur != null)
-            $query = $em->createQuery('SELECT c FROM MessagerieBundle:Messagerie c where c.idDemandeur = '.$idDemandeur);
-        if($idProfessionnel != null)
-            $query = $em->createQuery('SELECT c FROM MessagerieBundle:Messagerie c where c.idProfessionnel = '.$idProfessionnel);
-        if($idProfessionnel != null && $idDemandeur != null)
-            $query = $em->createQuery('SELECT c FROM MessagerieBundle:Messagerie c where c.idProfessionnel = '.$idProfessionnel.' and c.idDemandeur = '.$idDemandeur);
+//        $query = $em->createQuery('SELECT c FROM MessagerieBundle:Messagerie c');
+//        if($idDemandeur != null)
+//            $query = $em->createQuery('SELECT c FROM MessagerieBundle:Messagerie c where c.idDemandeur = '.$idDemandeur);
+//        if($idProfessionnel != null)
+//            $query = $em->createQuery('SELECT c FROM MessagerieBundle:Messagerie c where c.idProfessionnel = '.$idProfessionnel);
+//        if($idProfessionnel != null && $idDemandeur != null)
+            $query = $em->createQuery("SELECT c FROM MessagerieBundle:Messagerie c where c.idProfessionnel = '".$idProfessionnel."' and c.idDemandeur = '".$idDemandeur."'");
 
         $users = $query->getArrayResult();
         if (empty($users)) {
@@ -74,15 +71,34 @@ class DefaultController extends Controller
             );
             return new JsonResponse($response, Response::HTTP_NOT_FOUND);
         }
-        $response = new Response();
-        $response->setContent(json_encode($users));
-        $response->headers->set('Content-Type', 'application/json');
+        //$response = new Response();
+        //$response->setContent(json_encode($users));
+        //$response->headers->set('Content-Type', 'application/json');
     // Allow all websites
-        $response->headers->set('Access-Control-Allow-Origin', '*');
+        //$response->headers->set('Access-Control-Allow-Origin', '*');
         //$users->header->set('Access-Control-Allow-Origin', '*');
-        return $response;//new JsonResponse($users);
+        return new JsonResponse($users); // $response
     }
 
+    /**
+     * @Route("/getAllUseri", name="listAllUSERi")
+     */
+    public function getAllUseri(){
+        $em = $this->getDoctrine()->getManager();
+            $query = $em->createQuery('SELECT m FROM AppBundle:Professionnel c , MessagerieBundle:Messagerie m 
+            where m.idProfessionnel = c.id');
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
+    }
 
 
 }

@@ -45,6 +45,29 @@ class Messagerie
     private $idProfessionnel;
 
     /**
+     * @return string
+     */
+    public function getMessagefrom()
+    {
+        return $this->messagefrom;
+    }
+
+    /**
+     * @param string $from
+     */
+    public function setMessagefrom($from)
+    {
+        $this->messagefrom = $from;
+    }
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="messagefrom", type="string", length=255)
+     */
+    private $messagefrom;
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="vu", type="boolean")
