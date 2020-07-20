@@ -383,6 +383,30 @@ class DefaultController extends Controller
         return new JsonResponse($users);
     }
 
+    /**
+     * @Route("/getUserById/{idprof}", name="userbyId")
+     */
+    public function  getUserById($idprof){
+
+        $em = $this->getDoctrine()->getManager();
+        $prof = $em->getRepository(Professionnel::class)->find($idprof);
+
+        if (empty($prof)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $this->get('jms_serializer')->serialize($prof, 'json');
+        $response = new Response($data);
+        return $response;
+       // return  new JsonResponse(json_encode( (array)$prof ));
+    }
+
 
 
 }

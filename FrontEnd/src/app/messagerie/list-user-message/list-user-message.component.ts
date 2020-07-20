@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthentificationServiceService} from "../../../Services/AuthentificationService/authentification-service.service";
+import {AuthentificationServiceService} from '../../../Services/AuthentificationService/authentification-service.service';
 import {User} from "../../Model/user/User";
 import {MessagerieService} from "../../../Services/MessagerieService/messagerie.service";
 
@@ -9,7 +9,7 @@ import {MessagerieService} from "../../../Services/MessagerieService/messagerie.
   styleUrls: ['./list-user-message.component.css']
 })
 export class ListUserMessageComponent implements OnInit {
-  color : string = "red" ;
+  color = "red" ;
   showMessageList : boolean ;
   user : User;
   userMessage : User ;

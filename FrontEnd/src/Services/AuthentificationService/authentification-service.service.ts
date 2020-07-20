@@ -33,13 +33,13 @@ export class AuthentificationServiceService {
 
   register(data) {
     console.log('user IS ' + data['username'] + ' Pass IS ' + data['password']);
-    let jsn =  {
-      "username" : "sont",
-      "password" : "azerty" ,
-      "email" : "Ibenjawballah@spb.eu",
-      "type" : "demandeur"
+    let jsn = {
+      "username": "sont",
+      "password": "azerty",
+      "email": "Ibenjawballah@spb.eu",
+      "type": "demandeur"
     };
-    console.log("JSN "+jsn);
+    console.log("JSN " + jsn);
     console.log('with JSN ' + JSON.stringify(data));
     return this.http.post(this.host + '/add', data, this.optionsRegister);
   }
@@ -58,9 +58,9 @@ export class AuthentificationServiceService {
     console.log('uuuuuuuser' + this.username + this.roles)
   }
 
-  getUsernameFromToken(token){
+  getUsernameFromToken(token) {
     var decoded = jwt_decode(token);
-     return decoded['username'];
+    return decoded['username'];
   }
 
   isAdmin() {
@@ -87,7 +87,7 @@ export class AuthentificationServiceService {
   }
 
   getUserByUsername() {
-    this.http.get(this.host + '/getByUsername/' + this.username).subscribe((data : User) => {
+    this.http.get(this.host + '/getByUsername/' + this.username).subscribe((data: User) => {
       console.log(data);
       console.log(data[0]['username']);
       //this.user.username = data[0]['username'] ;
@@ -96,17 +96,21 @@ export class AuthentificationServiceService {
       // this.user.sexe = data[0]['sexe'] ;
       //console.log("user   est "+this.user);
     });
-    return this.user ;
+    return this.user;
   }
 
-  getByUsr(): Observable<User>{
-    if(this.username == undefined || this.username == null)
+  getByUsr(): Observable<User> {
+    if (this.username == undefined || this.username == null)
       this.username = this.getUsernameFromToken(localStorage.getItem('JwtToken'));
     return this.http.get<User>(this.host + '/getByUsername/' + this.username);
   }
 
-  getAllUser(): Observable<User>{
+  getAllUser(): Observable<User> {
     return this.http.get<User>(this.host + '/getAllUsr');
   }
 
-}
+  getUserById(idProf): Observable<User> {
+    return this.http.get<User>('http://127.0.0.1:8000/getUserById/' + idProf);
+  }
+
+  }
