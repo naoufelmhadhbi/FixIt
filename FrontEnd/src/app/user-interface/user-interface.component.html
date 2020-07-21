@@ -38,13 +38,13 @@
             <p>Dashboard</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="./user.html">
+        <li class="nav-item " routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/userProfile']">
             <i class="material-icons">person</i>
             <p>User Profile</p>
           </a>
         </li>
-        <li class="nav-item active ">
+        <li class="nav-item">
           <a class="nav-link" href="./tables.html">
             <i class="material-icons">content_paste</i>
             <p>Mes demandes</p>
@@ -74,8 +74,8 @@
             <p>Mes professions</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" [routerLink]="['/messagerie']">
+        <li class="nav-item " routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/messagerieUser']">
             <i class="material-icons">report</i>
             <p>Réclamation</p>
           </a>

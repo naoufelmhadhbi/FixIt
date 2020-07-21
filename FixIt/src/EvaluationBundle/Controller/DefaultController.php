@@ -76,4 +76,24 @@ class DefaultController extends Controller
 
         return new JsonResponse($result);
     }
+
+    /**
+     * @Route("/getFeedBachByUserId/{idprof}", name="getFeedBachByUserId")
+     */
+    public function getFeedBachByUserId($idprof){
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('SELECT m FROM EvaluationBundle:FeedBack m where m.idProf = '.$idprof);
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
+    }
+
 }

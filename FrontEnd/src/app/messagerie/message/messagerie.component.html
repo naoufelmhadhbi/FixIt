@@ -17,7 +17,8 @@
         <mat-label>message input</mat-label>
         <input matInput type="text" #value id="messageInput">
       </mat-form-field>
-      <button mat-button color="primary" (click)="sendMessage(value)"><i class="material-icons">send</i></button>
+      <button mat-button color="primary" (click)="sendMessage(value)" [disabled]="value.value == ''"><i class="material-icons">send</i></button>
+      <button mat-button><i class="material-icons" (click)="chargeMessage()" >refresh</i></button>
     </div>
   </div>
 </div>

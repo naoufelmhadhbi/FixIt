@@ -3,6 +3,7 @@ import {FeedBackService} from '../../Services/FeedBack/feed-back.service';
 import {FeedBack} from '../Model/FeedBack';
 import {AuthentificationServiceService} from "../../Services/AuthentificationService/authentification-service.service";
 import {User} from "../Model/user/User";
+import { FeedBackProf } from '../Model/FeedBackProf';
 
 @Component({
   selector: 'app-slider',
@@ -13,6 +14,7 @@ export class SliderComponent implements OnInit {
 
   feedBackList: FeedBack [] = [];
   user: User ;
+  feedBackProf: FeedBackProf [] = [] ;
   constructor(private feedBackService: FeedBackService, private  authentificationService: AuthentificationServiceService) {
   }
 
@@ -41,12 +43,15 @@ export class SliderComponent implements OnInit {
   }
 
   getProfNameById(idProf) {
-    this.authentificationService.getUserById(idProf).subscribe(data => {
-      console.log('name is ' + this.user.username);
-      this.user = data;
-      return this.user.username ;
-      // console.log('name is ' + this.user.username);
+    this.feedBackService.getFeedBackByUserId(idProf).subscribe(data => {
+      this.feedBackProf = data;
+      console.log('name is 2' + this.user.username);  
     });
+  }
+
+  showAvis(){
+    debugger
+    console.log('ysssss');
   }
 
 }

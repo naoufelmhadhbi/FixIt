@@ -52,7 +52,6 @@ export class MessagerieComponent implements OnInit, OnChanges {
       messagefrom: this.userConnected.id.toString(),
       vu: true
     };
-    alert('eys ' + message.value);
     this.messageService.sendMessage(message.value, this.idDemandeur, this.idProfessionnel, this.userConnected.id).subscribe((data) => {
       console.log('data insert ' + JSON.stringify(data));
     });
@@ -60,8 +59,8 @@ export class MessagerieComponent implements OnInit, OnChanges {
     messageTosend.message = message.value;
     console.log('msg is ' + messageTosend.message);
     this.messageUser.push(messageTosend);
+    message.value = "" ;
     //document.getElementById('messageInput').value = "" ;
-    alert(new Date());
   }
 
   isProfessionnel() {
@@ -94,6 +93,10 @@ export class MessagerieComponent implements OnInit, OnChanges {
         });
       });
     }
+  }
+
+  chargeMessage(){
+    this.getConnecterUserMessage(this.userConnected, this.filsProperty);
   }
 
 }
