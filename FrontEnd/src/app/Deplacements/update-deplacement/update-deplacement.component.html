@@ -1,0 +1,9 @@
+<h3>Modifier la déplacement {{deplacement[0].gouvernorat}}</h3>
+<div class="form-group">
+  <select class="form-control"  style="height: 70%; width: 50%" #place (change)="changePlace($event)">
+    <option *ngFor="let dep of deps" value="{{dep.id}}">{{dep.gouvernorat}}</option>
+  </select>
+
+  <button class="btn btn-success" (click)="place.click()">Modifier</button>
+
+</div>

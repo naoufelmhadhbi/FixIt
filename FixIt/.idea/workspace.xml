@@ -20,18 +20,137 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8d44ebe-7d32-41e9-8cbd-9729a74dbc66" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/testjwt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/testjwt.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Model/Deplacement.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Model/Metier.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Model/Portfolio.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/css/rotating-card.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/css/util.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/Lato-Black.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/Lato-BlackItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/Lato-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/Lato-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/Lato-Hairline.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/Lato-HairlineItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/Lato-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/Lato-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/Lato-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/Lato-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/Lato/OFL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-ExtraBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-Regular.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/OpenSans/OpenSans-SemiBoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/animated.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/core.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/icons.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/larger.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/list.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/path.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/less/variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-Black.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-BlackItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-ExtraBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-ExtraBoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-ExtraLight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-ExtraLightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-MediumItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-SemiBoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-Thin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/Montserrat-ThinItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/fonts/montserrat/OFL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/images/icons/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/animate/animate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/js/popper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/js/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/bootstrap/js/tooltip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/jquery/jquery-3.2.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/perfect-scrollbar/perfect-scrollbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/select2/select2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/select2/select2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/select2/select2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/assets/vendor/select2/select2.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" beforeDir="false" afterPath="$PROJECT_DIR$/bin/symfony_requirements" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Professionnel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Professionnel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PortfolioBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PortfolioBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PortfolioBundle/Entity/Deplacement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PortfolioBundle/Entity/Deplacement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PortfolioBundle/Entity/Metier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PortfolioBundle/Entity/Metier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PortfolioBundle/Entity/deplacement_professionnel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PortfolioBundle/Entity/Portfolio.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PortfolioBundle/Entity/Portfolio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/Services/AuthentificationService/authentification-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/Services/AuthentificationService/authentification-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/Model/user/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Model/user/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/routing/routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/routing/routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/user-interface/user-interface.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/user-interface/user-interface.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/user-interface/user-interface.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/user-interface/user-interface.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/user-profile/user-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/user-profile/user-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/user-profile/user-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/user-profile/user-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +240,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -176,7 +295,21 @@
       <workItem from="1593342029227" duration="29972000" />
       <workItem from="1594338029886" duration="1087000" />
       <workItem from="1594339184007" duration="305000" />
-      <workItem from="1594417633865" duration="5658000" />
+      <workItem from="1594417633865" duration="5998000" />
+      <workItem from="1594565571877" duration="45000" />
+      <workItem from="1594565654572" duration="2326000" />
+      <workItem from="1594673724041" duration="3404000" />
+      <workItem from="1594765018812" duration="1828000" />
+      <workItem from="1594932405336" duration="781000" />
+      <workItem from="1595000838644" duration="2082000" />
+      <workItem from="1595019520873" duration="2063000" />
+      <workItem from="1595153429331" duration="11239000" />
+      <workItem from="1595234454647" duration="7300000" />
+      <workItem from="1595284110200" duration="720000" />
+      <workItem from="1595341605147" duration="1795000" />
+      <workItem from="1595343912716" duration="6788000" />
+      <workItem from="1595362283022" duration="262000" />
+      <workItem from="1595415544234" duration="11484000" />
     </task>
     <servers />
   </component>
@@ -196,10 +329,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="507" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1593366650093">
+    <state x="327" y="27" key="#CLI_Interpreters" timestamp="1595435467737">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="507" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1593366650093" />
+    <state x="327" y="27" key="#CLI_Interpreters/0.0.1366.728@0.0.1366.728" timestamp="1595435467737" />
+    <state x="275" y="4" key="#Plugins" timestamp="1595344227720">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="4" key="#Plugins/0.0.1366.728@0.0.1366.728" timestamp="1595344227720" />
+    <state x="507" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1595360147831">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="507" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1595360147831" />
     <state x="570" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1592264332945" />
     <state x="523" y="19" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592261206423">
       <screen x="0" y="0" width="1536" height="824" />
@@ -222,10 +363,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="493" y="303" key="ComposerCompositePathDialog/0.0.1536.824@0.0.1536.824" timestamp="1592772568921" />
-    <state x="488" y="150" key="FileChooserDialogImpl" timestamp="1594424042702">
+    <state x="488" y="150" key="FileChooserDialogImpl" timestamp="1595362306314">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="150" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1594424042702" />
+    <state x="488" y="150" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1595362306314" />
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592774256141" />
     <state x="624" y="299" key="FrameworkEditDialogDimensionKey" timestamp="1592773924724">
       <screen x="0" y="0" width="1536" height="824" />
@@ -251,18 +392,23 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="489" y="246" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1592759047564" />
-    <state x="279" y="57" key="SettingsEditor" timestamp="1592774264668">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="248" y="17" key="SettingsEditor" timestamp="1595435487848">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="248" y="17" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1595435487848" />
     <state x="279" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592774264668" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1595172881200">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1595172881200" />
     <state x="583" y="314" key="SymfonyPathDialog" timestamp="1592774258972">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="583" y="314" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1592774258972" />
-    <state x="378" y="165" width="598" height="599" key="run.anything.popup" timestamp="1593381035371">
+    <state x="378" y="165" width="598" height="599" key="run.anything.popup" timestamp="1595435273407">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="165" width="598" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593381035371" />
+    <state x="378" y="165" width="598" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1595435273407" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1592942267726" />
   </component>
 </project>

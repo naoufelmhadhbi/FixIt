@@ -36,6 +36,29 @@ class Portfolio
      */
     private $image;
 
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=255)
+     */
+    private $description;
+
 
     /**
      * Get id

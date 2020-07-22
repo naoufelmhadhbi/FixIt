@@ -313,11 +313,31 @@ class DefaultController extends Controller
         return new JsonResponse($users);
     }
 
+    /**
+     * @Route("/getById/{id}", name="IdUser")
+     */
+    public function showById(Request $request,$id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT c FROM AppBundle:User c where c.id = '".$id."'");
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
+    }
+
 
     /**
     * @Route("/getAllUsrByDep/{id}", name="listUserDept")
     */
-    public function getAllUserBydeplacemeny(Request $request,$id){
+    public function getAllUserBydeplacement(Request $request,$id){
         $em = $this->getDoctrine()->getManager();
         $deplacementId = $id;
         $this->container->get('logger')->info(

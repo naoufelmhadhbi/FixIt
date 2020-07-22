@@ -20,6 +20,7 @@ export class AuthentificationServiceService {
   body = new URLSearchParams();
   jwt: string;
   username: string;
+  identifier: string;
   roles: Array<string>;
   private user: User;
 
@@ -63,6 +64,11 @@ export class AuthentificationServiceService {
      return decoded['username'];
   }
 
+  getIdFromToken(token){
+    var decoded = jwt_decode(token);
+    return decoded['id'];
+  }
+
   isAdmin() {
     return this.roles != undefined && this.roles.indexOf('ADMIN') > 0;
   }
@@ -103,6 +109,12 @@ export class AuthentificationServiceService {
     if(this.username == undefined || this.username == null)
       this.username = this.getUsernameFromToken(localStorage.getItem('JwtToken'));
     return this.http.get<User>(this.host + '/getByUsername/' + this.username);
+  }
+
+  getById(): Observable<User>{
+    if(this.identifier == undefined || this.identifier == null)
+      this.identifier = this.getIdFromToken(localStorage.getItem('JwtToken'));
+    return this.http.get<User>(this.host + '/getById/' + this.identifier);
   }
 
   getAllUser(): Observable<User>{

@@ -1,0 +1,9 @@
+<router-outlet></router-outlet>
+<h1>Liste des métiers</h1>
+<div class="row">
+  <div class="col-md-6 col-sm-4">
+    <app-list-metier    (ListToMet)="selectionner($event)" [MetToList]="metier"></app-list-metier>
+  </div>
+
+</div>
+

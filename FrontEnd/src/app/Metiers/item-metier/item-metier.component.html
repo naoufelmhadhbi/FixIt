@@ -1,0 +1,5 @@
+<li class="list-group-item" (click)="selected()" style="font-size: x-large">
+  {{ListToItem.nom}}
+  <button class="btn btn-primary float-right" (click)="update(ListToItem.id)">Modifier</button>
+  <button class="btn btn-danger float-right" (click)="delete(ListToItem.id)">Supprimer</button>
+</li>

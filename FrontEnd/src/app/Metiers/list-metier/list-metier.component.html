@@ -1,0 +1,10 @@
+<ol class="list-group">
+  <app-item-metier
+    *ngFor="let met of MetToList"
+    (ItemToList)="selectionner($event)"
+    [ListToItem]="met"
+  >
+
+  </app-item-metier>
+
+</ol>

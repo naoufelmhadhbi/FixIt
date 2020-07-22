@@ -44,14 +44,56 @@
             <p>User Profile</p>
           </a>
         </li>
-        <li class="nav-item active ">
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['/AddImage']">
+            <i class="material-icons">add_to_photos</i>
+            <p>Ajouter image</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['/portfolio']">
+            <i class="material-icons">slideshow</i>
+            <p>Portfolio</p>
+          </a>
+        </li>
+        <li [ngClass]="isActiveDeplacement" >
+          <a  class="nav-link" [routerLink]="['/AddDeplacement']">
+            <i class="material-icons">add_location_alt</i>
+            <p>Ajouter Deplacement</p>
+          </a>
+        </li>
+        <li [ngClass]="isActiveDeplacement" >
+          <a  class="nav-link" [routerLink]="['/deplacement']">
+            <i class="material-icons">place</i>
+            <p>Deplacement</p>
+          </a>
+        </li>
+        <li [ngClass]="isActiveDeplacement" >
+          <a  class="nav-link" [routerLink]="['/AddMetier']">
+            <i class="material-icons">enhanced_encryption</i>
+            <p>Ajouter Metier</p>
+          </a>
+        </li>
+        <li [ngClass]="isActiveDeplacement" >
+          <a  class="nav-link" [routerLink]="['/metier']">
+            <i class="material-icons">work</i>
+            <p>Metier</p>
+          </a>
+        </li>
+        <li [ngClass]="isActiveReclamation"  >
+          <a class="nav-link" [routerLink]="['/reclamation']">
+            <i class="material-icons">report</i>
+            <p>Reclamation</p>
+          </a>
+        </li>
+        <li class="nav-item ">
           <a class="nav-link" href="./tables.html">
             <i class="material-icons">content_paste</i>
             <p>Mes demandes</p>
           </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="./typography.html">
+          <a class="nav-link" href="./typography.html" >
             <i class="material-icons">library_books</i>
             <p>Mes projets</p>
           </a>

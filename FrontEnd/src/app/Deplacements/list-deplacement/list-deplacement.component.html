@@ -1,0 +1,10 @@
+<ol class="list-group">
+  <app-item-deplacement
+    *ngFor="let dep of DepToList"
+    (ItemToList)="selectionner($event)"
+    [ListToItem]="dep"
+  >
+
+  </app-item-deplacement>
+
+</ol>

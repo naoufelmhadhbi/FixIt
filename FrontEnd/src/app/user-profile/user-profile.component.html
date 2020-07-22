@@ -10,6 +10,11 @@
             <div class="card-body">
               <form>
                 <mat-form-field>
+                  <mat-label>identifier</mat-label>
+                  <input matInput name="identifier" placeholder="identifier" value="{{user ? user.id : undefined}}" required="">
+                </mat-form-field>
+
+                <mat-form-field>
                     <mat-label>Username</mat-label>
                     <input matInput name="username" placeholder="username" value="{{user ? user.username : undefined}}" required="">
                   </mat-form-field>

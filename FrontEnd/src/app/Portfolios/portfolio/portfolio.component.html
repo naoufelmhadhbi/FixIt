@@ -1,0 +1,11 @@
+<router-outlet></router-outlet>
+<h3>Liste des Images</h3>
+<div class="row">
+  <div class="col-md-6 col-sm-3">
+    <app-list-image (ListToPort)="selectionner($event)" [PortToList]="images"></app-list-image>
+  </div>
+  <div class="col-md-6 col-sm-9">
+    <app-detail-image *ngIf="photos" [PortToDetail]="photos"></app-detail-image>
+  </div>
+</div>
+
