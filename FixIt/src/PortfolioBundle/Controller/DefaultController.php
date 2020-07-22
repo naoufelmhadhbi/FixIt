@@ -12,7 +12,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-//use Symfony\Component\String\Slugger\SluggerInterface;
 
 class DefaultController extends Controller
 {
@@ -33,8 +32,6 @@ class DefaultController extends Controller
     {
         $data = $request->getContent();
         $image = $this->get('jms_serializer')->deserialize($data, 'PortfolioBundle\Entity\Portfolio', 'json');
-//        $NewImage = $slugger->slug($image);
-//        $Final = $NewImage.'-'.uniqid().'.'.$image->guessExtension();
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->find(intval($id));
         $image->setIdProf($user);
@@ -108,7 +105,6 @@ class DefaultController extends Controller
         }
 
         $image->setImage($data->getImage());
-        $image->setDescription($data->getDescription());
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($image);
@@ -140,66 +136,6 @@ class DefaultController extends Controller
             return new JsonResponse($response, Response::HTTP_NOT_FOUND);
         }
         return new JsonResponse($images);
-    }
-
-    /**
-     * @Route("/portfolio/getImageById/{id}", name="listimagById")
-     */
-    public function getImageById($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery('SELECT c FROM PortfolioBundle:Portfolio c where c.id = ' . $id);
-        $images = $query->getArrayResult();
-        if (empty($images)) {
-            $response = array(
-                'code' => 1,
-                'message' => 'image Not found !',
-                'errors' => null,
-                'result' => null
-            );
-            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
-        }
-        return new JsonResponse($images);
-    }
-
-    /**
-     * @Route("/portfolio/getDepById/{id}", name="listDepById")
-     */
-    public function getDepById($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery('SELECT c FROM PortfolioBundle:Deplacement c where c.id = ' . $id);
-        $dep = $query->getArrayResult();
-        if (empty($dep)) {
-            $response = array(
-                'code' => 1,
-                'message' => 'deplacement Not found !',
-                'errors' => null,
-                'result' => null
-            );
-            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
-        }
-        return new JsonResponse($dep);
-    }
-
-    /**
-     * @Route("/portfolio/getMetById/{id}", name="listMetById")
-     */
-    public function getMetById($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery('SELECT c FROM PortfolioBundle:Metier c where c.id = ' . $id);
-        $metier = $query->getArrayResult();
-        if (empty($metier)) {
-            $response = array(
-                'code' => 1,
-                'message' => 'metier Not found !',
-                'errors' => null,
-                'result' => null
-            );
-            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
-        }
-        return new JsonResponse($metier);
     }
 
     /**
@@ -241,28 +177,22 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/portfolio/Updatemetier/{id_prof}/{id_metier_old}/{id_metier_New}", name="update_metier")
+     * @Route("/portfolio/Updatemetier/{id_prof}", name="update_metier")
      * @Method("PUT")
      */
-    public function UpdateMetierAction($id_prof, $id_metier_old, $id_metier_New)
+    public function UpdateMetierAction($id_prof)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $prof = $em->getRepository(User::class)->find($id_prof);
-        $metierOld = $em->getRepository(Metier::class)->find($id_metier_old);
-        $prof->removeProfMetier($metierOld);
+        $metier = array();
+
+        foreach (array(2) as $metier_id) {
+            $metier[$metier_id] = $em->getReference('PortfolioBundle\Entity\Metier', $metier_id);
+        }
+
+        $prof->setMetier($metier);
+        $em->persist($prof);
         $em->flush();
-//        $metier = array();
-//
-//        foreach (array(2) as $metier_id) {
-//            $metier[$metier_id] = $em->getReference('PortfolioBundle\Entity\Metier', $metier_id);
-//        }
-
-        $metierNew = $em->getRepository(Metier::class)->find($id_metier_New);
-
-        $prof->addMetiers($metierNew);
-
-        $em->flush();
-
 
 
         return new Response('metier updated successfully', 201);
@@ -295,16 +225,23 @@ class DefaultController extends Controller
 
 
         $em = $this->getDoctrine()->getManager();
-        $repository = $em->getRepository('PortfolioBundle:Metier');
-        $tags = $repository->createQueryBuilder('t')
-            ->select('t.nom as nom, t.id as id')
-            ->innerJoin('t.idProf', 'c')
-            ->where('c.id = :user_id')
-            ->setParameter('user_id', $id_prof)
-            ->getQuery()
-            ->getResult();
 
-        return new JsonResponse($tags);
+//        $prof = $em->getRepository(User::class)->find($id_prof)->getMetier();
+        $prof = $em->getRepository(User::class)->find($id_prof);
+        $i = 1;
+        foreach ($prof->getIdMetier() as $metier) {
+               $tab[] =  $metier->getNom() ;
+                // $array[$metier] = $metier->getNom() [$i++];
+
+        }
+
+//        $table = $images->getArrayResult();
+        $data = $this->get('jms_serializer')->serialize($tab, 'json');
+            $response = new Response($data);
+            return $response;
+
+
+//        return new JsonResponse($prof->getIdMetier());
     }
 
     /**
@@ -343,27 +280,25 @@ class DefaultController extends Controller
         $em->flush();
 
 
-
-
         return new Response('deplacement deleted successfully', 201);
     }
 
     /**
-     * @Route("/portfolio/UpdateDeplacement/{id_prof}/{id_dep_old}/{id_dep_New}", name="update_deplacement")
+     * @Route("/portfolio/UpdateDeplacement/{id_prof}", name="update_deplacement")
      * @Method("PUT")
      */
-    public function UpdateDeplacementAction($id_prof, $id_dep_old, $id_dep_New)
+    public function UpdateDeplacementAction($id_prof)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $prof = $em->getRepository(User::class)->find($id_prof);
-        $deplacementOld = $em->getRepository(Deplacement::class)->find($id_dep_old);
+        $deplacement = array();
 
-        $prof->removeProfDep($deplacementOld);
-        $em->flush();
-        $deplacementNew = $em->getRepository(Deplacement::class)->find($id_dep_New);
+        foreach (array(2, 3) as $deplacement_id) {
+            $deplacement[$deplacement_id] = $em->getReference('PortfolioBundle\Entity\Deplacement', $deplacement_id);
+        }
 
-        $prof->addDeplacement($deplacementNew);
-
+        $prof->setDeplacement($deplacement);
+        $em->persist($prof);
         $em->flush();
 
 
@@ -376,59 +311,37 @@ class DefaultController extends Controller
     public function getDeplamcementPerProf(Request $request,$id_prof)
     {
 //        $categoryId = $request->request->get('cat_id');
-        $em = $this->getDoctrine()->getManager();
-        $repository = $em->getRepository('PortfolioBundle:Deplacement');
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('AppBundle:Professionnel');
         $tags = $repository->createQueryBuilder('t')
-            ->select('t.gouvernorat as gouvernorat, t.id as id')
-            ->innerJoin('t.idProf', 'c')
-            ->where('c.id = :user_id')
-            ->setParameter('user_id', $id_prof)
-            ->getQuery()
-            ->getResult();
+            ->innerJoin('t.id_deplacement', 'c')
+            ->where('c.id = :category_id')
+            ->setParameter('category_id', 1)
+            ->getQuery()->getResult()->getArrayResult();
+        $this->container->get('logger')->info(
+            sprintf("le contenu de tags est: %s", $tags)
+        );
+
+
+//        $em = $this->getDoctrine()->getManager();
+//
+////        $prof = $em->getRepository(User::class)->find($id_prof)->getMetier();
+//        $prof = $em->getRepository(User::class)->find($id_prof);
+//
+//        $dep = null;
+//
+//        foreach ($prof->getIdDeplacement() as $deplacement) {
+//            $dep = $deplacement;
+//
+//            echo $deplacement->getId() . '<br>';
+//        }
 //        $this->container->get('logger')->info(
-//            sprintf("le contenu de tags est: %s", $tags)
+//            sprintf("le contenu de dep est: %s", $dep)
 //        );
-
+//        $table = $images->getArrayResult();
+//        $data = $this->get('jms_serializer')->serialize($prof->getIdDeplacement(), 'json');
+//            $response = new Response($data);
+//            return $response;
         return new JsonResponse($tags);
-    }
-
-    /**
-     * @Route("/portfolio/getDeplacements", name="list_All_Deplacments")
-     */
-    public function getAllDeplacements()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery('SELECT c FROM PortfolioBundle:Deplacement c');
-        $dep = $query->getArrayResult();
-        if (empty($dep)) {
-            $response = array(
-                'code' => 1,
-                'message' => 'deplacement Not found !',
-                'errors' => null,
-                'result' => null
-            );
-            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
-        }
-        return new JsonResponse($dep);
-    }
-
-    /**
-     * @Route("/portfolio/getMetiers", name="list_All_Metiers")
-     */
-    public function getAllMetiers()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery('SELECT c FROM PortfolioBundle:Metier c');
-        $metier = $query->getArrayResult();
-        if (empty($metier)) {
-            $response = array(
-                'code' => 1,
-                'message' => 'metier Not found !',
-                'errors' => null,
-                'result' => null
-            );
-            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
-        }
-        return new JsonResponse($metier);
     }
 }

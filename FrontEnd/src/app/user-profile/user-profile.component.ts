@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthentificationServiceService} from '../../Services/AuthentificationService/authentification-service.service';
-import {User} from '../Model/user/User';
-import {Router} from '@angular/router';
+import {AuthentificationServiceService} from "../../Services/AuthentificationService/authentification-service.service";
+import {User} from "../Model/user/User";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-profile',
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private authService: AuthentificationServiceService, private router: Router) {
+  constructor(private authService: AuthentificationServiceService , private router: Router) {
     debugger
     //if(localStorage.getItem('JwtToken') == null || localStorage.getItem('JwtToken') == undefined)
     //this.router.navigate(['/acceuil']);
@@ -22,15 +22,11 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.authService.getByUsr().subscribe((data) => {
       this.user = data[0];
-      //   this.authService.getById().subscribe((data) => {
-      //   this.user = data[0];
-      console.log(this.user);
-    });
-
+    })
   }
 
   isProfessionnel() {
-    return this.user.type == 'professionnel';
+    return this.user.type === 'professionnel' ;
   }
 
 }

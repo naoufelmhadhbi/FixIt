@@ -4,6 +4,7 @@ namespace PublicationBundle\Entity;
 
 use AppBundle\Entity\Professionnel;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Publication
@@ -23,10 +24,63 @@ class Publication
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Professionnel", mappedBy="id_professionnel", cascade={"persist", "remove"})
+     * @ORM\Column(name="id_professionnel", nullable=true)
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="id_professionnel", cascade={"persist", "remove"})
      * @ORM\JoinTable(name="publication_professionnel")
      */
     private $id_professionnel;
+
+    /**
+     *@ORM\Column(name="id_demandeur", nullable=true)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Demandeur")
+     * @ORM\JoinColumn(name="id_demandeur",referencedColumnName="id")
+     *
+     */
+    private $id_demandeur ;
+
+    /**
+     *@ORM\Column(name="id_metier", nullable=true)
+     * @ORM\ManyToOne(targetEntity="PortfolioBundle\Entity\Metier")
+     * @ORM\JoinColumn(name="id_metier",referencedColumnName="id")
+     *
+     */
+    private $id_metier ;
+
+    /**
+     * @return mixed
+     */
+    public function getIdMetier()
+    {
+        return $this->id_metier;
+    }
+
+    /**
+     * @param mixed $id_metier
+     */
+    public function setIdMetier($id_metier)
+    {
+        $this->id_metier = $id_metier;
+    }
+
+
+
+    /**
+     * @return int
+     */
+    public function getIdDemandeur()
+    {
+        return $this->id_demandeur;
+    }
+
+    /**
+     * @param int $id_demandeur
+     */
+    public function setIdDemandeur($id_demandeur)
+    {
+        $this->id_demandeur = $id_demandeur;
+    }
+
+
 
 
     /**
@@ -66,12 +120,6 @@ class Publication
      */
     private $etat;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="piece_jointe", type="string", length=255)
-     */
-    private $pieceJointe;
 
     /**
      * @var \DateTime
@@ -89,30 +137,6 @@ class Publication
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idDemandeur
-     *
-     * @param integer $idDemandeur
-     *
-     * @return Publication
-     */
-    public function setIdDemandeur($idDemandeur)
-    {
-        $this->idDemandeur = $idDemandeur;
-
-        return $this;
-    }
-
-    /**
-     * Get idDemandeur
-     *
-     * @return int
-     */
-    public function getIdDemandeur()
-    {
-        return $this->idDemandeur;
     }
 
     /**
@@ -188,30 +212,6 @@ class Publication
     }
 
     /**
-     * Set pieceJointe
-     *
-     * @param string $pieceJointe
-     *
-     * @return Publication
-     */
-    public function setPieceJointe($pieceJointe)
-    {
-        $this->pieceJointe = $pieceJointe;
-
-        return $this;
-    }
-
-    /**
-     * Get pieceJointe
-     *
-     * @return string
-     */
-    public function getPieceJointe()
-    {
-        return $this->pieceJointe;
-    }
-
-    /**
      * Set datePub
      *
      * @param \DateTime $datePub
@@ -239,5 +239,6 @@ class Publication
         $professionnel->addPublication($this);
         $this->id_professionnel[] = $professionnel;
     }
+
 }
 

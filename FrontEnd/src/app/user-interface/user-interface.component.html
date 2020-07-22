@@ -44,56 +44,43 @@
             <p>User Profile</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" [routerLink]="['/AddImage']">
-            <i class="material-icons">add_to_photos</i>
-            <p>Ajouter image</p>
+        <li class="nav-item " [hidden]="hideforprof"  routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/AddPublication']">
+            <i class="material-icons">content_paste</i>
+            <p>Ajouter Publication</p>
           </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" [routerLink]="['/portfolio']">
-            <i class="material-icons">slideshow</i>
-            <p>Portfolio</p>
-          </a>
-        </li>
-        <li [ngClass]="isActiveDeplacement" >
-          <a  class="nav-link" [routerLink]="['/AddDeplacement']">
-            <i class="material-icons">add_location_alt</i>
-            <p>Ajouter Deplacement</p>
-          </a>
-        </li>
-        <li [ngClass]="isActiveDeplacement" >
-          <a  class="nav-link" [routerLink]="['/deplacement']">
-            <i class="material-icons">place</i>
-            <p>Deplacement</p>
-          </a>
-        </li>
-        <li [ngClass]="isActiveDeplacement" >
-          <a  class="nav-link" [routerLink]="['/AddMetier']">
-            <i class="material-icons">enhanced_encryption</i>
-            <p>Ajouter Metier</p>
-          </a>
-        </li>
-        <li [ngClass]="isActiveDeplacement" >
-          <a  class="nav-link" [routerLink]="['/metier']">
-            <i class="material-icons">work</i>
-            <p>Metier</p>
-          </a>
-        </li>
-        <li [ngClass]="isActiveReclamation"  >
-          <a class="nav-link" [routerLink]="['/reclamation']">
-            <i class="material-icons">report</i>
-            <p>Reclamation</p>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="./tables.html">
+        <li class="nav-item" [hidden]="hideforprof" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/mesDemandes']">
             <i class="material-icons">content_paste</i>
             <p>Mes demandes</p>
           </a>
         </li>
+        <li class="nav-item" [hidden]="hideforprof"  routerLinkActive="active">
+          <a class="nav-link" routerLink="/mesDemandesEncours" >
+            <i class="material-icons">content_paste</i>
+            <p>Mes demandes en cours</p>
+          </a>
+        </li>
+        <li class="nav-item" [hidden]="hideforprof"  routerLinkActive="active">
+          <a class="nav-link" routerLink="/cloturerProjet" >
+            <i class="material-icons">content_paste</i>
+            <p>Cloturer Projet</p>
+          </a>
+        </li>
+        <li class="nav-item" [hidden]="hidefordem" routerLinkActive="active">
+          <a class="nav-link" routerLink="/mesOffres" >
+            <i class="material-icons">content_paste</i>
+            <p>Mes offres</p>
+          </a>
+        </li>
+        <li class="nav-item" [hidden]="hidefordem" routerLinkActive="active">
+          <a class="nav-link" routerLink="/mesTraveaux" >
+            <i class="material-icons">location_ons</i>
+            <p>Mes Traveaux</p>
+          </a>
+        </li>
         <li class="nav-item ">
-          <a class="nav-link" href="./typography.html" >
+          <a class="nav-link" href="./typography.html">
             <i class="material-icons">library_books</i>
             <p>Mes projets</p>
           </a>

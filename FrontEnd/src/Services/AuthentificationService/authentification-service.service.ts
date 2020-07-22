@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import * as jwt_decode from 'jwt-decode';
-import {User} from "../../app/Model/user/User";
+import {User} from '../../app/Model/user/User';
 import {Observable} from 'rxjs';
+import {Publication} from '../../app/Model/Publication';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import {Observable} from 'rxjs';
 })
 export class AuthentificationServiceService {
 
-  host: string = 'http://localhost:8000';
+  host = 'http://localhost:8000';
   options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
@@ -19,13 +20,15 @@ export class AuthentificationServiceService {
   };
   body = new URLSearchParams();
   jwt: string;
+  id: string;
   username: string;
-  identifier: string;
   roles: Array<string>;
   private user: User;
+  type: string;
 
   constructor(private http: HttpClient) {
   }
+
 
   login(data) {
     console.log('user IS ' + data['username'] + ' Pass IS ' + data['password']);
@@ -34,13 +37,13 @@ export class AuthentificationServiceService {
 
   register(data) {
     console.log('user IS ' + data['username'] + ' Pass IS ' + data['password']);
-    let jsn =  {
-      "username" : "sont",
-      "password" : "azerty" ,
-      "email" : "Ibenjawballah@spb.eu",
-      "type" : "demandeur"
+    let jsn = {
+      'username': 'sont',
+      'password': 'azerty',
+      'email': 'Ibenjawballah@spb.eu',
+      'type': 'demandeur'
     };
-    console.log("JSN "+jsn);
+    console.log('JSN ' + jsn);
     console.log('with JSN ' + JSON.stringify(data));
     return this.http.post(this.host + '/add', data, this.optionsRegister);
   }
@@ -51,22 +54,29 @@ export class AuthentificationServiceService {
     this.decodeJwt(token);
   }
 
+  saveIdUser() {
+    this.getByUsr().subscribe((data) => {
+      this.user = data[0];
+      console.log(this.user.id);
+    });
+    localStorage.setItem('UserId', this.user.id.toString());
+
+    // localStorage.setItem('UserId', "aaaaaaaaaaaaa");
+
+  }
+
+
   decodeJwt(token) {
     var decoded = jwt_decode(token);
     console.log(decoded);
     this.username = decoded['username'];
     this.roles = decoded['roles'];
-    console.log('uuuuuuuser' + this.username + this.roles)
+    console.log('uuuuuuuser' + this.username + this.roles);
   }
 
-  getUsernameFromToken(token){
+  getUsernameFromToken(token) {
     var decoded = jwt_decode(token);
-     return decoded['username'];
-  }
-
-  getIdFromToken(token){
-    var decoded = jwt_decode(token);
-    return decoded['id'];
+    return decoded['username'];
   }
 
   isAdmin() {
@@ -80,44 +90,32 @@ export class AuthentificationServiceService {
   isAuthenticated() {
     console.log('role is ' + this.roles + ' isAdmin ' + this.isAdmin());
     this.jwt = localStorage.getItem('JwtToken');
-    if (this.jwt != null && this.jwt != undefined)
+    if (this.jwt != null && this.jwt != undefined) {
       this.decodeJwt(this.jwt);
+    }
     return this.roles != undefined;
   }
 
   logout() {
     localStorage.removeItem('JwtToken');
+    localStorage.removeItem('UserId');
     this.username = undefined;
     this.jwt = undefined;
     this.roles = undefined;
   }
 
-  getUserByUsername() {
-    this.http.get(this.host + '/getByUsername/' + this.username).subscribe((data : User) => {
-      console.log(data);
-      console.log(data[0]['username']);
-      //this.user.username = data[0]['username'] ;
-      // this.user.type = data[0]['type'] ;
-      // this.user.email = data[0]['email'] ;
-      // this.user.sexe = data[0]['sexe'] ;
-      //console.log("user   est "+this.user);
-    });
-    return this.user ;
+  getUserByUsername(username): Observable<User> {
+    return  this.http.get<User>(this.host + '/getByUsername/' + username);
   }
 
-  getByUsr(): Observable<User>{
-    if(this.username == undefined || this.username == null)
+  getByUsr(): Observable<User> {
+    if (this.username === undefined || this.username === null) {
       this.username = this.getUsernameFromToken(localStorage.getItem('JwtToken'));
+    }
     return this.http.get<User>(this.host + '/getByUsername/' + this.username);
   }
 
-  getById(): Observable<User>{
-    if(this.identifier == undefined || this.identifier == null)
-      this.identifier = this.getIdFromToken(localStorage.getItem('JwtToken'));
-    return this.http.get<User>(this.host + '/getById/' + this.identifier);
-  }
-
-  getAllUser(): Observable<User>{
+  getAllUser(): Observable<User> {
     return this.http.get<User>(this.host + '/getAllUsr');
   }
 
