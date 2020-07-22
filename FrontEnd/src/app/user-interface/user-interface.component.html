@@ -44,10 +44,39 @@
             <p>User Profile</p>
           </a>
         </li>
-        <li class="nav-item active ">
-          <a class="nav-link" href="./tables.html">
+        <li class="nav-item " [hidden]="hideforprof"  routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/AddPublication']">
+            <i class="material-icons">content_paste</i>
+            <p>Ajouter Publication</p>
+          </a>
+        <li class="nav-item" [hidden]="hideforprof" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/mesDemandes']">
             <i class="material-icons">content_paste</i>
             <p>Mes demandes</p>
+          </a>
+        </li>
+        <li class="nav-item" [hidden]="hideforprof"  routerLinkActive="active">
+          <a class="nav-link" routerLink="/mesDemandesEncours" >
+            <i class="material-icons">content_paste</i>
+            <p>Mes demandes en cours</p>
+          </a>
+        </li>
+        <li class="nav-item" [hidden]="hideforprof"  routerLinkActive="active">
+          <a class="nav-link" routerLink="/cloturerProjet" >
+            <i class="material-icons">content_paste</i>
+            <p>Cloturer Projet</p>
+          </a>
+        </li>
+        <li class="nav-item" [hidden]="hidefordem" routerLinkActive="active">
+          <a class="nav-link" routerLink="/mesOffres" >
+            <i class="material-icons">content_paste</i>
+            <p>Mes offres</p>
+          </a>
+        </li>
+        <li class="nav-item" [hidden]="hidefordem" routerLinkActive="active">
+          <a class="nav-link" routerLink="/mesTraveaux" >
+            <i class="material-icons">location_ons</i>
+            <p>Mes Traveaux</p>
           </a>
         </li>
         <li class="nav-item ">

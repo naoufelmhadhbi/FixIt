@@ -1,0 +1,49 @@
+<div class="content" style="margin-left: 100px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Ajouter Publication</h4>
+            <p class="card-category">Saisir une publication</p>
+          </div>
+          <div class="card-body">
+            <form>
+              <mat-form-field class="w-75">
+                <mat-label>Titre</mat-label>
+                <input matInput name="Titre" placeholder="Titre" [(ngModel)]="publication.titre"  required="">
+              </mat-form-field>
+              <br>
+              <mat-form-field class="w-75">
+                <mat-label>Detail</mat-label>
+                <textarea  matInput ngModel name="Detail" placeholder="Detail" [(ngModel)]="publication.detail" required="">
+                </textarea>
+              </mat-form-field>
+              <br>
+
+                <label for="inputState">Metier</label>
+                <select  id="inputState" class="form-control w-75" ngModel name="metier"  [(ngModel)]="publication.id_metier">
+
+                  <option value="{{metier.id}}" *ngFor="let metier of metiers ">{{metier.nom}}</option>
+
+                </select>
+
+
+<!--              <div>-->
+<!--                <select class="" ngModel name="metier"  [(ngModel)]="publication.id_metier">-->
+<!--                <div *ngFor="let metier of metiers ">-->
+<!--                  <option value="{{metier.id}}">{{metier.nom}}</option>-->
+<!--                </div>-->
+<!--                </select>-->
+<!--              </div>-->
+
+              <br>
+
+              <button type="submit" class="btn btn-primary pull-center" (click)="addPublication()">Enregister</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

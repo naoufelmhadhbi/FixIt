@@ -32,7 +32,7 @@ export class FooterComponent implements OnInit {
       console.log('reps    ' + resp);
       if (resp['code'] != 401) {
          this.authService.saveToken(resp['token']);
-         this.authService.saveIdUser(resp['username']);
+         this.authService.saveIdUser();
 
        } else {
          this.invalidCredential = true ;

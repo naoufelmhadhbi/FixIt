@@ -5,7 +5,6 @@ import { HeaderComponent } from './header/header.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
-import { PublicationsComponent } from './publications/publications.component';
 import {FormsModule, FormBuilder} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -16,6 +15,12 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { UserInterfaceComponent } from './user-interface/user-interface.component';
+import { DemandesComponent } from './Publication/demandes/demandes.component';
+import { DemandesEncoursComponent } from './Publication/demandes-encours/demandes-encours.component';
+import { MesOffresComponent } from './Publication/mes-offres/mes-offres.component';
+import { MesTraveauxComponent } from './Publication/mes-traveaux/mes-traveaux.component';
+import {AddPublicationComponent} from './Publication/add-publication/add-publication.component';
+import { CloturerProjetComponent } from './Publication/cloturer-projet/cloturer-projet.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +28,16 @@ import { UserInterfaceComponent } from './user-interface/user-interface.componen
     HeaderComponent,
     FooterComponent,
     SliderComponent,
-    PublicationsComponent,
     UserProfileComponent,
+    AddPublicationComponent,
     AccueilComponent,
     MessagerieComponent,
-    UserInterfaceComponent
+    UserInterfaceComponent,
+    DemandesComponent,
+    DemandesEncoursComponent,
+    MesOffresComponent,
+    MesTraveauxComponent,
+    CloturerProjetComponent
   ],
   imports: [
     BrowserModule,

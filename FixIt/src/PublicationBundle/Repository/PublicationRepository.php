@@ -10,4 +10,37 @@ namespace PublicationBundle\Repository;
  */
 class PublicationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getPub($id_dem)
+    {
+        //$rawSql = "SELECT m.id, (SELECT COUNT(i.id) FROM item AS i WHERE i.myclass_id = m.id) AS total FROM myclass AS m";
+
+
+     //   $rawSql = "select p.id,p.id_demandeur from publication AS p,publication_professionnel AS pp where p.id=pp.publication_id and p.id_demandeur=2";
+        $rawSql = "select p.id,p.id_demandeur,p.etat,p.titre,p.detail,p.date_pub,pp.professionnel_id from publication AS p,publication_professionnel AS pp where p.id=pp.publication_id and p.etat in ('New','Still waiting for acceptation') and p.id_demandeur=".$id_dem." order by p.id";
+
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+
+        return $stmt->fetchAll();
+    }
+
+    public function findAccepted($id_prof)
+    {
+        $rawSql = "select p.id,p.titre,pp.username from publication AS p,fos_user AS pp where p.id_demandeur = pp.id and p.id_professionnel =".$id_prof." and p.etat in ('In progress','Closed') order by p.id";
+
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+
+        return $stmt->fetchAll();
+    }
+    public function getMetier()
+    {
+        $rawSql = "select * from metier";
+
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+
+        return $stmt->fetchAll();
+    }
+
 }

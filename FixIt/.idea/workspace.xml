@@ -20,19 +20,124 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8d44ebe-7d32-41e9-8cbd-9729a74dbc66" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_21_06_2020_21_49_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_21_06_2020_21_49_c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_21_06_2020_22_17_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_19_07_2020_16_53_s.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Publication/add-publication/add-publication.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Publication/add-publication/add-publication.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Publication/add-publication/add-publication.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" beforeDir="false" afterPath="$PROJECT_DIR$/bin/symfony_requirements" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Demandeur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Demandeur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Professionnel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Professionnel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PortfolioBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PortfolioBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PortfolioBundle/Entity/Metier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PortfolioBundle/Entity/Metier.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PublicationBundle/Controller/PublicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PublicationBundle/Controller/PublicationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PublicationBundle/Entity/Publication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PublicationBundle/Entity/Publication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PublicationBundle/Repository/PublicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PublicationBundle/Repository/PublicationRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/parameters.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/Services/AuthentificationService/authentification-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/Services/AuthentificationService/authentification-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/Services/PublicationService/publication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/Services/PublicationService/publication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/Model/Publication.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Model/Publication.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/footer/footer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/footer/footer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/publications/publications.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/publications/publications.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/publications/publications.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/publications/publications.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/routing/routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/routing/routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/user-interface/user-interface.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/user-interface/user-interface.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/user-interface/user-interface.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/user-interface/user-interface.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Model/Metier.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/easy-responsive-tabs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/flexslider.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/fontawesome-all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/material-dashboard-rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/material-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Publication/add-publication/add-publication.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/popuo-box.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/prettyPhoto.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/style1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/css/style_common.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/demo/demo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/demo/demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/ab.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/ab1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/ab2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/ab3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/ab4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/bb1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/bb2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/bb3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/bb4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/bb5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/bb6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/bb9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/g9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/mis1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/ser.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/sprite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/t1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/t2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/t3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/t4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/t5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/test1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/test2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/images/test3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/SmoothScroll.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/easing.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/easy-responsive-tabs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/jquery-1.7.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/jquery-1.7.2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/jquery.countup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/jquery.flexisel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/jquery.magnific-popup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/jquery.min.v3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/jquery.prettyPhoto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/jquery.quicksand.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/jquery.waypoints.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/move-top.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/responsiveslides.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/js/skill.bars.jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-brands-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-brands-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-brands-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-regular-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-regular-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-regular-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-solid-900.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-solid-900.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-solid-900.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/assets/webfonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +221,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../old-xampp/htdocs/FirstProject/Divadeep" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -142,12 +247,13 @@
       <command value="c install" />
       <command value="s doctrine:generate:entity" />
       <command value="s doctrine:schema:update --dump-sql" />
-      <command value="server:run" />
       <command value="s doctrine:generate:crud" />
       <command value="s doctrine:database:create" />
-      <command value="s server:run" />
-      <command value="s cache:clear" />
+      <command value="server:run" />
+      <command value="s server:stop" />
       <command value="s doctrine:schema:update --force" />
+      <command value="s cache:clear" />
+      <command value="s server:run" />
     </option>
   </component>
   <component name="RunManager">
@@ -181,6 +287,12 @@
       <workItem from="1595152078345" duration="1709000" />
       <workItem from="1595171081976" duration="5315000" />
       <workItem from="1595180368927" duration="9084000" />
+      <workItem from="1595198446493" duration="1848000" />
+      <workItem from="1595257868658" duration="16242000" />
+      <workItem from="1595284691639" duration="3984000" />
+      <workItem from="1595346421894" duration="15031000" />
+      <workItem from="1595433132876" duration="4848000" />
+      <workItem from="1595441726982" duration="2897000" />
     </task>
     <servers />
   </component>
@@ -204,11 +316,19 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="350" y="67" key="#CLI_Interpreters/0.0.1536.824@0.0.1536.824" timestamp="1595171288768" />
-    <state x="570" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1595185925009">
+    <state x="194" y="254" key="#SQL_Dialects" timestamp="1595270408333">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="194" y="254" key="#SQL_Dialects/0.0.1536.824@0.0.1536.824" timestamp="1595270408333" />
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595270417583">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1595270417583" />
+    <state x="570" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1595269010766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="507" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1593366650093" />
-    <state x="570" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595185925009" />
+    <state x="570" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595269010766" />
     <state x="523" y="19" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592261206423">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -230,31 +350,31 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="493" y="303" key="ComposerCompositePathDialog/0.0.1536.824@0.0.1536.824" timestamp="1592772568921" />
-    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1595173999767">
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1595434859428">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="488" y="150" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593358034325" />
-    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595173999767" />
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595434859428" />
     <state x="624" y="299" key="FrameworkEditDialogDimensionKey" timestamp="1592773924724">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="624" y="299" key="FrameworkEditDialogDimensionKey/0.0.1536.824@0.0.1536.824" timestamp="1592773924724" />
-    <state width="1493" height="203" key="GridCell.Tab.0.bottom" timestamp="1595186978613">
+    <state width="1493" height="203" key="GridCell.Tab.0.bottom" timestamp="1595441623457">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="203" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595186978613" />
-    <state width="1493" height="203" key="GridCell.Tab.0.center" timestamp="1595186978613">
+    <state width="1493" height="203" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595441623457" />
+    <state width="1493" height="203" key="GridCell.Tab.0.center" timestamp="1595441623457">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="203" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595186978613" />
-    <state width="1493" height="203" key="GridCell.Tab.0.left" timestamp="1595186978613">
+    <state width="1493" height="203" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595441623457" />
+    <state width="1493" height="203" key="GridCell.Tab.0.left" timestamp="1595441623457">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="203" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595186978613" />
-    <state width="1493" height="203" key="GridCell.Tab.0.right" timestamp="1595186978613">
+    <state width="1493" height="203" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595441623457" />
+    <state width="1493" height="203" key="GridCell.Tab.0.right" timestamp="1595441623457">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="203" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595186978613" />
+    <state width="1493" height="203" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595441623457" />
     <state x="489" y="246" key="NewPhpClassDialog" timestamp="1592759047564">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -267,10 +387,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="583" y="314" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1595174004608" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1595186978412">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1595441743138">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="378" y="165" width="598" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593381035371" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1595186978412" />
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1595441743138" />
   </component>
 </project>

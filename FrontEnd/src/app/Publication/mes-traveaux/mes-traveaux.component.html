@@ -1,0 +1,47 @@
+<div class="content" style="margin-left: 100px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="container alert alert-danger w-70"  *ngIf="publications.length === 0 ">
+          <td> Vous n'avez aucune publication en cours </td>
+        </div>
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Mes Traveaux</h4>
+          </div>
+
+          <table mat-table [dataSource]="publications" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+            <div class="card-body">
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>Mes Nouveaux Traveaux</th>
+                <td mat-cell *matCellDef="let publication"><div class="alert alert-success"> l'utilasateur sous le nom d'utilisateur {{publication.username}} a accepté votre
+                demande sur le publication dont l'id est {{publication.id}}</div></td>
+              </ng-container>
+
+              <!-- Name Column -->
+
+<!--              <ng-container matColumnDef="action">-->
+<!--                <th mat-header-cell *matHeaderCellDef> Action</th>-->
+<!--                <td mat-cell *matCellDef="let publication">-->
+<!--                  <Button (click)="accepter( publication.id)" value="{{publication.id}}" class="btn-success" >-->
+<!--                    Accepter-->
+<!--                  </Button></td>-->
+<!--              </ng-container>-->
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </div>
+
+          </table>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

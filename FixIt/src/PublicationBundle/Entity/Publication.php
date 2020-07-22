@@ -120,12 +120,6 @@ class Publication
      */
     private $etat;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="piece_jointe", type="string", length=255)
-     */
-    private $pieceJointe;
 
     /**
      * @var \DateTime
@@ -215,30 +209,6 @@ class Publication
     public function getEtat()
     {
         return $this->etat;
-    }
-
-    /**
-     * Set pieceJointe
-     *
-     * @param string $pieceJointe
-     *
-     * @return Publication
-     */
-    public function setPieceJointe($pieceJointe)
-    {
-        $this->pieceJointe = $pieceJointe;
-
-        return $this;
-    }
-
-    /**
-     * Get pieceJointe
-     *
-     * @return string
-     */
-    public function getPieceJointe()
-    {
-        return $this->pieceJointe;
     }
 
     /**

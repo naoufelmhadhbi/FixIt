@@ -1,5 +1,3 @@
-import {HttpClient} from "@angular/common/http";
-
 export interface User {
   id: number;
   username: string;
@@ -14,7 +12,7 @@ export interface User {
   type: string;
   adresse: string;
   ville: string;
-  code_postal: string;
+  code_postal: number;
   description: string;
 
 

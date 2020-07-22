@@ -3,7 +3,9 @@
 namespace PublicationBundle\Controller;
 
 use AppBundle\Entity\Demandeur;
+use AppBundle\Entity\Professionnel;
 use AppBundle\Entity\User;
+use PortfolioBundle\Entity\Metier;
 use PublicationBundle\Entity\Publication;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -34,6 +36,7 @@ class PublicationController extends Controller
         $data = $this->get('jms_serializer')->serialize($publications, 'json');
         $response = new Response($data);
         return $response;
+
 
     }
 
@@ -69,7 +72,8 @@ class PublicationController extends Controller
 //        $demandeur = $em->getRepository(Demandeur::class)->find($id);
 
 //        $publication->setIdDemandeur($demandeur);
-        $publication->setEtat('Waiting');
+        $publication->setEtat('New');
+        $publication->setDatePub(new \DateTime('now'));
         $em->persist($publication);
         $em->flush();
 
@@ -82,8 +86,8 @@ class PublicationController extends Controller
     /**
      * Finds and displays a publication entity.
      *
-     * @Route("/{id}", name="publication_show")
-     * @Method("GET")
+     * @Route("/get/{id}", name="publication_show")
+     * @Method({"GET", "POST"})
      */
     public function showAction(Publication $publication)
     {
@@ -93,69 +97,10 @@ class PublicationController extends Controller
         return $response;
     }
 
-    /**
-     * Displays a form to edit an existing publication entity.
-     *
-     * @Route("/{id}/edit", name="publication_edit")
-     * @Method({"GET", "POST"})
-     */
-//    public function editAction(Request $request, Publication $publication)
-//    {
-//        $deleteForm = $this->createDeleteForm($publication);
-//        $editForm = $this->createForm('PublicationBundle\Form\PublicationType', $publication);
-//        $editForm->handleRequest($request);
-//
-//        if ($editForm->isSubmitted() && $editForm->isValid()) {
-//            $this->getDoctrine()->getManager()->flush();
-//
-//            return $this->redirectToRoute('publication_edit', array('id' => $publication->getId()));
-//        }
-//
-//        return $this->render('publication/edit.html.twig', array(
-//            'publication' => $publication,
-//            'edit_form' => $editForm->createView(),
-//            'delete_form' => $deleteForm->createView(),
-//        ));
-//    }
-
-    /**
-     * Deletes a publication entity.
-     *
-     * @Route("/{id}", name="publication_delete")
-     * @Method("DELETE")
-     */
-//    public function deleteAction(Request $request, Publication $publication)
-//    {
-//        $form = $this->createDeleteForm($publication);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $em->remove($publication);
-//            $em->flush();
-//        }
-//
-//        return $this->redirectToRoute('publication_index');
-//    }
-
-    /**
-     * Creates a form to delete a publication entity.
-     *
-     * @param Publication $publication The publication entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-//    private function createDeleteForm(Publication $publication)
-//    {
-//        return $this->createFormBuilder()
-//            ->setAction($this->generateUrl('publication_delete', array('id' => $publication->getId())))
-//            ->setMethod('DELETE')
-//            ->getForm();
-//    }
 
     /**
      * @Route("/addPublication/{id_prof}/{id_publication}", name="add_publication")
-     * @Method("POST")
+     * @Method({"GET", "POST"})
      */
     public function postulerAction($id_prof, $id_publication)
     {
@@ -164,6 +109,10 @@ class PublicationController extends Controller
 
         $prof = $em->getRepository(User::class)->find($id_prof);
         $pub = $em->getRepository(Publication::class)->find($id_publication);
+        $pub->setEtat('Still waiting for acceptation');
+
+        $pub->setIdProfessionnel($id_prof);
+
 
         $prof->addPublication($pub);
 
@@ -177,7 +126,7 @@ class PublicationController extends Controller
      * Lists des publication selon le metier de professionnel
      *
      * @Route("/pubprof/{id_prof}", name="pub_prof")
-     * @Method("GET")
+     * @Method("POST")
      */
     public function pubParMetierAction($id_prof)
     {
@@ -189,22 +138,50 @@ class PublicationController extends Controller
         foreach ($prof->getIdMetier() as $metier) {
             $tab[] =  $metier->getId() ;
         }
+        $tab_etat=['New','Still waiting for acceptation'];
 
-        $publications = $em->getRepository(Publication::class)->findBy(array('id_metier' => $tab,'etat' =>'Waiting'));
+        $publications = $em->getRepository(Publication::class)->findBy(array('id_metier' => $tab,'etat' =>$tab_etat));
         //       $publications = $em->getRepository('PublicationBundle:Publication')->findAll();
         $data = $this->get('jms_serializer')->serialize($publications, 'json');
         $response = new Response($data);
         return $response;
     }
+
     /**
+     * Lists des demandes de professionnel en cours
+     *
+     * @Route("/mesdemandes/{id_dem}/{etat}", name="pub_dem")
+     * @Method("GET")
+     */
+    public function mesDemandeEncoursAction($id_dem,$etat)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+//        $prof = $em->getRepository(User::class)->find($id_dem);
+        if($etat == 'All')
+            $publications = $em->getRepository(Publication::class)->findBy(array('id_demandeur' => $id_dem));
+        else
+            $publications = $em->getRepository(Publication::class)->findBy(array('id_demandeur' => $id_dem,'etat'=>$etat));
+
+        $data = $this->get('jms_serializer')->serialize($publications, 'json');
+        $response = new Response($data);
+        return $response;
+    }
+
+
+
+    /**
+     * Lorsque le demandeur accept une publication on affecte l id de prof sélectionné au publication adéquate
+     *
      * @Route("/updatepub/{id_pub}/{id_prof}", name="update_pub")
      * @Method("PUT")
      */
-    public function UpdatePublicationAction($id_pub,$id_prof)
+    public function acceptedPublicationAction($id_pub,$id_prof)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $publication = $em->getRepository(Publication::class)->find($id_pub);
-
+//        $publication->get
 
         $publication->setIdProfessionnel($id_prof);
         $publication->setEtat('In progress');
@@ -214,6 +191,7 @@ class PublicationController extends Controller
 
         return new Response('Publication updated successfully', 201);
     }
+
     /**
      * @Route("/cloturer/{id_pub}", name="cloturer_pub")
      * @Method("PUT")
@@ -227,7 +205,55 @@ class PublicationController extends Controller
         $em->persist($publication);
         $em->flush();
 
-
         return new Response('Publication updated successfully', 201);
+    }
+
+
+    /**
+     * Lists des postule
+     *
+     * @Route("/postul/{id_dem}", name="publication_postul")
+     * @Method("GET")
+     */
+    public function listPostulAction($id_dem)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $tags = $em->getRepository('PublicationBundle:Publication')->getPub($id_dem);
+        $data = $this->get('jms_serializer')->serialize($tags, 'json');
+        $response = new Response($data);
+        return $response;
+
+    }
+
+    /**
+     * Lists des demandes de professionnel en cours
+     *
+     * @Route("/mesreponses/{id_prof}", name="mes_rep")
+     * @Method("GET")
+     */
+    public function mesReponseAction($id_prof)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+            //$prof = $em->getRepository(Publication::class)->find($id_prof);
+            $publications = $em->getRepository(Publication::class)->findAccepted($id_prof);
+
+        $data = $this->get('jms_serializer')->serialize($publications, 'json');
+        $response = new Response($data);
+        return $response;
+    }
+    /**
+     * Lists des demandes de professionnel en cours
+     *
+     * @Route("/metier/all", name="get_metier")
+     * @Method("GET")
+     */
+    public function getMetierAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $metiers = $em->getRepository(Publication::class)->getMetier();
+        $data = $this->get('jms_serializer')->serialize($metiers, 'json');
+        $response = new Response($data);
+        return $response;
     }
 }
