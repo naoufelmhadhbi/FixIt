@@ -155,7 +155,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/countAllNbrVur", name="countNbrVuByUser")
+     * @Route("/countAllNbrVur", name="countAllNbrVur")
      */
     public function countAllNbrVur(Request $request){
         $idDemandeur = $request->query->get('id_demandeur') ;
