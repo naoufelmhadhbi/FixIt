@@ -199,13 +199,13 @@ class DefaultController extends Controller
         $user->setCodePostal($data->getCodePostal());
         $user->setVille($data->getVille());
     } else {
-            $user->setDescription($data->getDiscription());
+            $user->setDescription($data->getDescription());
         }
         $user->setNom($data->getNom());
         $user->setPrenom($data->getPrenom());
         $user->setTel($data->getTel());
         $user->setImage($data->getImage());
-        $user->setDateNaissance($data->getDatenaissance());
+        //$user->setDateNaissance($data->getDatenaissance());
         $user->setSexe($data->getSexe());
         $em=$this->getDoctrine()->getManager();
         $em->persist($user);
