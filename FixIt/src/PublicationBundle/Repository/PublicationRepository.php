@@ -43,15 +43,30 @@ class PublicationRepository extends \Doctrine\ORM\EntityRepository
         return $stmt->fetchAll();
     }
 
-    public function getpubpostuler($id_prof)
+    public function listdesDemandeEncours($id_dem,$etat)
     {
-        $rawSql = "select publication_id from publication_professionnel WHERE professionnel_id=$id_prof";
+        $rawSql = "select * from publication p , publication_professionnel pp 
+                WHERE p.id = pp.publication_id and p.id_demandeur=$id_dem and etat LIKE 'Still waiting for acceptation'";
 
         $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
         $stmt->execute([]);
 
         return $stmt->fetchAll();
     }
+
+    public function getpubpostuler($id_prof,$id_metier,$etat)
+    {
+        $metier = implode($id_metier,',');
+        $etats = implode($etat,',');
+
+        $rawSql = "select * from publication where id NOT IN (select publication_id from publication_professionnel WHERE professionnel_id=$id_prof) and id_metier in ($metier) and etat in ('New','Still waiting for acceptation')";
+
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+
+        return $stmt->fetchAll();
+    }
+
 
 
 }

@@ -16,13 +16,15 @@ export class MesOffresComponent implements OnInit {
   displayedColumns: string[] = ['id', 'titre', 'detail', 'etat', 'action'];
 
   constructor(private publicationService: PublicationService, private router: Router, private rout: ActivatedRoute) {
-  }
-
-  ngOnInit() {
 
     this.publicationService.getPublicationParMetier().subscribe((data) => {
       this.publications = data;
     });
+  }
+
+  ngOnInit() {
+
+
 
     // console.log(this.publications);
   }

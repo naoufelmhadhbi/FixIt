@@ -14,13 +14,12 @@ export class DemandesEncoursComponent implements OnInit {
   displayedColumns: string[] = ['id', 'titre', 'detail', 'etat', 'action'];
 
   constructor(private publicationService: PublicationService, private router: Router) {
-  }
-
-  ngOnInit() {
-
     this.publicationService.getPublicationParEtat('Still waiting for acceptation').subscribe((data) => {
       this.publications = data;
     });
+  }
+
+  ngOnInit() {
     //
     // console.log(this.publications);
     // this.publicationService.getAllPublication().subscribe((data) => {
@@ -41,7 +40,7 @@ export class DemandesEncoursComponent implements OnInit {
       this.publications = data;
     });
     this.router.navigateByUrl('/mesDemandesEncours', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/mesDemandesEncours']);
+      this.router.navigate(['/mesDemandes']);
     });
   }
 

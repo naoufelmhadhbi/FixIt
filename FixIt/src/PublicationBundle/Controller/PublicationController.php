@@ -135,19 +135,16 @@ class PublicationController extends Controller
 
         $prof = $em->getRepository(User::class)->find($id_prof);
 
-        //$pubPost[] = $em->getRepository(Publication::class)->getpubpostuler($id_prof);
-        //,'id'=> $pubPost
-
 
         $i = 1;
         foreach ($prof->getIdMetier() as $metier) {
             $tab[] =  $metier->getId() ;
         }
         $tab_etat=['New','Still waiting for acceptation'];
-
-        $publications = $em->getRepository(Publication::class)->findBy(array('id_metier' => $tab,'etat' =>$tab_etat));
+        $pubPost = $em->getRepository(Publication::class)->getpubpostuler($id_prof,$tab,$tab_etat);
+        //$publications = $em->getRepository(Publication::class)->findBy(array('id_metier' => $tab,'etat' =>$tab_etat,'id'=> $pubPost));
         //       $publications = $em->getRepository('PublicationBundle:Publication')->findAll();
-        $data = $this->get('jms_serializer')->serialize($publications, 'json');
+        $data = $this->get('jms_serializer')->serialize($pubPost, 'json');
         $response = new Response($data);
         return $response;
     }
@@ -164,10 +161,10 @@ class PublicationController extends Controller
         $em = $this->getDoctrine()->getManager();
 
 //        $prof = $em->getRepository(User::class)->find($id_dem);
-        if($etat == 'All')
-            $publications = $em->getRepository(Publication::class)->findBy(array('id_demandeur' => $id_dem));
-        else
-            $publications = $em->getRepository(Publication::class)->findBy(array('id_demandeur' => $id_dem,'etat'=>$etat));
+//        if($etat == 'All')
+//            $publications = $em->getRepository(Publication::class)->findBy(array('id_demandeur' => $id_dem));
+//        else
+        $publications = $em->getRepository(Publication::class)->listdesDemandeEncours($id_dem,$etat);
 
         $data = $this->get('jms_serializer')->serialize($publications, 'json');
         $response = new Response($data);
