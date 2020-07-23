@@ -45,13 +45,13 @@ export class MessagerieService {
     return this.http.post(this.host + '/msg/sendMessage',jsn,this.optionsMessagePost);
   }
 
-  getUserViewNbr(idDemandeur , idProf):Observable<MessageVu[]>{
+  getUserViewNbr(idDemandeur , idProf,msgFrom):Observable<MessageVu[]>{
     console.log("idedemandd " + idDemandeur)
-    return this.http.get<MessageVu[]>(this.host + '/countNbrVuByUser?id_demandeur='+idDemandeur+'&id_professionnel='+idProf);
+    return this.http.get<MessageVu[]>(this.host + '/countNbrVuByUser?id_demandeur='+idDemandeur+'&id_professionnel='+idProf+'&messageFrom='+msgFrom);
   }
 
-  updateVuUser(idDemandeur , idProf){
-    return this.http.post(this.host + '/updateVuByUser?id_demandeur='+idDemandeur+'&id_professionnel='+idProf ,null);
+  updateVuUser(idDemandeur , idProf,msgFrom){
+    return this.http.post(this.host + '/updateVuByUser?id_demandeur='+idDemandeur+'&id_professionnel='+idProf+'&messageFrom='+msgFrom ,null);
   }
 
 }

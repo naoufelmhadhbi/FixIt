@@ -106,10 +106,11 @@ class DefaultController extends Controller
     public function countNbrVuByUser(Request $request){
         $idDemandeur = $request->query->get('id_demandeur') ;
         $idProfessionnel = $request->query->get('id_professionnel') ;
+        $messageFrom = $request->query->get('messageFrom') ;
         
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery("SELECT count(m) as nbrvu FROM MessagerieBundle:Messagerie m where m.vu = 0 
-                    and m.idProfessionnel = '".$idProfessionnel."' and m.idDemandeur = '".$idDemandeur."'");
+                    and m.idProfessionnel = '".$idProfessionnel."' and m.idDemandeur = '".$idDemandeur."' and m.messagefrom = '".$messageFrom."'");
 
         $users = $query->getArrayResult();
         if (empty($users)) {
@@ -130,9 +131,10 @@ class DefaultController extends Controller
     public function updateVuByUser(Request $request){
         $idDemandeur = $request->query->get('id_demandeur') ;
         $idProfessionnel = $request->query->get('id_professionnel') ;
+        $messageFrom = $request->query->get('messageFrom') ;
         
         $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery("SELECT c FROM MessagerieBundle:Messagerie c where c.idProfessionnel = '".$idProfessionnel."' and c.idDemandeur = '".$idDemandeur."'");
+        $query = $em->createQuery("SELECT c FROM MessagerieBundle:Messagerie c where c.idProfessionnel = '".$idProfessionnel."' and c.idDemandeur = '".$idDemandeur."' and c.messagefrom = '".$messageFrom."'");
 
         $users = $query->getArrayResult();
 
