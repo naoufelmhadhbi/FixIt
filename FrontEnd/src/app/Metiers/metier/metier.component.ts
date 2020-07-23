@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PortfolioService} from '../../../Services/PortfolioService/portfolio.service';
 import {AuthentificationServiceService} from '../../../Services/AuthentificationService/authentification-service.service';
 import {Deplacement} from '../../Model/Deplacement';
@@ -15,17 +15,20 @@ export class MetierComponent implements OnInit {
   constructor(
     private portfolioservice: PortfolioService,
     private authService: AuthentificationServiceService
-  ) { }
-
-  private metier: Metier[] = [];
-  dispo: Metier;
-  user: User = null;
-  ngOnInit() {
+  ) {
     this.authService.getByUsr().subscribe((data) => {
       this.user = data[0];
       // console.log(this.user);
       this.GetMetier(this.user.id);
     });
+  }
+
+  private metier: Metier[] = [];
+  dispo: Metier;
+  user: User = null;
+
+  ngOnInit() {
+
   }
 
   selectionner(dispo) {

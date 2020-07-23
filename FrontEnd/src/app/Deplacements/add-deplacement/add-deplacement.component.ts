@@ -12,13 +12,17 @@ import {User} from '../../Model/user/User';
 })
 export class AddDeplacementComponent implements OnInit {
 
-  private deplacement: Deplacement[] = [];
+  private deplacement: Deplacement[];
+  private deplac: Deplacement;
   user: User = null;
-
   constructor(private portfolioservice: PortfolioService,
               private authService: AuthentificationServiceService,
               private router: Router
   ) {
+    this.deplac = {
+      id : null,
+      gouvernorat : '',
+    };
   }
 
   ngOnInit() {
@@ -28,8 +32,8 @@ export class AddDeplacementComponent implements OnInit {
     });
   }
 
-  changePlace(event) {
-    let idPlace = event.target.value;
+  changePlace(idPlace) {
+    // let idPlace = event.target.value;
     console.log(idPlace);
     this.authService.getByUsr().subscribe((data) => {
       this.user = data[0];

@@ -1,247 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Table V04</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--===============================================================================================-->
-  <link rel="icon" type="image/png" href="/assets/images/icons/favicon.ico"/>
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="/assets/vendor/animate/animate.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="/assets/vendor/select2/select2.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="/assets/vendor/perfect-scrollbar/perfect-scrollbar.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="/assets/css/util.css">
-  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-  <!--===============================================================================================-->
-</head>
-<body>
 
-<div class="limiter" style="width: 80%; height: 20%">
-  <div class="container-table100">
-    <div class="wrap-table100">
-      <div class="table100 ver1 m-b-110">
-        <div class="table100-head">
-          <table>
-            <thead>
-            <tr class="row100 head">
-              <th class="cell100 column1">Id</th>
-              <th class="cell100 column2">Sujet</th>
-              <th class="cell100 column3">Message</th>
-              <th class="cell100 column4">Répondre</th>
-              <th class="cell100 column5">Suppression</th>
-            </tr>
-            </thead>
-          </table>
-        </div>
+<div class="container">
+Liste des Réclamations
+  <div class="row">
 
-        <div class="table100-body js-pscroll">
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
+    <div class="col-12">
 
-            </tr>
+      <a routerLink="/createReclamation" class="btn btn-primary float-right">Ajouter reclamation</a>
 
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
+      <table *ngIf="AllReclamation" class="table">
+        <thead>
+        <tr>
+          <!--          <th scope="col">Réclameur</th>-->
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Sujet</th>
+          <th scope="col">Message</th>
+          <th scope="col">Réponse</th>
+          <th scope="col">Répondre</th>
+          <th scope="col">Suppression</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of AllReclamation">
+          <td>{{item.nom}}</td>
+          <td>{{item.prenom}}</td>
+          <td>{{item.sujet}}</td>
+          <td>{{item.message}}</td>
+          <td>{{item.RepRec}}</td>
+          <td>
+            <button class="btn btn-success" (click)="redirect(item.id)">Répondre</button>
+          </td>
+          <td>
 
-            </tr>
+            <button class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal">Supprimer</button>
 
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
 
-            </tr>
 
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Supprimer la réclamation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                   Réclamation {{item.id}} de {{item.nom}} {{item.prenom}}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" (click)="delete(item.id)" data-dismiss="modal">supprimer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            </tr>
 
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
-
-            </tr>
-
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
-
-            </tr>
-
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
-
-            </tr>
-
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
-
-            </tr>
-
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
-
-            </tr>
-
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
-
-            </tr>
-
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
-
-            </tr>
-
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
-
-            </tr>
-
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-            <tr class="row100 body">
-              <td class="cell100 column1">Like a butterfly</td>
-              <td class="cell100 column2">Boxing</td>
-              <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-              <td class="cell100 column4"><button class="btn btn-primary">Répondre</button></td>
-              <td class="cell100 column5"><button class="btn btn-danger">Supprimer</button></td>
-
-            </tr>
-
-            </tbody>
-          </table>
-
-        </div>
-      </div>
-
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
 
 
-<!--===============================================================================================-->
-<script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="assets/vendor/bootstrap/js/popper.js"></script>
-<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="/assets/vendor/select2/select2.min.css"></script>
-<!--===============================================================================================-->
-<script src="/assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-<script>
-  $('.js-pscroll').each(function(){
-    var ps = new PerfectScrollbar(this);
 
-    $(window).on('resize', function(){
-      ps.update();
-    })
-  });
-
-
-</script>
-<!--===============================================================================================-->
-<script src="/assets/js/main.js"></script>
-
-</body>
-</html>

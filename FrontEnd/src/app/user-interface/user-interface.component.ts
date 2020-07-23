@@ -20,12 +20,6 @@ export class UserInterfaceComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.username = this.authService.getUsernameFromToken(localStorage.getItem('JwtToken'));
-    // this.authService.getUserByUsername(this.username).subscribe((data) => {
-    //   //this.user = JSON.stringify(data)['type'];
-    //   //this.type = this.user.type;
-    //   console.log('erreur : ' + JSON.stringify(data)['type']);
-    // });
     this.authService.getByUsr().subscribe((data) => {
       this.user = data[0];
       this.type = this.user.type;
@@ -36,7 +30,6 @@ export class UserInterfaceComponent implements OnInit {
         this.hideforprof = false;
         this.hidefordem = true;
       }
-      //this.isProfessionnel = this.userConnected.type == 'professionnel' ;
       console.log('kmk,m' + this.user.type);
     });
   }

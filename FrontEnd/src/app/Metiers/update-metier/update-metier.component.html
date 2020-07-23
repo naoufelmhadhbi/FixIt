@@ -1,9 +1,9 @@
 <h3>Modifier la métier {{metier[0].nom}}</h3>
 <div class="form-group">
-  <select class="form-control"  style="height: 70%; width: 50%" #job (change)="changePlace($event)">
+  <select class="form-control"  style="height: 70%; width: 50%" ngModel name="dep"  [(ngModel)]="deplac.id">
     <option *ngFor="let met of mets" value="{{met.id}}">{{met.nom}}</option>
   </select>
 
-  <button class="btn btn-success" (click)="job.click()">Modifier</button>
+  <button class="btn btn-success" (click)="changePlace(deplac.id)">Modifier</button>
 
 </div>

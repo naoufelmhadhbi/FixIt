@@ -1,0 +1,29 @@
+<h2>Créer une réclamation </h2>
+<div class="container">
+  <div class="row">
+    <div class="form-group col-12">
+
+    <form #userForm="ngForm"  novalidate>
+
+    <div class="form-group col-12">
+
+      <mat-label>Sujet</mat-label>
+
+      <input type="text" name="sujet" [(ngModel)]="reclamationModel.sujet" placeholder="Tapez votre sujet" class="form-control" required class="form-control" >
+
+    </div>
+
+    <div class="form-group col-12">
+
+      <mat-label>Description</mat-label>
+
+      <textarea type="text" name="message" [(ngModel)]="reclamationModel.message" class="form-control" placeholder="Tapez votre description" required class="form-control"  ></textarea>
+
+    </div>
+    <button  class="btn btn-success" (click)="OnSubmit()" [disabled]="userForm.form.invalid " type="submit"> Ajouter</button>
+    </form>
+    </div>
+  </div>
+
+</div>
+

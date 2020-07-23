@@ -24,11 +24,13 @@ export class CloturerProjetComponent implements OnInit {
     // console.log(this.publications);
   }
 
-  cloturer(id_pub) {
-    this.publicationService.cloturer(id_pub).subscribe((data) => {
+  cloturer(idpub) {
+    this.publicationService.cloturer(idpub).subscribe((data) => {
       this.publications = data;
     });
-    location.reload();
+    this.router.navigateByUrl('/cloturerProjet', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/cloturerProjet']);
+    });
   }
 
 }

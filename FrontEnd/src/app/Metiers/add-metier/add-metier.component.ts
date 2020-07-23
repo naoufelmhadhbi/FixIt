@@ -15,12 +15,17 @@ export class AddMetierComponent implements OnInit {
 
   private metier: Metier[] = [];
   user: User = null;
-
+  private deplac: Metier;
   constructor(
     private portfolioservice: PortfolioService,
     private authService: AuthentificationServiceService,
     private router: Router
-  ) { }
+  ) {
+    this.deplac = {
+      id : null,
+      nom : '',
+    };
+  }
 
   ngOnInit() {
     this.portfolioservice.getAllMetiers().subscribe((data) => {
@@ -29,8 +34,8 @@ export class AddMetierComponent implements OnInit {
     });
   }
 
-  changePlace(event) {
-    let idMetier = event.target.value;
+  changePlace(idMetier) {
+
     console.log(idMetier);
     this.authService.getByUsr().subscribe((data) => {
       this.user = data[0];

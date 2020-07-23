@@ -7,6 +7,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material';
 
 
 const MaterilaComponents = [
@@ -17,7 +18,8 @@ const MaterilaComponents = [
   MatNativeDateModule,
   MatProgressSpinnerModule,
   MatDividerModule,
-  MatTableModule
+  MatTableModule,
+  MatCheckboxModule
 ];
 
 @NgModule({

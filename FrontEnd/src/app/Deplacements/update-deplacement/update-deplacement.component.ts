@@ -13,6 +13,7 @@ import {User} from '../../Model/user/User';
 export class UpdateDeplacementComponent implements OnInit {
 
   deplacement: Deplacement[] = null;
+  private deplac: Deplacement;
   deps: Deplacement[] = null;
   user: User = null;
 
@@ -23,6 +24,10 @@ export class UpdateDeplacementComponent implements OnInit {
     private authService: AuthentificationServiceService,
     private router: Router
   ) {
+    this.deplac = {
+      id: null,
+      gouvernorat: '',
+    };
 
     // console.log(this.user);
     this.GetDeplacement();
@@ -43,8 +48,7 @@ export class UpdateDeplacementComponent implements OnInit {
     );
   }
 
-  changePlace(event) {
-    let idPlace = event.target.value;
+  changePlace(idPlace) {
     console.log(idPlace);
     this.authService.getByUsr().subscribe((data) => {
       this.user = data[0];

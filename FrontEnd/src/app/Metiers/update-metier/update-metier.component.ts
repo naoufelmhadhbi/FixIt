@@ -16,12 +16,17 @@ export class UpdateMetierComponent implements OnInit {
   metier: Metier[] = null;
   mets: Metier[] = null;
   user: User = null;
+  private deplac: Metier;
   constructor(
     private activatedRoute: ActivatedRoute,
     private portfolioservice: PortfolioService,
     private authService: AuthentificationServiceService,
     private router: Router
   ) {
+    this.deplac = {
+      id : null,
+      nom : '',
+    };
     this.GetMetier();
   }
 
@@ -40,8 +45,8 @@ export class UpdateMetierComponent implements OnInit {
   }
 
 
-  changePlace(event) {
-    let idMetier = event.target.value;
+  changePlace(idMetier) {
+
     console.log(idMetier);
     this.authService.getByUsr().subscribe((data) => {
       this.user = data[0];

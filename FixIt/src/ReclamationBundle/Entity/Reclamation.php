@@ -22,6 +22,8 @@ class Reclamation
     private $id;
 
     /**
+     * @var int
+     * @ORM\Column(name="id_User", type="integer")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(name="id_User",referencedColumnName="id")
      */
@@ -40,6 +42,12 @@ class Reclamation
      * @ORM\Column(name="message", type="text")
      */
     private $message;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RepRec", type="text",nullable=true)
+     */
+    private $RepRec;
 
 
     /**
@@ -123,5 +131,22 @@ class Reclamation
     {
         return $this->message;
     }
+
+    /**
+     * @return string
+     */
+    public function getRepRec()
+    {
+        return $this->RepRec;
+    }
+
+    /**
+     * @param string $RepRec
+     */
+    public function setRepRec($RepRec)
+    {
+        $this->RepRec = $RepRec;
+    }
+
 }
 

@@ -1,11 +1,11 @@
 <h3>Ajouter une déplacement</h3>
   <div class="form-group">
-    <select class="form-control"  style="height: 70%; width: 50%" #place (change)="changePlace($event)">
+    <select class="form-control"  style="height: 70%; width: 50%" ngModel name="dep"  [(ngModel)]="deplac.id">
       <option>...</option>
       <option *ngFor="let dep of deplacement" value="{{dep.id}}">{{dep.gouvernorat}}</option>
     </select>
 
-      <button class="btn btn-success" (click)="place.click()">Ajouter</button>
+      <button class="btn btn-success" (click)="changePlace(deplac.id)">Ajouter</button>
 
   </div>
 

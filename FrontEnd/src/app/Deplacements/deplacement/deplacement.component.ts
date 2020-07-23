@@ -15,18 +15,20 @@ export class DeplacementComponent implements OnInit {
   constructor(
     private portfolioservice: PortfolioService,
     private authService: AuthentificationServiceService
-  ) { }
+  ) {
+    this.authService.getByUsr().subscribe((data) => {
+      this.user = data[0];
+      // console.log(this.user);
+      this.GetDeplacement(this.user.id);
+    });
+  }
 
   private deplacement: Deplacement[] = [];
   dispo: Deplacement;
   user: User = null;
 
   ngOnInit() {
-    this.authService.getByUsr().subscribe((data) => {
-      this.user = data[0];
-      // console.log(this.user);
-      this.GetDeplacement(this.user.id);
-    });
+
   }
 
   selectionner(dispo) {

@@ -5,13 +5,14 @@ import {Observable} from 'rxjs';
 import {Publication} from '../../app/Model/Publication';
 import {Metier} from '../../app/Model/Metier';
 import {Router} from '@angular/router';
+import {Reclamation} from '../../app/Model/Reclamation';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PublicationService {
 
-  host: string = 'http://localhost:8000/publication';
+  host = 'http://localhost:8000/publication';
   options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
@@ -63,9 +64,36 @@ export class PublicationService {
     return this.http.get<Metier[]>(this.host + '/metier/all');
   }
   cloturer(idPub): Observable<Publication[]> {
-  return this.http.post<Publication[]>(this.host + '/cloturer/' + idPub, '');
-  this.router.navigateByUrl('/cloturerProjet', { skipLocationChange: true }).then(() => {
+    return this.http.post<Publication[]>(this.host + '/cloturer/' + idPub, '');
+    this.router.navigateByUrl('/cloturerProjet', {skipLocationChange: true}).then(() => {
       this.router.navigate(['/cloturerProjet']);
     });
-}
+  }
+  GetReclamations(): Observable < Reclamation[] > {
+    return this.http.get<Reclamation[]>( 'http://localhost:8000/getallreclama/');
+  }
+
+  CreateReclamation(reclamation: Reclamation, id: number) {
+      return this.http.post<Reclamation>( 'http://localhost:8000/reclamation/add/' + id, reclamation);
+    }
+
+  DeleteRec(id) {
+      console.log(id);
+      return this.http.delete('http://127.0.0.1:8000/reclamation/deleteByRecId/' + id);
+    }
+
+  GetReclamationsUser(id) {
+      return this.http.get<Reclamation[]>('http://127.0.0.1:8000/getreclama/' + id);
+    }
+
+  GetReclamationsById(id): Observable < Reclamation > {
+      return this.http.get<Reclamation>('http://localhost:8000/reclamation/findById/' + id);
+  }
+
+  Response(id, response) {
+      const jsn = {
+        RepRec : response
+      };
+      return this.http.put('http://127.0.0.1:8000/reclamation/rep/' + id, jsn, this.optionsRegister);
+    }
 }

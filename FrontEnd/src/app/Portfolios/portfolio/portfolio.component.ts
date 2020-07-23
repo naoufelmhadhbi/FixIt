@@ -4,8 +4,7 @@ import {Router} from '@angular/router';
 import {Portfolio} from '../../Model/Portfolio';
 import {PortfolioService} from '../../../Services/PortfolioService/portfolio.service';
 import {User} from '../../Model/user/User';
-
-import {FileUploader, FileSelectDirective} from 'ng2-file-upload/ng2-file-upload';
+// import {FileUploader, FileSelectDirective} from 'ng2-file-upload/ng2-file-upload';
 import {FormBuilder} from '@angular/forms';
 
 

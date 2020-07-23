@@ -10,4 +10,18 @@ namespace ReclamationBundle\Repository;
  */
 class ReclamationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getRec()
+    {
+        //$rawSql = "SELECT m.id, (SELECT COUNT(i.id) FROM item AS i WHERE i.myclass_id = m.id) AS total FROM myclass AS m";
+
+
+        //   $rawSql = "select p.id,p.id_demandeur from publication AS p,publication_professionnel AS pp where p.id=pp.publication_id and p.id_demandeur=2";
+        $rawSql = "select u.username as username, u.email, r.sujet , r.message, 
+            r.RepRec, u.id , u.nom as nom , u.prenom as prenom , u.type from reclamation r,fos_user u where r.id_User=u.id";
+
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+
+        return $stmt->fetchAll();
+    }
 }

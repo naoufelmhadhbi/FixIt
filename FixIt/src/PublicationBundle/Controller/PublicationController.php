@@ -134,6 +134,11 @@ class PublicationController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $prof = $em->getRepository(User::class)->find($id_prof);
+
+        //$pubPost[] = $em->getRepository(Publication::class)->getpubpostuler($id_prof);
+        //,'id'=> $pubPost
+
+
         $i = 1;
         foreach ($prof->getIdMetier() as $metier) {
             $tab[] =  $metier->getId() ;

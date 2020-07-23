@@ -43,4 +43,15 @@ class PublicationRepository extends \Doctrine\ORM\EntityRepository
         return $stmt->fetchAll();
     }
 
+    public function getpubpostuler($id_prof)
+    {
+        $rawSql = "select publication_id from publication_professionnel WHERE professionnel_id=$id_prof";
+
+        $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+        $stmt->execute([]);
+
+        return $stmt->fetchAll();
+    }
+
+
 }
