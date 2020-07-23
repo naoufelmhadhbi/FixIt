@@ -54,4 +54,11 @@ export class MessagerieService {
     return this.http.post(this.host + '/updateVuByUser?id_demandeur='+idDemandeur+'&id_professionnel='+idProf+'&messageFrom='+msgFrom ,null);
   }
 
+  getAllNbrVu(isProfessionnel: boolean , idUser){
+      if(!isProfessionnel)
+        return this.http.get(this.host + '/countAllNbrVur?id_demandeur='+idUser);
+      else
+        return this.http.get(this.host + '/countAllNbrVur?id_professionnel='+idUser);
+  }
+
 }

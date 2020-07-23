@@ -154,5 +154,36 @@ class DefaultController extends Controller
         return new JsonResponse($users);
     }
 
+    /**
+     * @Route("/countAllNbrVur", name="countNbrVuByUser")
+     */
+    public function countAllNbrVur(Request $request){
+        $idDemandeur = $request->query->get('id_demandeur') ;
+        $idProfessionnel = $request->query->get('id_professionnel') ;
+        
+        $em = $this->getDoctrine()->getManager();
+        $query = null ;
+        
+        if($idDemandeur != null)
+        $query = $em->createQuery("SELECT count(m) as nbrvu FROM MessagerieBundle:Messagerie m where m.vu = 0
+                    and m.idDemandeur = '".$idDemandeur."' and m.messagefrom != '".$idDemandeur."'");
+        
+        if($idProfessionnel != null)
+        $query = $em->createQuery("SELECT count(m) as nbrvu FROM MessagerieBundle:Messagerie m where m.vu = 0
+                    and m.idProfessionnel = '".$idProfessionnel."' and m.messagefrom != '".$idProfessionnel."'");
+
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
+    }
+
 
 }
