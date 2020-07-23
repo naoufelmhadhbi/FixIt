@@ -11,26 +11,23 @@ import {Router} from '@angular/router';
 export class CloturerProjetComponent implements OnInit {
   private publications: Publication[] = [];
   displayedColumns: string[] = ['id', 'titre', 'detail', 'etat', 'action'];
+  accepted = false;
 
   constructor(private publicationService: PublicationService, private router: Router) {
-  }
-
-  ngOnInit() {
-
     this.publicationService.getPublicationParEtat('In progress').subscribe((data) => {
       this.publications = data;
     });
+  }
 
-    // console.log(this.publications);
+  ngOnInit() {
   }
 
   cloturer(idpub) {
     this.publicationService.cloturer(idpub).subscribe((data) => {
       this.publications = data;
     });
-    this.router.navigateByUrl('/cloturerProjet', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/cloturerProjet']);
-    });
+    this.accepted = true;
+    location.reload();
   }
 
 }

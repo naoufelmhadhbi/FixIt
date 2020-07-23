@@ -11,8 +11,8 @@ import {Router} from '@angular/router';
 export class DemandesEncoursComponent implements OnInit {
 
   private publications: Publication[] = [];
-  displayedColumns: string[] = ['id', 'titre', 'detail', 'etat', 'action'];
-
+  displayedColumns: string[] = ['id', 'titre', 'detail', 'etat', 'username', 'action'];
+  accepted = false;
   constructor(private publicationService: PublicationService, private router: Router) {
     this.publicationService.getPublicationParEtat('Still waiting for acceptation').subscribe((data) => {
       this.publications = data;
@@ -39,9 +39,11 @@ export class DemandesEncoursComponent implements OnInit {
     this.publicationService.accepterPostule(idPub, idProf).subscribe((data) => {
       this.publications = data;
     });
-    this.router.navigateByUrl('/mesDemandesEncours', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/mesDemandes']);
-    });
+    // this.router.navigateByUrl('/mesDemandesEncours', { skipLocationChange: true }).then(() => {
+    //   this.router.navigate(['/mesDemandes']);
+    // });
+    location.reload();
+    this.accepted = true;
   }
 
 

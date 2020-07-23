@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Publication} from '../../Model/Publication';
 import {PublicationService} from '../../../Services/PublicationService/publication.service';
 import {Router} from '@angular/router';
@@ -11,7 +11,8 @@ import {Router} from '@angular/router';
 export class DemandesComponent implements OnInit {
 
   private publications: Publication[] = [];
-  displayedColumns: string[] = ['id', 'titre', 'detail', 'etat'];
+  displayedColumns: string[] = ['id', 'titre', 'detail', 'etat', 'action'];
+  accepted = false;
 
   constructor(private publicationService: PublicationService, private router: Router) {
   }
@@ -31,6 +32,17 @@ export class DemandesComponent implements OnInit {
     // });
 
     console.log(this.publications);
+  }
+
+  annuler(idpub) {
+    this.publicationService.annuler(idpub).subscribe((data) => {
+      this.publications = data;
+    });
+    /*this.router.navigateByUrl('', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['/mesDemandes']);
+    });*/
+    this.accepted = true;
+    location.reload();
   }
 
 }

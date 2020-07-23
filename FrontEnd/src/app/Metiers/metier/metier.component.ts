@@ -19,6 +19,7 @@ export class MetierComponent implements OnInit {
     this.authService.getByUsr().subscribe((data) => {
       this.user = data[0];
       // console.log(this.user);
+      this.metier = null;
       this.GetMetier(this.user.id);
     });
   }

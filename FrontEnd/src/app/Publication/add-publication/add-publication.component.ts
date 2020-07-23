@@ -12,6 +12,7 @@ import {Metier} from '../../Model/Metier';
 })
 export class AddPublicationComponent implements OnInit {
   metiers: Metier[];
+  accepted = false;
   constructor(private publicationService: PublicationService, private router: Router) {
     this.publication = {
       detail: '',
@@ -40,8 +41,11 @@ export class AddPublicationComponent implements OnInit {
     this.publicationService.addPublication(JSON.stringify(this.publication)).subscribe((data) => {
       console.log(data);
     });
-    this.router.navigateByUrl('/AddPublication', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/AddPublication']);
-    });
+    this.publication = null;
+    this.accepted = true;
+    location.reload();
+    // this.router.navigateByUrl('/mesDemandes', { skipLocationChange: true }).then(() => {
+    //   this.router.navigate(['/AddPublication']);
+   // });
   }
 }

@@ -2,6 +2,9 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-8">
+        <div class="container alert alert-success w-70" id="hideMe" *ngIf="accepted === true ">
+          <p> le projet a été crée avec succés </p>
+        </div>
         <div class="card">
           <div class="card-header card-header-primary">
             <h4 class="card-title">Ajouter Publication</h4>
@@ -21,21 +24,21 @@
               </mat-form-field>
               <br>
 
-                <label for="inputState">Metier</label>
-                <select  id="inputState" class="form-control w-75" ngModel name="metier"  [(ngModel)]="publication.id_metier">
+              <label for="inputState">Metier</label>
+              <select  id="inputState" class="form-control w-75 align-self-auto" ngModel name="metier"  [(ngModel)]="publication.id_metier">
 
-                  <option value="{{metier.id}}" *ngFor="let metier of metiers ">{{metier.nom}}</option>
+                <option value="{{metier.id}}" *ngFor="let metier of metiers ">{{metier.nom}}</option>
 
-                </select>
+              </select>
 
 
-<!--              <div>-->
-<!--                <select class="" ngModel name="metier"  [(ngModel)]="publication.id_metier">-->
-<!--                <div *ngFor="let metier of metiers ">-->
-<!--                  <option value="{{metier.id}}">{{metier.nom}}</option>-->
-<!--                </div>-->
-<!--                </select>-->
-<!--              </div>-->
+              <!--              <div>-->
+              <!--                <select class="" ngModel name="metier"  [(ngModel)]="publication.id_metier">-->
+              <!--                <div *ngFor="let metier of metiers ">-->
+              <!--                  <option value="{{metier.id}}">{{metier.nom}}</option>-->
+              <!--                </div>-->
+              <!--                </select>-->
+              <!--              </div>-->
 
               <br>
 

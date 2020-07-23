@@ -160,10 +160,10 @@ class PublicationController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-//        $prof = $em->getRepository(User::class)->find($id_dem);
-//        if($etat == 'All')
-//            $publications = $em->getRepository(Publication::class)->findBy(array('id_demandeur' => $id_dem));
-//        else
+        //$prof = $em->getRepository(User::class)->find($id_dem);
+        if($etat == 'In progress')
+            $publications = $em->getRepository(Publication::class)->findBy(array('id_demandeur' => $id_dem,'etat' =>'In progress'));
+        else
         $publications = $em->getRepository(Publication::class)->listdesDemandeEncours($id_dem,$etat);
 
         $data = $this->get('jms_serializer')->serialize($publications, 'json');
@@ -209,7 +209,21 @@ class PublicationController extends Controller
 
         return new Response('Publication updated successfully', 201);
     }
+    /**
+     * @Route("/annulation/{id_pub}", name="cancel_pub")
+     * @Method("PUT")
+     */
+    public function annulerAction($id_pub)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $publication = $em->getRepository(Publication::class)->find($id_pub);
 
+        $publication->setEtat('Canceled');
+        $em->persist($publication);
+        $em->flush();
+
+        return new Response('Publication updated successfully', 201);
+    }
 
     /**
      * Lists des postule

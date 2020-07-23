@@ -45,8 +45,8 @@ class PublicationRepository extends \Doctrine\ORM\EntityRepository
 
     public function listdesDemandeEncours($id_dem,$etat)
     {
-        $rawSql = "select * from publication p , publication_professionnel pp 
-                WHERE p.id = pp.publication_id and p.id_demandeur=$id_dem and etat LIKE 'Still waiting for acceptation'";
+        $rawSql = "select p.*,pp.*,u.username, u.email from publication p , publication_professionnel pp, fos_user u 
+                WHERE p.id = pp.publication_id and u.id = pp.professionnel_id and p.id_demandeur=$id_dem and etat LIKE 'Still waiting for acceptation'";
 
         $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
         $stmt->execute([]);

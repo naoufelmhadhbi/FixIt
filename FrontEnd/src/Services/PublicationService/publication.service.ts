@@ -69,6 +69,12 @@ export class PublicationService {
       this.router.navigate(['/cloturerProjet']);
     });
   }
+  annuler(idPub): Observable<Publication[]> {
+    return this.http.put<Publication[]>(this.host + '/annulation/' + idPub, '');
+    this.router.navigateByUrl('/mesDemandes', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['/mesDemandes']);
+    });
+  }
   GetReclamations(): Observable < Reclamation[] > {
     return this.http.get<Reclamation[]>( 'http://localhost:8000/getallreclama/');
   }

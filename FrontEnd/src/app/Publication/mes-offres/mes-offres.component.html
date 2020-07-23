@@ -6,6 +6,9 @@
         <div class="container alert alert-danger w-70"  *ngIf="publications.length === 0 ">
           <td> Il n'y a aucune publication dans votre domaine pour le moment. </td>
         </div>
+        <div class="container alert alert-success w-70"  *ngIf="accepted === true ">
+          <p> Votre demande a été envoyé par succés </p>
+        </div>
         <div class="card">
           <div class="card-header card-header-primary">
             <h4 class="card-title">Mes offres</h4>
@@ -43,7 +46,7 @@
               <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Action</th>
                 <td mat-cell *matCellDef="let publication">
-                  <Button (click)="postuler( publication.id )" value="{{publication.id}}"  >
+                  <Button class="button-postuler" (click)="postuler( publication.id )" value="{{publication.id}}"  >
                     Postuler
                   </Button></td>
               </ng-container>

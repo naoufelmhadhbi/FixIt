@@ -14,7 +14,7 @@ export class MesOffresComponent implements OnInit {
 
   private publications: Publication[] = [];
   displayedColumns: string[] = ['id', 'titre', 'detail', 'etat', 'action'];
-
+  accepted = false;
   constructor(private publicationService: PublicationService, private router: Router, private rout: ActivatedRoute) {
 
     this.publicationService.getPublicationParMetier().subscribe((data) => {
@@ -41,6 +41,10 @@ export class MesOffresComponent implements OnInit {
     this.publicationService.postuler(idPub).subscribe((data) => {
       this.publications = data;
     });
+    // this.router.navigateByUrl('/mesOffres', { skipLocationChange: true }).then(() => {
+    //   this.router.navigate(['/mesOffres']);
+    // });
+    this.accepted = true;
     location.reload();
   }
 
