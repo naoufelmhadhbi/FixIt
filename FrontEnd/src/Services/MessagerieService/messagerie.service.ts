@@ -3,6 +3,7 @@ import {User} from "../../app/Model/user/User";
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Message} from "../../app/Model/Message";
+import {MessageVu} from "../../app/Model/MessageVu";
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,15 @@ export class MessagerieService {
     };
     console.log('in app' + JSON.stringify(jsn));
     return this.http.post(this.host + '/msg/sendMessage',jsn,this.optionsMessagePost);
+  }
+
+  getUserViewNbr(idDemandeur , idProf):Observable<MessageVu[]>{
+    console.log("idedemandd " + idDemandeur)
+    return this.http.get<MessageVu[]>(this.host + '/countNbrVuByUser?id_demandeur='+idDemandeur+'&id_professionnel='+idProf);
+  }
+
+  updateVuUser(idDemandeur , idProf){
+    return this.http.post(this.host + '/updateVuByUser?id_demandeur='+idDemandeur+'&id_professionnel='+idProf ,null);
   }
 
 }

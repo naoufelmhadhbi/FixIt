@@ -100,5 +100,57 @@ class DefaultController extends Controller
         return new JsonResponse($users);
     }
 
+    /**
+     * @Route("/countNbrVuByUser", name="countNbrVuByUser")
+     */
+    public function countNbrVuByUser(Request $request){
+        $idDemandeur = $request->query->get('id_demandeur') ;
+        $idProfessionnel = $request->query->get('id_professionnel') ;
+        
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT count(m) as nbrvu FROM MessagerieBundle:Messagerie m where m.vu = 0 
+                    and m.idProfessionnel = '".$idProfessionnel."' and m.idDemandeur = '".$idDemandeur."'");
+
+        $users = $query->getArrayResult();
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        return new JsonResponse($users);
+    }
+
+    /**
+     * @Route("/updateVuByUser", name="updateVuByUser")
+     */
+    public function updateVuByUser(Request $request){
+        $idDemandeur = $request->query->get('id_demandeur') ;
+        $idProfessionnel = $request->query->get('id_professionnel') ;
+        
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT c FROM MessagerieBundle:Messagerie c where c.idProfessionnel = '".$idProfessionnel."' and c.idDemandeur = '".$idDemandeur."'");
+
+        $users = $query->getArrayResult();
+
+        if (empty($users)) {
+            $response = array(
+                'code' => 1,
+                'message' => 'User Not found !',
+                'errors' => null,
+                'result' => null
+            );
+            return new JsonResponse($response, Response::HTTP_NOT_FOUND);
+        }
+        foreach($query->getResult() as $msg){
+            $msg->setVu(true);
+            $em->flush();
+        }
+        return new JsonResponse($users);
+    }
+
 
 }

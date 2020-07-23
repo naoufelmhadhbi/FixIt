@@ -9,6 +9,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 
@@ -22,7 +23,8 @@ const MaterilaComponents = [
   MatDividerModule,
   MatTableModule,
   MatCardModule,
-  MatChipsModule
+  MatChipsModule,
+  MatBadgeModule
 ];
 
 @NgModule({
